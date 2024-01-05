@@ -1,0 +1,180 @@
+/* Sets background color and imports the 'Poppins' font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+/* Styles for the HTML element */
+html {
+  height: 100%;
+  width: 100%;
+  background-color: maroon;  /* Set background color */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;  /* Set font family */
+  scroll-behavior: smooth;
+  background: url("Sunset.JPG") no-repeat center center fixed;  /* Set background image */
+  background-size: cover;
+  /* 1/1000 chance to get a photo of Ron McGinn and David Swett */
+}
+
+/* Styles for the body element */
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif;  /* Set font family */
+  text-align: center;
+  padding-bottom: 15px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+/* Styles for heading elements */
+h1 {
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+h2 {
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Styles for the upload image button */
+#UploadImage {
+  cursor: pointer;
+  background: maroon;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 30px;
+}
+
+/* Styles for the navigation bar */
+nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 75px;
+  background: maroon;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+/* Styles for the navigation bar content */
+nav .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: 90%;
+  background: maroon;
+  margin: auto;
+}
+
+nav .navbar .logo a {
+  color: #fff;
+  font-size: 27px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+nav .navbar .menu {
+  display: flex;
+}
+
+.navbar .menu li {
+  list-style: none;
+  margin: 0 15px;
+}
+
+.navbar .menu li a {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+/* Styles for the section element */
+section {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  color: maroon;
+  font-size: 70px;
+}
+
+/* Styles for the submit button */
+#submit {
+  cursor: pointer;
+  background: maroon;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 30px;
+  border: none;
+}
+
+/* Styles for form elements */
+.form {
+  width: 200px;
+  height: 20px;
+}
+/* 
+#description {
+  width: 400px;
+  height: 30px;
+} */
+
+.multiselect {
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.selectBox {
+  position: relative;
+}
+
+.selectBox select {
+  width: 100%;
+  font-weight: bold;
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#checkboxes {
+  display: none;
+  border: 1px #dadada solid;
+}
+
+#checkboxes label {
+  display: block;
+}
+
+#checkboxes label:hover {
+  background-color: #1e90ff;
+}
+
+#input {
+  width: 200px;
+  margin: auto;
+}
+
+/* #Bio {
+  margin-left: auto;
+  margin-right: auto;
+} */

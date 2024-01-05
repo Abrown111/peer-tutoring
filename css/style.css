@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+/* sets background color */
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'brandon-grotesque', sans-serif;
+  scroll-behavior: smooth;
+  background: url("STAB.JPG") no-repeat center center fixed;
+}
+
+/* sets font, text alignment, padding, and display for the home page */
+body {
+  font-family: "brandon-grotesque", sans-serif;
+  text-align: center;
+  padding-bottom: 15px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* sets the position, size, color, border, and margins for each tutor, or "row" */
+.row {
+
+  margin: auto;
+  aspect-ratio: 1 / 1;
+  background-color: maroon;
+  width: 30%;
+  min-width: 300px;
+  height: auto;
+  padding: 2%;
+  color: white;
+  border: 10px white solid;
+  border-radius: 10px;
+  margin-left: 4%;
+  margin-right: 4%;
+  margin-top: 40px;
+}
+
+#tutors {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+/* sets the size of the tutor profile pictures */
+img {
+  width: 40%;
+  height: 40%;
+  object-fit: cover;
+  object-position: 25% 25%;
+}
+
+
+/* sets the padding and border for the search bar */
+#searchbar {
+  padding: 10px;
+  font-size: 17px;
+}
+
+/* sets the size and transition for the search bar  */
+input[type=text] {
+  width: 20%;
+  -webkit-transition: width 0.15s ease-in-out;
+  transition: width 0.15s ease-in-out;
+  font-size: 20px;
+}
+
+/* When the input field gets focus,
+        change its width to 40% */
+input[type=text]:focus {
+  width: 40%;
+}
+
+#filter {
+  color: white;
+  font-size: 32px;
+  
+}
+
+
+.rate {
+  float: left;
+  height: 46px;
+  padding: 0 10px;
+  position: relative;
+  right: -10%;
+  /* margin: auto; */
+}
+
+/* .rate:not(:checked) > input {
+    position:absolute;
+     top: -9999px; 
+} */
+.rate:not(:checked)>label {
+  float: right;
+  width: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 30px;
+  color: #ccc;
+}
+
+.rate:not(:checked)>label:before {
+  content: '★ ';
+}
+
+.rate>input:checked~label {
+  color: #ffc700;
+}
+
+.rate:not(:checked)>label:hover,
+.rate:not(:checked)>label:hover~label {
+  color: #deb217;
+}
+
+.rate>input:checked+label:hover,
+.rate>input:checked+label:hover~label,
+.rate>input:checked~label:hover,
+.rate>input:checked~label:hover~label,
+.rate>label:hover~input:checked~label {
+  color: #c59b08;
+}
+
+#submit_rating {
+  color: white;
+  background-color: #525252;
+  border: 2px solid black;
+  position: relative;
+  top: 5%;
+}
+
+#submit_rating:hover {
+  background-color: red;
+}
+
+/* .stars{
+  margin: auto;
+} */
+
+#star5 {
+  display: none;
+}
+
+#star4 {
+  display: none;
+}
+
+#star3 {
+  display: none;
+}
+
+#star2 {
+  display: none;
+}
+
+#star1 {
+  display: none;
+}
+
+
+nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 75px;
+  background: maroon;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+nav .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: 90%;
+  background: maroon;
+  margin: auto;
+}
+
+nav .navbar .logo a {
+  color: #fff;
+  font-size: 27px;
+  text-decoration: none;
+}
+
+nav .navbar .menu {
+  display: flex;
+}
+
+.navbar .menu li {
+  list-style: none;
+  margin: 0 15px;
+}
+
+.navbar .menu li a {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+section {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  color: #96c7e8;
+  font-size: 70px;
+}
+
+.button a {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: #fff;
+  background: #2980b9;
+  padding: 7px 12px;
+  ;
+  font-size: 18px;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.15);
+}
+
+
+input[type=checkbox] {
+  width: 17px;
+  height: 17px;
+}
+
+label {
+  font-size: 25px;
+}
+
+#PeerTutoring {
+  font-family: "freight-text-pro", serif;
+}
+
+#checkboxes {
+  background: maroon;
+  color: white;
+  padding: 20px;
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+}

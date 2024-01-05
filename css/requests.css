@@ -1,0 +1,53 @@
+/* body{
+  font-family: "brandon-grotesque", sans-serif;
+  text-align: center;
+  padding-bottom: 15px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+} */
+html {
+  height: 100%;
+  width: 100%;
+  background-color: maroon;  /* Set background color */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;  /* Set font family */
+  scroll-behavior: smooth;
+  background: url("Another\ Sunset.JPG") no-repeat center center fixed;  /* Set background image */
+  background-size: cover;
+  /* 1/1000 chance to get a photo of Ron McGinn and David Swett */
+}
+
+.row{
+
+  margin: auto;
+  aspect-ratio: 1 / 1;
+  background-color: #708090;
+  width: 30%;
+  min-width: 300px;
+  height:auto;
+  padding: 2%;
+  color: white;
+  border: 10px lightgray solid;
+  border-radius: 10px;
+  margin-left: 4%;
+  margin-right: 4%;
+  margin-top: 40px; 
+}
+
+#tutor_requests{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+/* sets the size of the tutor profile pictures */
+img{
+  width: 40%;
+  height:40%;
+  object-fit: cover;
+  object-position: 25% 25%;
+}
