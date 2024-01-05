@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Peer Tutoring</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+  <script type="module" src="main_page.js"></script>
+  <script type="module">
+    import {category_list_add, showItems} from './main_page.js';
+    window.category_list_add = category_list_add;
+    window.showItems = showItems;
+    
+  </script>
+
+  <p id="top"> </p>
+
+
+
+  <nav>
+    <div class="navbar">
+      <div class="logo" id="PeerTutoring"><a href="#">Peer Tutoring</a></div>
+      <ul class="menu">
+        <li><a href="#top">HOME</a></li>
+        <li><a href="about_us.html">ABOUT US</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+        <li><a href="new_tutor.html">BECOME A TUTOR</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+  <div class="button">
+    <a href="#top"><i class="fa-solid fa-arrow-up"></i></a>
+  </div>
+
+  <br><br><br><br><br>
+
+
+  <div class="dropdown_content" id="content_id">
+    <p id="filter">Filter By Subject:</p>
+
+
+    <!-- Creates the checkboxes that filter the tutors by subject -->
+    <div id="checkboxes">
+
+      <input type="checkbox" id="math" name="math" value="math" onclick="category_list_add()">
+      <label for="math" id="Math"> Math</label><br>
+
+      <input type="checkbox" id="science" name="Science" value="Science" onclick="category_list_add()">
+      <label for="Science"> Science</label><br>
+
+      <input type="checkbox" id="language" name="Language" value="Language" onclick="category_list_add()">
+      <label for="Language"> Language</label><br>
+
+      <input type="checkbox" id="humanities" name="Humanities" value="Humanities" onclick="category_list_add()">
+      <label for="Humanities"> Humanities</label><br>
+
+      <input type="checkbox" id="computer science" name="computer science" value="computer science"
+        onclick="category_list_add()">
+      <label for="computer science"> Computer Science</label><br>
+
+    </div>
+    <div id="searchbar">
+      <input type="text" id="filter_search" oninput="showItems()" placeholder="Search for tutors..">
+    </div>
+    <br>
+    <!-- Creates the searchbar to search for tutors -->
+
+  </div>
+
+
+  <br>
+
+  <!-- Creates the div that we add all of the tutors to in javascript -->
+  <div id="tutors">
+
+  </div>
+
+
+
+</body>
+
+</html>
