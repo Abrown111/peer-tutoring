@@ -11,7 +11,7 @@ html {
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;  /* Set font family */
   scroll-behavior: smooth;
-  background: url("Sunset.JPG") no-repeat center center fixed;  /* Set background image */
+  background: url("https://abrown111.github.io/peer-tutoring/Photos/Sunset.JPG") no-repeat center center fixed;  /* Set background image */
   background-size: cover;
   /* 1/1000 chance to get a photo of Ron McGinn and David Swett */
 }
