@@ -90,7 +90,7 @@ export const signIn = async function(){
           }
           }
           if(c == 1){
-            window.location.href = "https://peer-tutor-app-1.timothygroves.repl.co/main_page.html";
+            window.location.href = "https://abrown111.github.io/peer-tutoring/HTML/main_page.html";
             }
           
         },
