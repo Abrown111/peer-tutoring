@@ -33,7 +33,7 @@ const humanitiesClasses = ["English 9", "History 9", "Humanities 10", "American 
 const csClasses = ["Computer Science Principles", "Data Structures"];
 var userArray;
 if(user==null){
-  window.location.href = "https://peer-tutor-app-1.timothygroves.repl.co/index.html";
+  window.location.href = "https://abrown111.github.io/peer-tutoring/HTML/index.html";
 }else{
    userArray = user.split(" ");
 }
