@@ -39,7 +39,9 @@ if(user==null){
 }
 
 let lastName = document.getElementById("lastName");
-lastName.value = user[1];
+let firstName = document.getElementById("firstName");
+lastName.value = userArray[1];
+firstName.value = userArray[0];
 
   // alert("test");
   // let firstName = document.getElementById("firstName");
