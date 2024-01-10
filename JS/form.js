@@ -5,7 +5,7 @@
 var picture = "";
 // TODO: import libraries for Cloud Firestore Database
 // https://firebase.google.com/docs/firestore
-import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc} from "https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, setDoc, deleteDoc} from "https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore.js";
 
 // Your web app's Firebase configuration
   const firebaseConfig = {
@@ -24,7 +24,6 @@ var category_list = []
 
 // Allows access to the form from the html page
 let form = document.getElementById("tutorform");
-const user = localStorage.getItem("users");
 const subjects = [ "math", "humanities", "computer science", "science", "language"];
 const mathClasses = ["IM1", "IM2", "HIM2", "IM3", "HIM3", "IM4", "AB Calculus", "BC Calculus", "Multivariable Calculus", "Statistics"];
 const scienceClasses = ["Advanced Physics", "Advanced Chemistry", "Advanced Biology", "AP Physics", "AP Chemistry", "Anatomy and Physiology"];
@@ -52,52 +51,78 @@ lastName.value = user[1];
 
     e.preventDefault();
 
+    let mathTeach = false;
+    let scienceTeach = false;
+    let humanitiesTeach = false;
+    let languageTeach = false;
+    let csTeach = false;
+
+
 //sets js variables from the form
   //let list1 = document.getElementById("subject");
     let subjectList = [];
     for(let i = 0; i < mathClasses.length; i++){
       if(document.getElementById(mathClasses[i].toString()).checked){
         subjectList.push(mathClasses[i]);
-        
+        mathTeach = true;
       }
     }
 
     for(let i = 0; i < scienceClasses.length; i++){
       if(document.getElementById(scienceClasses[i].toString()).checked){
         subjectList.push(scienceClasses[i]);
-
+        scienceTeach = true;
       }
     }
 
     for(let i = 0; i < languageClasses.length; i++){
       if(document.getElementById(languageClasses[i].toString()).checked){
         subjectList.push(languageClasses[i]);
-
+        languageTeach = true;
       }
     }
 
     for(let i = 0; i < humanitiesClasses.length; i++){
       if(document.getElementById(humanitiesClasses[i].toString()).checked){
         subjectList.push(humanitiesClasses[i]);
-
+        humanitiesTeach = true;
       }
     }
 
     for(let i = 0; i < csClasses.length; i++){
       if(document.getElementById(csClasses[i].toString()).checked){
         subjectList.push(csClasses[i]);
-
+        csTeach = true;
       }
     }
+    let teachList = [];
+    if(mathTeach){
+      teachList.push("Math");
+    }
 
+    if(scienceTeach){
+      teachList.push("Science");
+      
+    }
+    if(languageTeach){
+      teachList.push("Language");
+
+    }
+    if(humanitiesTeach){
+      teachList.push("Humanities");
+
+    }
+    if(csTeach){
+      teachList.push("Computer Science");
+
+    }
     
-    alert(subjectList);
+    alert(teachList);
     let subject = subjectList.join(", ");
     let firstName = document.getElementById("firstName");
     let lastName = document.getElementById("lastName");
-    let email = document.getElementById("email");
     let description = document.getElementById("description");
-    let experience = document.getElementById("experience");
+    let calendar = document.getElementById("calendar");
     let grade = document.getElementById("grade");
 
   //let isApproved = document.getElementById("isApproved");
@@ -114,7 +139,7 @@ lastName.value = user[1];
 
   //creates tutor object from the above variables
   // addTutor(subject, firstName, lastName, email, description, experience, grade, false);
-  addTutor(subject, firstName, lastName, email, description, experience, grade);
+  addTutor(subject, firstName, lastName, description, calendar, grade, teachList);
     // for(let i = 0; i < mathClasses.length; i++){
     //   document.getElementByID(mathClasses[i].toString()).checked = false;
     // }
@@ -133,9 +158,8 @@ lastName.value = user[1];
     location.reload();
     firstName.value = "";
     lastName.value = "";
-    email.value = "";
     description.value = "";
-    experience.value = "";
+    calendar.value = "";
     grade.value = "";
   
 }
@@ -143,24 +167,21 @@ lastName.value = user[1];
 
 //adds the tutor to the firebase
 // export const addTutor = function(subject, firstName, lastName, email, description, experience, grade, isApproved){
-export const addTutor = function(subject, firstName, lastName, email, description, experience, grade){
-  try{
-    const docRef = addDoc(collection(db, "peer-tutoring-signups"), {
+export const addTutor = function(subject, firstName, lastName, description, calendar, grade, teachList){
+  console.log(userArray[2]);
+  setDoc(doc(db, "peer-tutoring-signups", userArray[2]), {
       subject: subject,
       firstName: firstName.value,
       lastName:lastName.value,
-      email: email.value,
+      email: userArray[2],
       description: description.value,
-      experience: experience.value,
+      calendar: calendar.value,
       grade: grade.value,
       img: picture,
       isRequested: true,
-      isApproved: false
+      isApproved: false,
+      teachList: teachList
     });
-  }
-  catch(e){
-    alert("Error adding item to the database: ", e);
-  }  
 
   
 }

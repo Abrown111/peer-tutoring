@@ -9,7 +9,7 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;  /* Set font family */
+  font-family: 'brandon-grotesque', sans-serif;  /* Set font family */
   scroll-behavior: smooth;
   background: url("https://abrown111.github.io/peer-tutoring/Photos/Sunset.JPG") no-repeat center center fixed;  /* Set background image */
   background-size: cover;
@@ -18,13 +18,12 @@ html {
 
 /* Styles for the body element */
 body {
-  font-family: Georgia, 'Times New Roman', Times, serif;  /* Set font family */
+  font-family: "brandon-grotesque", sans-serif;  /* Set font family */
   text-align: center;
   padding-bottom: 15px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  color: white;
 }
 
 /* Styles for heading elements */
@@ -78,7 +77,6 @@ nav .navbar {
 nav .navbar .logo a {
   color: #fff;
   font-size: 27px;
-  font-weight: 600;
   text-decoration: none;
 }
 
@@ -127,6 +125,10 @@ section {
   width: 200px;
   height: 20px;
 }
+
+label {
+  color: white;
+}
 /* 
 #description {
   width: 400px;
@@ -172,6 +174,14 @@ section {
 #input {
   width: 200px;
   margin: auto;
+}
+
+#description {
+  color: white;
+}
+
+p{
+  color: white;
 }
 
 /* #Bio {

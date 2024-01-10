@@ -22,6 +22,20 @@ var category_list = []
 var username;
 var encrypted_password;
 
+const user = localStorage.getItem("users");
+// if(user==null){
+//   window.location.href = "https://peer-tutor-app-1.timothygroves.repl.co/index.html";
+// }else{
+//    var userArray = user.split(" ");
+// }
+// user != "Jake Kapp jkapp24@students.stab.org" || 
+// if(user != "Alex Brown alex.brown.6147@gmail.com"){
+//   window.location.href = "https://peer-tutor-app-1.timothygroves.repl.co/main_page.html";
+// }
+// if(user != "Sean undefined bluester425@gmail.com"){
+//   window.location.href = "https://peer-tutor-app-1.timothygroves.repl.co/main_page.html";
+// }
+
 // show Tutors from firebase in the tiles on the screen
 export const showItems = async function() {
   const databaseItems = await getDocs(collection(db, "peer-tutoring-signups"));
@@ -63,6 +77,11 @@ export const showItems = async function() {
     email.innerHTML = "Email: " + item.data().email;
     email.for = item.id;
     row.appendChild(email);
+
+      var calendar = document.createElement("a");
+        calendar.innerHTML = "Calendar";
+        calendar.href = item.data().calendar;
+      row.append(calendar);
 
 
     var grade = document.createElement("p");

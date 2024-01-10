@@ -9,7 +9,8 @@ html, body {
   box-sizing: border-box;
   font-family: 'brandon-grotesque', sans-serif;
   scroll-behavior: smooth;
-  background: url("STAB.JPG") no-repeat center center fixed;
+  background: url("https://abrown111.github.io/peer-tutoring/Photos/STAB.JPG") no-repeat center center fixed;
+  background-size: cover;
 }
 
 /* sets font, text alignment, padding, and display for the home page */
@@ -83,88 +84,6 @@ input[type=text]:focus {
   
 }
 
-
-.rate {
-  float: left;
-  height: 46px;
-  padding: 0 10px;
-  position: relative;
-  right: -10%;
-  /* margin: auto; */
-}
-
-/* .rate:not(:checked) > input {
-    position:absolute;
-     top: -9999px; 
-} */
-.rate:not(:checked)>label {
-  float: right;
-  width: 1em;
-  overflow: hidden;
-  white-space: nowrap;
-  cursor: pointer;
-  font-size: 30px;
-  color: #ccc;
-}
-
-.rate:not(:checked)>label:before {
-  content: '★ ';
-}
-
-.rate>input:checked~label {
-  color: #ffc700;
-}
-
-.rate:not(:checked)>label:hover,
-.rate:not(:checked)>label:hover~label {
-  color: #deb217;
-}
-
-.rate>input:checked+label:hover,
-.rate>input:checked+label:hover~label,
-.rate>input:checked~label:hover,
-.rate>input:checked~label:hover~label,
-.rate>label:hover~input:checked~label {
-  color: #c59b08;
-}
-
-#submit_rating {
-  color: white;
-  background-color: #525252;
-  border: 2px solid black;
-  position: relative;
-  top: 5%;
-}
-
-#submit_rating:hover {
-  background-color: red;
-}
-
-/* .stars{
-  margin: auto;
-} */
-
-#star5 {
-  display: none;
-}
-
-#star4 {
-  display: none;
-}
-
-#star3 {
-  display: none;
-}
-
-#star2 {
-  display: none;
-}
-
-#star1 {
-  display: none;
-}
-
-
 nav {
   position: fixed;
   left: 0;
@@ -214,7 +133,7 @@ section {
   width: 100%;
   align-items: center;
   justify-content: center;
-  color: #96c7e8;
+  color: maroon;
   font-size: 70px;
 }
 
@@ -242,7 +161,7 @@ label {
 }
 
 #PeerTutoring {
-  font-family: "freight-text-pro", serif;
+  font-family: "brandon-grotesque", sans-serif;
 }
 
 #checkboxes {
