@@ -91,7 +91,7 @@ export const signIn = async function(){
           });
           }
           if(c == 1){
-            window.location.href = "https://abrown111.github.io/peer-tutoring/JS/script.js";
+            window.location.href = "https://abrown111.github.io/peer-tutoring/HTML/main_page.html";
             }
           
         },
