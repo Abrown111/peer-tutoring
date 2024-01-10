@@ -26,7 +26,8 @@ const provider = new GoogleAuthProvider();
 var category_list = []
 var userStuff;
 
-window.localStorage.setItem("test", "help");
+
+
 
 
 // setDoc(doc(db, "peer-tutoring-signups", "alex.brown.6147@gmail.com"), {
@@ -70,27 +71,27 @@ export const signIn = async function(){
             console.log(value);
           }else{
             c = 0;
-            if(user.email.split("@")[1] != "students.stab.org"){
-              alert('Invalid email. Please sign in using a valid STAB email address');
-            }else{
-              localStorage.setItem("users", info);
-              setDoc(doc(db, "peer-tutoring-signups", user.email), {
-                subject: '',
-                firstName: user.displayName.split(" ")[0],
-                lastName: user.displayName.split(" ")[1],
-                email: user.email,
-                description: '',
-                experience: '',
-                grade: '',
-                img: '',
-                isRequested: false,
-                isApproved: false
-            });
-              c = 1;
-          }
+            // if(user.email.split("@")[1] != "students.stab.org" || user.email.split("@")[1] != "stab.org"){
+            //   alert('Invalid email. Please sign in using a valid STAB email address');
+            // }else{
+            localStorage.setItem("users", info);
+            setDoc(doc(db, "peer-tutoring-signups", user.email), {
+              subject: '',
+              firstName: user.displayName.split(" ")[0],
+              lastName: user.displayName.split(" ")[1],
+              email: user.email,
+              description: '',
+              experience: '',
+              grade: '',
+              img: '',
+              isRequested: false,
+              isApproved: false
+            // });
+            //   c = 1;
+          });
           }
           if(c == 1){
-            window.location.href = "https://abrown111.github.io/peer-tutoring/HTML/main_page.html";
+            window.location.href = "https://peer-tutor-app-1.timothygroves.repl.co/main_page.html";
             }
           
         },

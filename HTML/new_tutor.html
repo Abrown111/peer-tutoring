@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Peer Tutoring</title>
-  <link href="https://abrown111.github.io/peer-tutoring/css/form.css" rel="stylesheet" type="text/css" />
+  <link href="form.css" rel="stylesheet" type="text/css" />
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -16,7 +16,7 @@
 
   
 
-  <script type="module" src="https://abrown111.github.io/peer-tutoring/JS/form.js"></script>
+  <script type="module" src="form.js"></script>
   <!-- <script type="module">
     import {saveData, refreshPage} from './form.js';
     window.saveData = saveData;
@@ -163,6 +163,7 @@
         <select>
           <option>Math</option>
         </select>
+        
         <!-- <div class ="overSelect"></div> -->
         </div>
         
@@ -365,20 +366,27 @@
             <input class="form" type="text" id="lastName" required name="lastName">
         </p>
   <!-- Creates a text input for Email -->
-        <p>
+        <!-- <p>
             <label for="fname">Email:</label><br>
             <input class="form" type="email" id="email" required name="Email">
-        </p>
+        </p> -->
         <!-- Creates a text input for the biography -->
         <p>
             <label for="fname" id="Bio">Bio:</label><br>
             <input class="form" type="text" id="description" required name="Description">
         </p>
   <!-- Creates a number input for their experience as a tutor -->
-        <p>
+        <!-- <p>
             <label for="fname">Tutoring Experience (years):</label><br>
             <input class="form" type="number" min="0" id="experience" required name="experience">
-        </p>
+        </p> -->
+  <p>
+    <label for="fname">Google Calendar: </label><br>
+    <input class="form" type="text" id="calendar" required name="calendar">
+    <video width="320" height="240" controls>
+      <source src="Create Calendar.mp4" type="video/mp4">
+    </video>
+  </p>
   <!-- Creates a dropdown for their grade level -->
         <p>
             Current Grade: <br>

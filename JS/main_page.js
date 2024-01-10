@@ -28,6 +28,17 @@ var uname = document.getElementById("username");
 var psswd = document.getElementById("password");
 var form = document.getElementById("form");
 
+const user = localStorage.getItem("users");
+// if(user==null){
+//   window.location.href = "https://peer-tutor-app-1.timothygroves.repl.co/index.html";
+// }else{
+//    var userArray = user.split(" ");
+// }
+
+if(user!=null){
+  var userArray = user.split(" ");
+}
+
 var databaseItems = await getDocs(collection(db, "peer-tutoring-signups"));
 databaseItems.forEach((items)=>{
   console.log(items);
@@ -57,6 +68,8 @@ export const login = async function(){
 }
 
 
+
+
 // show Tutors from firebase in the tiles on the screen
 export const showItems = async function(){
     const databaseItems = await getDocs(collection(db, "peer-tutoring-signups"));
@@ -75,12 +88,12 @@ export const showItems = async function(){
     databaseItems.forEach((item) => {
             if (item.data().firstName.toLowerCase().includes(document.getElementById("filter_search").value.toLowerCase()) || item.data().lastName.toLowerCase().includes(document.getElementById("filter_search").value.toLowerCase())){ //search bar for Tutors
               if( item.data().isApproved == true){
-                if(category_list.includes(item.data().subject) || category_list.length==0 ){ //category check-list for Tutors
+                if(similar(category_list,item.data().teachList) || category_list.length==0 ){ //category check-list for Tutors
                     var row = document.createElement("div");
                     row.setAttribute('class', "row");
                       
                       var name = document.createElement("h1");
-                      name.innerHTML = item.data().firstName + " " + item.data().lastName;
+                      name.innerHTML = item.data().firstName + " " + item.data().lastName.substring(0, 1) + ".";
                       name.for = item.id;
                       row.appendChild(name);
 
@@ -109,6 +122,16 @@ export const showItems = async function(){
                       email.innerHTML = "Email: " + item.data().email;
                       email.for = item.id;
                       row.appendChild(email);
+
+                      var calendar = document.createElement("a");
+                    calendar.innerHTML = "Calendar";
+                  // if(!item.data().calendar.includes("https://www.") || !item.data().calendar.includes("https//")){
+                  // calendar.href = "https://www." + item.data().calendar;
+                  // } else {
+                    calendar.href = item.data().calendar;
+                  // }
+                  calendar.target = "_blank";
+                  row.append(calendar);
                       //row.appendChild(document.createElement("br"));
                       
                       // var experience = document.createElement("p");
@@ -142,19 +165,19 @@ export const category_list_add = function(){
     category_list = []
   try{
     if (document.getElementById("math").checked) {
-        category_list.push("math")
+        category_list.push("Math")
     }
     if (document.getElementById("science").checked) {
-        category_list.push("science")
+        category_list.push("Science")
     }
     if (document.getElementById("language").checked) {
-        category_list.push("language")
+        category_list.push("Language")
     }
     if (document.getElementById("humanities").checked) {
-        category_list.push("humanities")
+        category_list.push("Humanities")
     }
     if (document.getElementById("computer science").checked) {
-        category_list.push("computer science")
+        category_list.push("Computer Science")
     }
     console.log(category_list);
   }catch(e){
@@ -205,3 +228,25 @@ category_list_add();
 //     databaseItems.forEach((item) => {
 //       deleteDoc(doc(db, "peer-tutoring-signups", item.id));
 //     });
+
+
+function similar(list1, list2){
+    for (let i = 0; i < list1.length; i++) {
+
+            // Loop for array2
+            for (let j = 0; j < list2.length; j++) {
+
+                // Compare the element of each and
+                // every element from both of the
+                // arrays
+                if (list1[i] === list2[j]) {
+
+                    // Return if common element found
+                    return true;
+                }
+            }
+        }
+
+        // Return if no common element exist
+        return false; 
+}

@@ -73,8 +73,13 @@ label {
   font-size: 25px;
 }
 
-#Email{
+h {
   font-size: 25px;
+  color: white;
+}
+
+#questions{
+  font-size: 35px;
   color: white;
 }
 
@@ -88,8 +93,10 @@ p{
   color: white;
 }
 
-.HeadsOfPeerTutor{
-  
+.HeadsOfPeerTutor {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .row{
@@ -109,5 +116,3 @@ p{
   display: flex;
   justify-content: space-around;
 }
-
-
