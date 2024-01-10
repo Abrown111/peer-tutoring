@@ -32,14 +32,15 @@ const languageClasses = ["Spanish 1", "Spanish 2", "Honors Spanish 2", "Spanish 
 const humanitiesClasses = ["English 9", "History 9", "Humanities 10", "American Studies", "Peer Writing"];
 const csClasses = ["Computer Science Principles", "Data Structures"];
 var userArray;
-if(user==null){
-  window.location.href = "https://peer-tutor-app-1.timothygroves.repl.co/index.html";
-}else{
-   userArray = user.split(" ");
-}
+// if(user==null){
+//   window.location.href = "https://peer-tutor-app-1.timothygroves.repl.co/index.html";
+// }else{
+//    userArray = user.split(" ");
+// }
 
 let lastName = document.getElementById("lastName");
 lastName.value = user[1];
+console.log(user);
 
   // alert("test");
   // let firstName = document.getElementById("firstName");
