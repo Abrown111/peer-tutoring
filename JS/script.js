@@ -70,7 +70,7 @@ export const signIn = async function(){
             localStorage.setItem("users", info);
             console.log(value);
           }else{
-            c = 0;
+            c = 1;
             // if(user.email.split("@")[1] != "students.stab.org" || user.email.split("@")[1] != "stab.org"){
             //   alert('Invalid email. Please sign in using a valid STAB email address');
             // }else{
