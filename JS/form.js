@@ -172,14 +172,11 @@ firstName.value = userArray[0];
 export const addTutor = function(subject, firstName, lastName, description, calendar, grade, teachList){
   // console.log(userArray[2]);
   // setDoc(doc(db, "peer-tutoring-signups", userArray[2]), {
-    try{
-      // alert("submitting");
-      const docRef = addDoc(collection(db, "peer-tutoring-signups"), {
+  updateDoc(doc(db, "peer-tutoring-signups", userArray[2]), {
         subject: subject,
         firstName: firstName.value,
         lastName:lastName.value,
-        //email: userArray[2],
-        email: "test email",
+        email: userArray[2],
         description: description.value,
         calendar: calendar.value,
         grade: grade.value,
@@ -189,12 +186,7 @@ export const addTutor = function(subject, firstName, lastName, description, cale
         teachList: teachList
     });
   }
-  catch(e){
-    alert("Error adding item to the database: ", e);
-  }
 
-  
-}
 
 
 const fileInput = document.getElementById('file');
