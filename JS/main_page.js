@@ -107,7 +107,7 @@ export const showItems = async function(){
                       
                       
                       var subject = document.createElement("p");
-                      subject.innerHTML = "Subject: " + item.data().subject;
+                      subject.innerHTML = "Subject(s): " + item.data().subject;
                       subject.for = item.id;
                       row.appendChild(subject);
                       //row.appendChild(document.createElement("br"));
