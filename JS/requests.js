@@ -44,6 +44,7 @@ export const showItems = async function() {
 
   databaseItems.forEach((item) => {
     console.log(item.data().lastName);
+    console.log(item.data().isRequested);
     if (item.data().isRequested && !item.data().isApproved) {
       console.log(item.data().firstName);
   
