@@ -174,6 +174,7 @@ export const addTutor = function(subject, firstName, lastName, description, cale
   // console.log(userArray[2]);
   // setDoc(doc(db, "peer-tutoring-signups", userArray[2]), {
     try{
+      alert("submitting");
     const docRef = addDoc(collection(db, "peer-tutoring-signups"), {
       subject: subject,
       firstName: firstName.value,
