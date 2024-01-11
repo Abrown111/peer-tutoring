@@ -53,7 +53,7 @@ export const showItems = async function(){
     name.for = "Jake";
     row_2.appendChild(name);
 
-    row.appendChild(document.createElement("br"));
+    row_2.appendChild(document.createElement("br"));
 
     var image = document.createElement("img");
     image.src = "https://abrown111.github.io/peer-tutoring/Photos/jacob.png";
