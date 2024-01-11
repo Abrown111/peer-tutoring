@@ -30,19 +30,21 @@ export const showItems = async function(){
     // name.for = "Ruff";
     row.appendChild(name);
 
-    row.appendChild(document.createElement("br"));
-
-    var contact = document.createElement("h1");
-    contact.innterHTML = "Email: aruff@stab.org";
-    // contact.for = "Ruff";
-
-    row.appendChild(contact);
+   
 
     row.appendChild(document.createElement("br"));
 
     var image = document.createElement("img");
     image.src = "https://abrown111.github.io/peer-tutoring/Photos/ms%20ruff.png";
     row.appendChild(image);
+
+    row.appendChild(document.createElement("br"));
+
+    var contact = document.createElement("h1");
+    contact.innerHTML = "Email: aruff@stab.org";
+    // contact.for = "Ruff";
+
+    row.appendChild(contact);
 
     
 
@@ -56,13 +58,7 @@ export const showItems = async function(){
     // name.for = "Jake";
     row_2.appendChild(name);
 
-    row_2.appendChild(document.createElement("br"));
-
-    var contact = document.createElement("h1");
-    contact.innterHTML = "Email: jkapp24@students.stab.org";
-    // contact.for = "Jake";
-
-    row_2.appendChild(contact);
+    
 
     row_2.appendChild(document.createElement("br"));
 
@@ -70,7 +66,13 @@ export const showItems = async function(){
     image.src = "https://abrown111.github.io/peer-tutoring/Photos/jacob.png";
     row_2.appendChild(image);
 
-    
+    row_2.appendChild(document.createElement("br"));
+
+    var contact = document.createElement("h1");
+    contact.innerHTML = "Email: jkapp24@students.stab.org";
+    // contact.for = "Jake";
+
+    row_2.appendChild(contact);
 
     tutors.appendChild(row_2);
 
