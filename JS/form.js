@@ -172,7 +172,7 @@ firstName.value = userArray[0];
 // export const addTutor = function(subject, firstName, lastName, email, description, experience, grade, isApproved){
 export const addTutor = function(subject, firstName, lastName, description, calendar, grade, teachList){
   console.log(userArray[2]);
-  addDoc(doc(db, "peer-tutoring-signups", userArray[2]), {
+  setDoc(doc(db, "peer-tutoring-signups", userArray[2]), {
       subject: subject,
       firstName: firstName.value,
       lastName:lastName.value,
