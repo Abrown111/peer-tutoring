@@ -30,6 +30,8 @@ export const showItems = async function(){
     name.for = "Ruff";
     row.appendChild(name);
 
+    row.appendChild(document.createElement("br"));
+
     var image = document.createElement("img");
     image.src = "https://abrown111.github.io/peer-tutoring/Photos/ms%20ruff.png";
     row.appendChild(image);
@@ -43,22 +45,25 @@ export const showItems = async function(){
 
     tutors.appendChild(row);
 
-    var row_2 =document.createElement("div");
+    var row_2 = document.createElement("div");
     row_2.setAttribute('class', "row");
 
     var name = document.createElement("h1");
-    name.innerHTML = "Ms. Ruff";
-    name.for = "Ruff";
+    name.innerHTML = "Jake Kapp";
+    name.for = "Jake";
     row_2.appendChild(name);
 
+    row.appendChild(document.createElement("br"));
+
     var image = document.createElement("img");
-    image.src = "https://abrown111.github.io/peer-tutoring/Photos/ms%20ruff.png";
+    image.src = "https://abrown111.github.io/peer-tutoring/Photos/jacob.png";
     row_2.appendChild(image);
 
     row_2.appendChild(document.createElement("br"));
 
     var contact = document.createElement("h1");
-    contact.innterHTML = "Email: aruff@stab.org";
+    contact.innterHTML = "Email: jkapp24@students.stab.org";
+    contact.for = "Jake";
 
     row_2.appendChild(contact);
 
