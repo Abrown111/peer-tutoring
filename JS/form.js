@@ -171,8 +171,9 @@ firstName.value = userArray[0];
 //adds the tutor to the firebase
 // export const addTutor = function(subject, firstName, lastName, email, description, experience, grade, isApproved){
 export const addTutor = function(subject, firstName, lastName, description, calendar, grade, teachList){
-  console.log(userArray[2]);
-  setDoc(doc(db, "peer-tutoring-signups", userArray[2]), {
+  // console.log(userArray[2]);
+  // setDoc(doc(db, "peer-tutoring-signups", userArray[2]), {
+    addDoc(collection(db, "peer-tutoring-signups"), {
       subject: subject,
       firstName: firstName.value,
       lastName:lastName.value,
