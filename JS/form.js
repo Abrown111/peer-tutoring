@@ -158,7 +158,7 @@ firstName.value = userArray[0];
     // for(let i = 0; i < csClasses.length; i++){
     //   document.getElementByID(csClasses[i].toString()).value = false;
     // }
-    location.reload();
+    // location.reload();
     firstName.value = "";
     lastName.value = "";
     description.value = "";
@@ -173,20 +173,20 @@ export const addTutor = function(subject, firstName, lastName, description, cale
   // console.log(userArray[2]);
   // setDoc(doc(db, "peer-tutoring-signups", userArray[2]), {
     try{
-      alert("submitting");
-    const docRef = addDoc(collection(db, "peer-tutoring-signups"), {
-      subject: subject,
-      firstName: firstName.value,
-      lastName:lastName.value,
-      //email: userArray[2],
-      email: "test email",
-      description: description.value,
-      calendar: calendar.value,
-      grade: grade.value,
-      img: picture,
-      isRequested: true,
-      isApproved: false,
-      teachList: teachList
+      // alert("submitting");
+      const docRef = addDoc(collection(db, "peer-tutoring-signups"), {
+        subject: subject,
+        firstName: firstName.value,
+        lastName:lastName.value,
+        //email: userArray[2],
+        email: "test email",
+        description: description.value,
+        calendar: calendar.value,
+        grade: grade.value,
+        img: picture,
+        isRequested: true,
+        isApproved: false,
+        teachList: teachList
     });
   }
   catch(e){
