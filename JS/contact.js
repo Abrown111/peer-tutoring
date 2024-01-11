@@ -19,7 +19,7 @@ import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc} f
 
 export const showItems = async function(){
 
-    var tutors = document.getElementById("tutors");
+    var tutors = document.getElementById("HeadsOfPeerTutor");
     tutors.innerHTML="";
 
     var row = document.createElement("div");
