@@ -173,7 +173,8 @@ firstName.value = userArray[0];
 export const addTutor = function(subject, firstName, lastName, description, calendar, grade, teachList){
   // console.log(userArray[2]);
   // setDoc(doc(db, "peer-tutoring-signups", userArray[2]), {
-    addDoc(collection(db, "peer-tutoring-signups"), {
+    try{
+    const docRef = addDoc(collection(db, "peer-tutoring-signups"), {
       subject: subject,
       firstName: firstName.value,
       lastName:lastName.value,
@@ -186,6 +187,10 @@ export const addTutor = function(subject, firstName, lastName, description, cale
       isApproved: false,
       teachList: teachList
     });
+  }
+  catch(e){
+    alert("Error adding item to the database: ", e);
+  }
 
   
 }
