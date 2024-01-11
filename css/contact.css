@@ -93,7 +93,7 @@ p{
   color: white;
 }
 
-.HeadsOfPeerTutor {
+/* .HeadsOfPeerTutor {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -115,7 +115,7 @@ p{
   margin-top: 40px; 
   display: flex;
   justify-content: space-around;
-}
+} */
 
 .row {
 
@@ -138,4 +138,11 @@ p{
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+img {
+  width: 40%;
+  height: 40%;
+  object-fit: cover;
+  object-position: 25% 25%;
 }
