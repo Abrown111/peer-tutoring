@@ -165,8 +165,7 @@ firstName.value = userArray[0];
     calendar.value = "";
     grade.value = "";
   
-}
-                        );
+});
 
 //adds the tutor to the firebase
 // export const addTutor = function(subject, firstName, lastName, email, description, experience, grade, isApproved){
@@ -179,7 +178,8 @@ export const addTutor = function(subject, firstName, lastName, description, cale
       subject: subject,
       firstName: firstName.value,
       lastName:lastName.value,
-      email: userArray[2],
+      //email: userArray[2],
+      email: "test email",
       description: description.value,
       calendar: calendar.value,
       grade: grade.value,
