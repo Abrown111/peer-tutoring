@@ -44,6 +44,7 @@ export const showItems = async function() {
 
   databaseItems.forEach((item) => {
     if (item.data().isRequested && !item.data().isApproved) {
+      console.log(item.data().firstName);
   
     var row = document.createElement("div");
     row.setAttribute('class', "row");
