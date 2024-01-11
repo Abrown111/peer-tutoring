@@ -43,7 +43,7 @@ export const showItems = async function() {
   // tutor_requests.innerHTML = "";
 
   databaseItems.forEach((item) => {
-    console.log(item.lastName);
+    console.log(item.data().lastName);
     if (item.data().isRequested && !item.data().isApproved) {
       console.log(item.data().firstName);
   
