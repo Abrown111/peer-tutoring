@@ -65,3 +65,5 @@ export const showItems = async function(){
     tutors.appendChild(row_2);
 
   }
+
+  showItems();
