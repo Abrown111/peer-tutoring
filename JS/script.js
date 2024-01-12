@@ -93,7 +93,9 @@ export const signIn = async function(){
           if(c == 1){
             window.location.href = "https://abrown111.github.io/peer-tutoring/HTML/main_page.html";
             }
-            alert("This doesn't work");
+            else{
+              alert("This doesn't work");
+            }
           
         },
         function(error){
