@@ -30,18 +30,18 @@ var userStuff;
 
 
 
-setDoc(doc(db, "peer-tutoring-signups", "alex.brown.6147@gmail.com"), {
-    subject: '',
-    firstName: 'Alex',
-    lastName: 'Brown',
-    email: 'alex.brown.6147@gmail.com',
-    description: '',
-    experience: '',
-    grade: '',
-    img: '',
-    isRequested: false,
-    isApproved: false
-});
+// setDoc(doc(db, "peer-tutoring-signups", "alex.brown.6147@gmail.com"), {
+//     subject: '',
+//     firstName: 'Alex',
+//     lastName: 'Brown',
+//     email: 'alex.brown.6147@gmail.com',
+//     description: '',
+//     experience: '',
+//     grade: '',
+//     img: '',
+//     isRequested: false,
+//     isApproved: false
+// });
 
 
 var form = document.getElementById("form");
