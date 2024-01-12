@@ -97,6 +97,7 @@ export const showItems = async function(){
                       name.for = item.id;
                       row.appendChild(name);
 
+                      console.log(item.data().img);
                       if(item.data().img != null){
                       
                         var image = document.createElement("img");
