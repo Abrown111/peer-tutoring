@@ -83,7 +83,7 @@ export const signIn = async function(){
               alert("This doesn't work");
             }
           
-        },
+        }
         function(error){
           alert("Error in retrieving data");
         }
