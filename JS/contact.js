@@ -27,10 +27,7 @@ export const showItems = async function(){
 
     var name = document.createElement("h1");
     name.innerHTML = "Ms. Ruff";
-    // name.for = "Ruff";
     row.appendChild(name);
-
-   
 
     row.appendChild(document.createElement("br"));
 
@@ -40,13 +37,10 @@ export const showItems = async function(){
 
     row.appendChild(document.createElement("br"));
 
-    var contact = document.createElement("h1");
+    var contact = document.createElement("p");
     contact.innerHTML = "Email: aruff@stab.org";
-    // contact.for = "Ruff";
 
     row.appendChild(contact);
-
-    
 
     tutors.appendChild(row);
 
@@ -55,10 +49,7 @@ export const showItems = async function(){
 
     var name = document.createElement("h1");
     name.innerHTML = "Jake Kapp";
-    // name.for = "Jake";
     row_2.appendChild(name);
-
-    
 
     row_2.appendChild(document.createElement("br"));
 
@@ -68,9 +59,8 @@ export const showItems = async function(){
 
     row_2.appendChild(document.createElement("br"));
 
-    var contact = document.createElement("h1");
+    var contact = document.createElement("p");
     contact.innerHTML = "Email: jkapp24@students.stab.org";
-    // contact.for = "Jake";
 
     row_2.appendChild(contact);
 

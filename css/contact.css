@@ -93,32 +93,7 @@ p{
   color: white;
 }
 
-/* .HeadsOfPeerTutor {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.row{
-  margin: auto;
-  aspect-ratio: 1 / 1;
-  background-color: #708090;
-  width: 30%;
-  min-width: 300px;
-  height:auto;
-  padding: 2%;
-  color: white;
-  border: 10px lightgray solid;
-  border-radius: 10px;
-  margin-left: 4%;
-  margin-right: 4%;
-  margin-top: 40px; 
-  display: flex;
-  justify-content: space-around;
-} */
-
 .row {
-
   margin: auto;
   aspect-ratio: 1 / 1;
   background-color: maroon;
