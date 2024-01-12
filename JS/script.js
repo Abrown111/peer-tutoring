@@ -75,7 +75,7 @@ export const signIn = async function(){
             //   alert('Invalid email. Please sign in using a valid STAB email address');
             // }else{
             localStorage.setItem("users", info);
-            setDoc(doc(db, "peer-tutoring-signups", user.email), {
+            await setDoc(doc(db, "peer-tutoring-signups", user.email), {
               subject: '',
               firstName: user.displayName.split(" ")[0],
               lastName: user.displayName.split(" ")[1],
