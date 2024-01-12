@@ -66,7 +66,7 @@ export const signIn = async function(){
         function(value){
           console.log(value);
           if(value){
-            c = 1;
+            c = 0;
             localStorage.setItem("users", info);
             console.log(value);
           }else{
@@ -93,6 +93,7 @@ export const signIn = async function(){
           if(c == 1){
             window.location.href = "https://abrown111.github.io/peer-tutoring/HTML/main_page.html";
             }
+            alert("This doesn't work");
           
         },
         function(error){
