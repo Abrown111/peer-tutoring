@@ -121,7 +121,7 @@ function handleApproval(itemId) {
     isApproved: true,
     isRequested: false
   });
-  // location.reload();
+  location.reload();
 
 }
 
@@ -132,7 +132,7 @@ function handleDenial(itemId) {
     isApproved: false,
     isRequested: false
   });
-  // location.reload();
+  location.reload();
 
 }
 

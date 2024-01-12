@@ -158,7 +158,7 @@ firstName.value = userArray[0];
     // for(let i = 0; i < csClasses.length; i++){
     //   document.getElementByID(csClasses[i].toString()).value = false;
     // }
-    // location.reload();
+    location.reload();
     firstName.value = "";
     lastName.value = "";
     description.value = "";
