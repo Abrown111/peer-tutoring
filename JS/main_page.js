@@ -97,11 +97,12 @@ export const showItems = async function(){
                       name.for = item.id;
                       row.appendChild(name);
 
-
+                      if(item.data().img != null){
                       
-                      var image = document.createElement("img");
-                      image.src = item.data().img;
-                      row.appendChild(image);
+                        var image = document.createElement("img");
+                        image.src = item.data().img;
+                        row.appendChild(image);
+                      }
 
                       row.appendChild(document.createElement("br"));
                       
