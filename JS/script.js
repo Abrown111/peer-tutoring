@@ -69,9 +69,11 @@ async function getDocData(user){
 }
 
 async function setUserData(user){
-  var lastName = user.displayName.split(" ")[1];
-  if(lastName == None){
-    lastName = 'undefined';
+  var lastName;
+  try{
+    lastName = user.displayName.split(" ")[1];
+  }catch(e){
+    lastName = 'undefined'
   }
    await setDoc(doc(db, "peer-tutoring-signups", user.email), {
               subject: '',
