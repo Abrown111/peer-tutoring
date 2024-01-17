@@ -50,7 +50,7 @@ firstName.value = userArray[0];
   // lastName.value = user.displayName.split(" ")[1];
 
 //runs the below code when form is submitted
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
 
     e.preventDefault();
 
@@ -142,7 +142,7 @@ firstName.value = userArray[0];
 
   //creates tutor object from the above variables
   // addTutor(subject, firstName, lastName, email, description, experience, grade, false);
-  addTutor(subject, firstName, lastName, description, calendar, grade, teachList);
+  await addTutor(subject, firstName, lastName, description, calendar, grade, teachList);
     // for(let i = 0; i < mathClasses.length; i++){
     //   document.getElementByID(mathClasses[i].toString()).checked = false;
     // }
