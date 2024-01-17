@@ -60,7 +60,7 @@ export const signIn = async function(){
   if(c == 1){
     window.location.href = "https://abrown111.github.io/peer-tutoring/HTML/main_page.html";
   }
-  
+
 }
 
 async function getDocData(user){
@@ -69,6 +69,10 @@ async function getDocData(user){
 }
 
 async function setUserData(user){
+  var lastName = user.displayName.split(" ")[1];
+  if(lastName == None){
+    lastName = 'undefined';
+  }
    await setDoc(doc(db, "peer-tutoring-signups", user.email), {
               subject: '',
               firstName: user.displayName.split(" ")[0],
