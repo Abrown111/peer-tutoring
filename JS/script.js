@@ -78,7 +78,7 @@ async function setUserData(user){
    await setDoc(doc(db, "peer-tutoring-signups", user.email), {
               subject: '',
               firstName: user.displayName.split(" ")[0],
-              lastName: user.displayName.split(" ")[1],
+              lastName: lastName,
               email: user.email,
               description: '',
               experience: '',
