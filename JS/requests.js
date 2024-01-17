@@ -42,7 +42,7 @@ export const showItems = async function() {
   // var tutor_requests = document.getElementById("tutor_requests");
   // tutor_requests.innerHTML = "";
 
-  databaseItems.forEach((item) => {
+  databaseItems.forEach(async (item) => {
     console.log(item.data().lastName);
     console.log(item.data().isRequested);
     if (item.data().isRequested && !item.data().isApproved) {
@@ -96,17 +96,17 @@ export const showItems = async function() {
 
     var approveButton = document.createElement("button");
     approveButton.innerHTML = "Approve";
-    approveButton.onclick = function() {
+    approveButton.onclick = async function() {
       
-      handleApproval(item.id);
+      await handleApproval(item.id);
     };
     row.appendChild(approveButton);
 
     var denyButton = document.createElement("button");
     denyButton.innerHTML = "Deny";
-    denyButton.onclick = function() {
+    denyButton.onclick = async function() {
      
-      handleDenial(item.id);
+      await handleDenial(item.id);
     };
     row.appendChild(denyButton);
 
@@ -115,9 +115,9 @@ export const showItems = async function() {
   });
 }
 
-function handleApproval(itemId) {
+async function handleApproval(itemId) {
   //main page only displays things with isApproved = true
-  updateDoc(doc(db, "peer-tutoring-signups", itemId), {
+  await updateDoc(doc(db, "peer-tutoring-signups", itemId), {
     isApproved: true,
     isRequested: false
   });
@@ -126,9 +126,9 @@ function handleApproval(itemId) {
 }
 
 
-function handleDenial(itemId) {
+async function handleDenial(itemId) {
   // deleteDoc(doc(db, "peer-tutoring-signups", itemId));
-  updateDoc(doc(db, "peer-tutoring-signups", itemId), {
+  await updateDoc(doc(db, "peer-tutoring-signups", itemId), {
     isApproved: false,
     isRequested: false
   });
