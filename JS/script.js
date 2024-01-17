@@ -38,58 +38,29 @@ var loginForm = document.getElementById("form");
 
 export const signIn = async function(){
   const auth = getAuth();
-  signInWithPopup(auth, provider)
-    .then((result) => {
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
+  var result = await signInWithPopup(auth, provider);
+  const credential = GoogleAuthProvider.credentialFromResult(result);
+  const token = credential.accessToken;
       // The signed-in user info.
-      const user = result.user;
-      console.log(getDocData(user.email));
-      var me = getDocData(user.email);
-      var info = String(user.displayName.split(" ")[0])+" " +String(user.displayName.split(" ")[1])+" "+String(user.email);
-      var c;
-      me.then(
-        function(value){
-          console.log(value);
-          if(value){
-            c = 0;
-            localStorage.setItem("users", info);
-            console.log(value);
-          }else{
-            c = 1;
-            // if(user.email.split("@")[1] != "students.stab.org" || user.email.split("@")[1] != "stab.org"){
-            //   alert('Invalid email. Please sign in using a valid STAB email address');
-            // }else{
-            localStorage.setItem("users", info);
-            var test = setUserData(user);
-          if(c == 1){
-            window.location.href = "https://abrown111.github.io/peer-tutoring/HTML/main_page.html";
-            }
-            else{
-              alert("This doesn't work");
-            }
-          
-        }
-        function(error){
-          alert("Error in retrieving data");
-        }
-      );
-      
-      // IdP data available using getAdditionalUserInfo(result)
-      // ...
-    }).catch((error) => {
-      alert(error);
-      // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // The email of the user's account used.
-      const email = error.customData.email;
-      // The AuthCredential type that was used.
-      const credential = GoogleAuthProvider.credentialFromError(error);
-      // ...
-    });
+  const user = result.user;
+  console.log(await getDocData(user.email));
+  var me = await getDocData(user.email);
+  var info = String(user.displayName.split(" ")[0])+" " +String(user.displayName.split(" ")[1])+" "+String(user.email);
+  var c;
 
+  if(me){
+    c = 1;
+    localStorage.setItem("users", info);
+    console.log(me);
+  }else{
+    c=1;
+    localStorage.setItem("users", info);
+    var test = await setUserData(user);
+  }
+  if(c == 1){
+    window.location.href = "https://abrown111.github.io/peer-tutoring/HTML/main_page.html";
+  }
+  
 }
 
 async function getDocData(user){
