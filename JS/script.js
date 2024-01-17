@@ -71,7 +71,7 @@ async function getDocData(user){
 async function setUserData(user){
   var lastName;
   if(user.displayName.split(" ")[1] == undefined){
-    lastName = undefined;
+    lastName = 'undefined';
   }else{
     lastName = user.displayName.split(" ")[1];
   }
