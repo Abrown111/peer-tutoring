@@ -28,6 +28,9 @@ var userStuff;
 
 
 
+
+
+
 var form = document.getElementById("form");
 // var databaseItems = await getDocs(collection(db, "peer-tutoring-signups"));
 
@@ -50,7 +53,7 @@ export const signIn = async function(){
         function(value){
           console.log(value);
           if(value){
-            c = 1;
+            c = 0;
             localStorage.setItem("users", info);
             console.log(value);
           }else{
@@ -59,26 +62,15 @@ export const signIn = async function(){
             //   alert('Invalid email. Please sign in using a valid STAB email address');
             // }else{
             localStorage.setItem("users", info);
-            setDoc(doc(db, "peer-tutoring-signups", user.email), {
-              subject: '',
-              firstName: user.displayName.split(" ")[0],
-              lastName: user.displayName.split(" ")[1],
-              email: user.email,
-              description: '',
-              experience: '',
-              grade: '',
-              img: '',
-              isRequested: false,
-              isApproved: false
-            // });
-            //   c = 1;
-          });
-          }
+            var test = setUserData(user);
           if(c == 1){
             window.location.href = "https://abrown111.github.io/peer-tutoring/HTML/main_page.html";
             }
+            else{
+              alert("This doesn't work");
+            }
           
-        },
+        }
         function(error){
           alert("Error in retrieving data");
         }
@@ -103,6 +95,24 @@ export const signIn = async function(){
 async function getDocData(user){
   var d = await getDoc(doc(db, "peer-tutoring-signups", user));
   return d.exists();
+}
+
+async function setUserData(user){
+   await setDoc(doc(db, "peer-tutoring-signups", user.email), {
+              subject: '',
+              firstName: user.displayName.split(" ")[0],
+              lastName: user.displayName.split(" ")[1],
+              email: user.email,
+              description: '',
+              experience: '',
+              grade: '',
+              img: '',
+              isRequested: false,
+              isApproved: false
+            // });
+            //   c = 1;
+          });
+  return user;
 }
 
 
