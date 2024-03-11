@@ -158,12 +158,13 @@ firstName.value = userArray[0];
     // for(let i = 0; i < csClasses.length; i++){
     //   document.getElementByID(csClasses[i].toString()).value = false;
     // }
-    location.reload();
-    firstName.value = "";
-    lastName.value = "";
-    description.value = "";
-    calendar.value = "";
-    grade.value = "";
+    // location.reload();
+    // firstName.value = "";
+    // lastName.value = "";
+    // description.value = "";
+    // calendar.value = "";
+    // grade.value = "";
+    window.location.href("https://abrown111.github.io/peer-tutoring/HTML/main_page.html");
   
 });
 
