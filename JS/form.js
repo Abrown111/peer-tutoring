@@ -164,7 +164,7 @@ firstName.value = userArray[0];
     // description.value = "";
     // calendar.value = "";
     // grade.value = "";
-    window.location.href("https://abrown111.github.io/peer-tutoring/HTML/main_page.html");
+    window.location.href = "https://abrown111.github.io/peer-tutoring/HTML/main_page.html";
   
 });
 
