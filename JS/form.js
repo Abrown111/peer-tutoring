@@ -44,9 +44,9 @@ lastName.value = userArray[1];
 firstName.value = userArray[0];
 
 if(Math.floor(Math.random()*10)==1){
-  document.getElementById('a').style.backgroundImage="url(https://raw.githubusercontent.com/Abrown111/peer-tutoring/main/Photos/STAB%20Alumni2.JPG)"; 
+  document.getElementById('html').style.backgroundImage="url(https://raw.githubusercontent.com/Abrown111/peer-tutoring/main/Photos/STAB%20Alumni2.JPG)"; 
 } else {
-  document.getElementById('a').style.backgroundImage="url(https://abrown111.github.io/peer-tutoring/Photos/Another%20Sunset.JPG)";
+  document.getElementById('html').style.backgroundImage="url(https://abrown111.github.io/peer-tutoring/Photos/Sunset.JPG)";
 }
 
   // alert("test");
