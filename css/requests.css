@@ -1,15 +1,8 @@
-/* body{
-  font-family: "brandon-grotesque", sans-serif;
-  text-align: center;
-  padding-bottom: 15px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-} */
-html {
+
+html, body {
   height: 100%;
   width: 100%;
-  background-color: maroon;  /* Set background color */
+  /* background-color: maroon;  Set background color */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -20,17 +13,27 @@ html {
   /* 1/1000 chance to get a photo of Ron McGinn and David Swett */
 }
 
+body{
+  font-family: "brandon-grotesque", sans-serif;
+  text-align: center;
+  padding-bottom: 15px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
 .row{
 
   margin: auto;
   aspect-ratio: 1 / 1;
-  background-color: #708090;
+  background-color: maroon;
   width: 30%;
   min-width: 300px;
   height:auto;
   padding: 2%;
   color: white;
-  border: 10px lightgray solid;
+  border: 10px white solid;
   border-radius: 10px;
   margin-left: 4%;
   margin-right: 4%;
