@@ -60,6 +60,7 @@ img {
 
 /* sets the padding and border for the search bar */
 #searchbar {
+  width: 20%;
   padding: 10px;
   font-size: 17px;
   border: 20px white solid;
