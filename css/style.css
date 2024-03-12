@@ -72,17 +72,17 @@ img {
 
 /* sets the size and transition for the search bar  */
 input[type=text] {
-  width: 20%;
-  -webkit-transition: width 0.15s ease-in-out;
-  transition: width 0.15s ease-in-out;
+  width: 70%;
+  /* -webkit-transition: width 0.15s ease-in-out;
+  transition: width 0.15s ease-in-out; */
   font-size: 20px;
 }
 
 /* When the input field gets focus,
         change its width to 40% */
-input[type=text]:focus {
+/* input[type=text]:focus {
   width: 40%;
-}
+} */
 
 #filter {
   color: white;
