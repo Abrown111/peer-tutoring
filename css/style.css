@@ -60,10 +60,12 @@ img {
 
 /* sets the padding and border for the search bar */
 #searchbar {
-  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
   padding: 10px;
   font-size: 17px;
-  border: 20px white solid;
+  background-color: white;
+  /* border: 20px white solid; */
   /* background: white; */
 }
 
