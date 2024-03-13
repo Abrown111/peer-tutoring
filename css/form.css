@@ -34,6 +34,12 @@ body {
   flex-direction: column;
 }
 
+#upload {
+  background: black;
+  width: 100px;
+  height: 75px;
+}
+
 /* Styles for heading elements */
 h1 {
   color: white;
