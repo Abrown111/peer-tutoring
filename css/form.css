@@ -40,6 +40,10 @@ body {
   height: 75px;
 }
 
+#gradelevel {
+  font-size: 20px;
+}
+
 /* Styles for heading elements */
 h1 {
   color: white;
