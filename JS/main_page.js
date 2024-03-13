@@ -125,15 +125,28 @@ export const showItems = async function(){
                       email.for = item.id;
                       row.appendChild(email);
 
-                      var calendar = document.createElement("a");
-                    calendar.innerHTML = "Calendar";
+                      var calendar = document.createElement("button");
+                      calendar.innerText = "Calendar";
+                      calendar.addEventListener('click', ()=>{
+                        if(!item.data().calendar.includes("https://www.") || !item.data().calendar.includes("https//")){
+                         window.location.href = "https://www." + item.data().calendar;
+                        } else {
+                          window.location.href = item.data().calendar;
+                        }
+                      });
                   // if(!item.data().calendar.includes("https://www.") || !item.data().calendar.includes("https//")){
                   // calendar.href = "https://www." + item.data().calendar;
                   // } else {
-                    calendar.href = item.data().calendar;
+                    // calendar.href = item.data().calendar;
                   // }
-                  calendar.target = "_blank";
-                  row.append(calendar);
+                  // calendar.target = "_blank";
+                      row.appendChild(calendar);
+
+
+                      
+
+
+
                       //row.appendChild(document.createElement("br"));
                       
                       // var experience = document.createElement("p");
