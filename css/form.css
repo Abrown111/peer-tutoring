@@ -223,3 +223,8 @@ p{
   border-radius: 10px;
   font-size: 12px;
 }
+
+#output{
+  object-fit: cover;
+  object-position: 25% 25%;
+}
