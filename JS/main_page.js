@@ -128,11 +128,11 @@ export const showItems = async function(){
                       var calendar = document.createElement("button");
                       calendar.innerText = "Calendar";
                       calendar.addEventListener('click', ()=>{
-                        if(!item.data().calendar.includes("https://www.") || !item.data().calendar.includes("https//")){
-                         window.location.href = "https://www." + item.data().calendar;
-                        } else {
+                        // if(!item.data().calendar.includes("https://www.") || !item.data().calendar.includes("https//")){
+                        //  window.location.href = "https://www." + item.data().calendar;
+                        // } else {
                           window.location.href = item.data().calendar;
-                        }
+                        // }
                       });
                   // if(!item.data().calendar.includes("https://www.") || !item.data().calendar.includes("https//")){
                   // calendar.href = "https://www." + item.data().calendar;
