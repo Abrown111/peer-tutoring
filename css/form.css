@@ -16,9 +16,12 @@ html {
   /* 1/1000 chance to get a photo of Ron McGinn and David Swett */
 }
 
-#item {
+#items {
   background: maroon;
-  width: 50%;
+  width: 25%;
+  min-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Styles for the body element */
