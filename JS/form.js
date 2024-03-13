@@ -45,8 +45,10 @@ firstName.value = userArray[0];
 
 if(Math.floor(Math.random()*10)==1){
   document.body.style.background="url(https://raw.githubusercontent.com/Abrown111/peer-tutoring/main/Photos/STAB%20Alumni2.JPG) no-repeat center center fixed"; 
+  document.body.style.backgroundSize = "cover";
 } else {
   document.body.style.background="url(https://abrown111.github.io/peer-tutoring/Photos/Sunset.JPG) no-repeat center center fixed";
+  document.body.style.backgroundSize = "cover";
 }
 
   // alert("test");
