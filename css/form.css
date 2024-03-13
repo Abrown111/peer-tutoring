@@ -34,12 +34,6 @@ body {
   flex-direction: column;
 }
 
-#upload {
-  background: black;
-  width: 100px;
-  height: 75px;
-}
-
 #gradelevel {
   font-size: 20px;
 }
@@ -60,7 +54,7 @@ h2 {
 /* Styles for the upload image button */
 #UploadImage {
   cursor: pointer;
-  background: maroon;
+  background: black;
   color: white;
   padding: 10px 15px;
   text-align: center;
