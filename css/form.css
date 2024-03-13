@@ -122,14 +122,14 @@ section {
 /* Styles for the submit button */
 #submit {
   cursor: pointer;
-  background: maroon;
+  background: black;
   color: white;
   padding: 10px 15px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  margin-top: 30px;
   border: none;
+  margin-bottom: 15px;
 }
 
 /* Styles for form elements */
