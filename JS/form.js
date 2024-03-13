@@ -43,12 +43,12 @@ let firstName = document.getElementById("firstName");
 lastName.value = userArray[1];
 firstName.value = userArray[0];
 
-if(Math.floor(Math.random()*10)==1){
-  document.html.style.background="url(https://raw.githubusercontent.com/Abrown111/peer-tutoring/main/Photos/STAB%20Alumni2.JPG) no-repeat center center fixed"; 
-  document.html.style.backgroundSize = "cover";
+if(Math.floor(Math.random()*1000)==1){
+  document.body.style.background="url(https://raw.githubusercontent.com/Abrown111/peer-tutoring/main/Photos/STAB%20Alumni2.JPG) no-repeat center center fixed"; 
+  document.body.style.backgroundSize = "cover";
 } else {
-  document.html.style.background="url(https://abrown111.github.io/peer-tutoring/Photos/Sunset.JPG) no-repeat center center fixed";
-  document.html.style.backgroundSize = "cover";
+  document.body.style.background="url(https://abrown111.github.io/peer-tutoring/Photos/Sunset.JPG) no-repeat center center fixed";
+  document.body.style.backgroundSize = "cover";
 }
 
   // alert("test");
