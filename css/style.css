@@ -57,6 +57,10 @@ img {
   object-position: 25% 25%;
 }
 
+#thisPage{
+  color: gray;
+}
+
 
 /* sets the padding and border for the search bar */
 #searchbar {
