@@ -216,8 +216,7 @@ fileInput.addEventListener('change', (event) => {
         reader.addEventListener('load', () => {
             // Get the data URL string
             picture = reader.result;
-            document.getElementById("output");
-            output.src= picture;
+            document.getElementById("output").src = picture;
         });
     }
 });
