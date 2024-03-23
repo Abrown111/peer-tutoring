@@ -23,7 +23,7 @@ const db = getFirestore(app);
 
 // Allows access to the form from the html page
 let submitButton = document.getElementById("submit");
-let form = document.getElemtntById("tutorform");
+let form = document.getElementById("tutorform");
 
 const mathClasses = ["IM1", "IM2", "HIM2", "IM3", "HIM3", "IM4", "AB Calculus", "BC Calculus", "Multivariable Calculus", "Statistics"];
 const scienceClasses = ["Advanced Physics", "Advanced Chemistry", "Advanced Biology", "AP Physics", "AP Chemistry", "Anatomy and Physiology"];
