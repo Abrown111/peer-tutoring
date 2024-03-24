@@ -131,6 +131,7 @@ section {
   display: inline-block;
   border: none;
   margin-bottom: 15px;
+  font-size: 20px;
 }
 
 /* Styles for form elements */
