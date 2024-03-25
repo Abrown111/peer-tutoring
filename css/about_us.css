@@ -68,12 +68,32 @@ nav .navbar .menu {
 }
 
 
-label {
+/* label {
   font-size: 25px;
+} */
+
+#welcome{
+  color: white;
+  font-size: 25px;
+  padding: 10px;
 }
 
 p{
   color: white;
   font-size: 25px;
   padding: 10px;
+}
+
+.faqAnswers{
+  color: white;
+  font-size: 25px;
+  padding: 10px;
+}
+
+.question{
+  font-weight: bold;
+  color: white;
+  font-size: 35px;
+  padding: 10px;
+
 }
