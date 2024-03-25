@@ -22,8 +22,6 @@ body {
   flex-direction: column;
 }
 
-
-
 nav {
   position: fixed;
   left: 0;
@@ -69,6 +67,7 @@ nav .navbar .menu {
 
 
 /* label {
+label {
   font-size: 25px;
 } */
 
@@ -95,5 +94,8 @@ p{
   color: white;
   font-size: 35px;
   padding: 10px;
+}
 
+#thisPage{
+  color: gray;
 }

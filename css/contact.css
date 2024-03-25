@@ -121,3 +121,7 @@ img {
   object-fit: cover;
   object-position: 25% 25%;
 }
+
+#thisPage{
+  color: gray;
+}
