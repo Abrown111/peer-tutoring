@@ -65,14 +65,41 @@ nav .navbar .menu {
   text-decoration: none;
 }
 
+
+/* label {
 label {
   font-size: 25px;
+} */
+
+#welcome{
+  color: white;
+  font-size: 25px;
+  padding: 10px;
 }
 
 p{
   color: white;
   font-size: 25px;
   padding: 10px;
+}
+
+.faqAnswers{
+  color: white;
+  font-size: 25px;
+  margin-left: auto;
+  margin-right:auto;
+  width: 70%;
+  padding-bottom: 7px;
+}
+
+.question{
+  font-weight: bold;
+  color: white;
+  font-size: 35px;
+  margin-left: auto;
+  margin-right:auto;
+  width: 70%;
+  
 }
 
 #thisPage{
