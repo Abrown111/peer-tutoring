@@ -80,7 +80,7 @@ label {
 p{
   color: white;
   font-size: 25px;
-  padding: 10px;
+  /* padding: 10px; */
 }
 
 .faqAnswers{
@@ -89,7 +89,7 @@ p{
   margin-left: auto;
   margin-right:auto;
   width: 70%;
-  padding-bottom: 7px;
+  /* padding-bottom: 7px; */
 }
 
 .question{
