@@ -55,13 +55,14 @@ h2 {
 /* Styles for the upload image button */
 #UploadImage {
   cursor: pointer;
-  background: black;
+  background: gray;
   color: white;
   padding: 10px 15px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   margin-top: 30px;
+  border-radius: 5px;
 }
 
 /* Styles for the navigation bar */
@@ -123,7 +124,7 @@ section {
 /* Styles for the submit button */
 #submit {
   cursor: pointer;
-  background: black;
+  background: gray;
   color: white;
   padding: 10px 15px;
   text-align: center;
@@ -132,6 +133,7 @@ section {
   border: none;
   margin-bottom: 15px;
   font-size: 20px;
+  border-radius: 5px;
 }
 
 /* Styles for form elements */
@@ -199,11 +201,11 @@ p {
 .calendar_button {
   font: bold 11px Arial;
   text-decoration: none;
-  background-color: black;
+  background-color: gray;
   color: white;
   padding: 3px;
   margin: 2px;
-  border-radius: 10px;
+  border-radius: 5px;
   font-size: 12px;
 }
 
