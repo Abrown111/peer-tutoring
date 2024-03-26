@@ -1,19 +1,21 @@
-
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
   /* background-color: maroon;  Set background color */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'brandon-grotesque', sans-serif;  /* Set font family */
+  font-family: 'brandon-grotesque', sans-serif;
+  /* Set font family */
   scroll-behavior: smooth;
-  background: url("https://abrown111.github.io/peer-tutoring/Photos/Another%20Sunset.JPG") no-repeat center center fixed;  /* Set background image */
+  background: url("https://abrown111.github.io/peer-tutoring/Photos/Another%20Sunset.JPG") no-repeat center center fixed;
+  /* Set background image */
   background-size: cover;
   /* 1/1000 chance to get a photo of Ron McGinn and David Swett */
 }
 
-body{
+body {
   font-family: "brandon-grotesque", sans-serif;
   text-align: center;
   padding-bottom: 15px;
@@ -23,24 +25,24 @@ body{
 }
 
 
-.row{
+.row {
 
   margin: auto;
   aspect-ratio: 1 / 1;
   background-color: maroon;
   width: 30%;
   min-width: 300px;
-  height:auto;
+  height: auto;
   padding: 2%;
   color: white;
   border: 10px white solid;
   border-radius: 10px;
   margin-left: 4%;
   margin-right: 4%;
-  margin-top: 40px; 
+  margin-top: 40px;
 }
 
-#tutor_requests{
+#tutor_requests {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -48,9 +50,9 @@ body{
 
 
 /* sets the size of the tutor profile pictures */
-img{
+img {
   width: 40%;
-  height:40%;
+  height: 40%;
   object-fit: cover;
   object-position: 25% 25%;
 }

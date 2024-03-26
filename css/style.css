@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 /* sets background color */
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
   margin: 0;
@@ -57,7 +58,7 @@ img {
   object-position: 25% 25%;
 }
 
-#thisPage{
+#thisPage {
   color: gray;
 }
 
@@ -90,7 +91,7 @@ input[type=text] {
 #filter {
   color: white;
   font-size: 32px;
-  
+
 }
 
 nav {

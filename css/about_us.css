@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 /* sets background color */
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
   margin: 0;
@@ -71,36 +72,36 @@ label {
   font-size: 25px;
 } */
 
-#welcome{
+#welcome {
   color: white;
   font-size: 25px;
 }
 
-p{
+p {
   color: white;
   font-size: 25px;
   /* padding: 10px; */
 }
 
-.faqAnswers{
+.faqAnswers {
   color: white;
   font-size: 25px;
   margin-left: auto;
-  margin-right:auto;
+  margin-right: auto;
   width: 70%;
   /* padding-bottom: 7px; */
 }
 
-.question{
+.question {
   font-weight: bold;
   color: white;
   font-size: 35px;
   margin-left: auto;
-  margin-right:auto;
+  margin-right: auto;
   width: 70%;
-  
+
 }
 
-#thisPage{
+#thisPage {
   color: gray;
 }

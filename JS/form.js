@@ -31,10 +31,10 @@ const humanitiesClasses = ["English 9", "History 9", "Humanities 10", "American 
 const csClasses = ["Computer Science Principles", "Data Structures"];
 var user = localStorage.getItem("users");
 var userArray;
-if(user==null){
+if (user == null) {
   window.location.href = "https://abrown111.github.io/peer-tutoring/HTML/index.html";
-}else{
-   userArray = user.split(" ");
+} else {
+  userArray = user.split(" ");
 }
 
 let lastName = document.getElementById("lastName");
