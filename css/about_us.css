@@ -75,6 +75,9 @@ label {
 #welcome {
   color: white;
   font-size: 25px;
+  width: 70%;
+  margin-left: 20px;
+  margin-right: auto;
 }
 
 p {
