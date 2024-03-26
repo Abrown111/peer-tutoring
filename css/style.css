@@ -27,7 +27,6 @@ body {
 
 /* sets the position, size, color, border, and margins for each tutor, or "row" */
 .row {
-
   margin: auto;
   aspect-ratio: 1 / 1;
   background-color: maroon;
@@ -48,7 +47,6 @@ body {
   justify-content: center;
   flex-wrap: wrap;
 }
-
 
 /* sets the size of the tutor profile pictures */
 img {
