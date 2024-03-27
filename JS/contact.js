@@ -17,6 +17,23 @@ import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc} f
   appId: "1:289661482327:web:5ff58469a93a0f83087a12"
   };
 
+
+  const user = localStorage.getItem("users");
+  var admin = false;
+  if(user!=null){
+    var userArray = user.split(" ");
+  }
+  if(user == 'Alex Brown alex.brown.6147@gmail.com'){
+    admin = true;
+    var nav = document.getElementsByClassName("menu")[0];
+    var newLine = document.createElement("li");
+    var newLink = document.createElement("a");
+    newLink.href = "requests.html";
+    newLink.innerHTML = "Requests";
+    newLine.appendChild(newLink);
+    nav.appendChild(newHeader);
+  }
+
 export const showItems = async function(){
 
     var tutors = document.getElementById("HeadsOfPeerTutor");

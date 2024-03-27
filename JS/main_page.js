@@ -29,15 +29,29 @@ var psswd = document.getElementById("password");
 var form = document.getElementById("form");
 
 const user = localStorage.getItem("users");
+var admin = false;
+if(user!=null){
+  var userArray = user.split(" ");
+}
+if(user == 'Alex Brown alex.brown.6147@gmail.com'){
+  admin = true;
+  var nav = document.getElementsByClassName("menu")[0];
+  var newLine = document.createElement("li");
+  var newLink = document.createElement("a");
+  newLink.href = "requests.html";
+  newLink.innerHTML = "Requests";
+  newLine.appendChild(newLink);
+  nav.appendChild(newHeader);
+}
+
+
 // if(user==null){
 //   window.location.href = "https://peer-tutor-app-1.timothygroves.repl.co/index.html";
 // }else{
 //    var userArray = user.split(" ");
 // }
 
-if(user!=null){
-  var userArray = user.split(" ");
-}
+
 
 var databaseItems = await getDocs(collection(db, "peer-tutoring-signups"));
 databaseItems.forEach((items)=>{
