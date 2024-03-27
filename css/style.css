@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 /* sets background color */
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
   margin: 0;
@@ -26,7 +27,6 @@ body {
 
 /* sets the position, size, color, border, and margins for each tutor, or "row" */
 .row {
-
   margin: auto;
   aspect-ratio: 1 / 1;
   background-color: maroon;
@@ -48,7 +48,6 @@ body {
   flex-wrap: wrap;
 }
 
-
 /* sets the size of the tutor profile pictures */
 img {
   width: 40%;
@@ -57,31 +56,40 @@ img {
   object-position: 25% 25%;
 }
 
+#thisPage {
+  color: gray;
+}
 
 /* sets the padding and border for the search bar */
 #searchbar {
-  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
   font-size: 17px;
+  background-color: white;
+  width: 20%;
+  /* border: 20px white solid; */
+  /* background: white; */
 }
 
 /* sets the size and transition for the search bar  */
 input[type=text] {
-  width: 20%;
-  -webkit-transition: width 0.15s ease-in-out;
-  transition: width 0.15s ease-in-out;
+  width: 70%;
+  /* -webkit-transition: width 0.15s ease-in-out;
+  transition: width 0.15s ease-in-out; */
   font-size: 20px;
 }
 
 /* When the input field gets focus,
         change its width to 40% */
-input[type=text]:focus {
+/* input[type=text]:focus {
   width: 40%;
-}
+} */
 
 #filter {
   color: white;
   font-size: 32px;
-  
+
 }
 
 nav {
@@ -144,7 +152,6 @@ section {
   color: #fff;
   background: #2980b9;
   padding: 7px 12px;
-  ;
   font-size: 18px;
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.15);
@@ -171,4 +178,13 @@ label {
   width: 20%;
   margin-left: auto;
   margin-right: auto;
+}
+
+button {
+  background: gray;
+  color: white;
+  border: transparent;
+  font-size: 18px;
+  padding: 5px;
+  border-radius: 10px;
 }

@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 /* sets background color */
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
   margin: 0;
@@ -9,7 +10,7 @@ html, body {
   box-sizing: border-box;
   font-family: 'brandon-grotesque', sans-serif;
   scroll-behavior: smooth;
-  background: gray;
+  background: white;
 }
 
 /* sets font, text alignment, padding, and display for the home page */
@@ -21,8 +22,6 @@ body {
   display: flex;
   flex-direction: column;
 }
-
-
 
 nav {
   position: fixed;
@@ -68,11 +67,30 @@ nav .navbar .menu {
 }
 
 
+/* label {
 label {
   font-size: 25px;
+} */
+
+
+.faqAnswers {
+  color: black;
+  font-size: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  /* padding-bottom: 7px; */
 }
 
-p{
-  color: white;
-  font-size: 25px;
+.question {
+  font-weight: bold;
+  color: maroon;
+  font-size: 35px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+#thisPage {
+  color: gray;
 }
