@@ -10,7 +10,7 @@ body {
   box-sizing: border-box;
   font-family: 'brandon-grotesque', sans-serif;
   scroll-behavior: smooth;
-  background: gray;
+  background: white;
 }
 
 /* sets font, text alignment, padding, and display for the home page */
@@ -72,44 +72,9 @@ label {
   font-size: 25px;
 } */
 
-#Intro{
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.row{
-  margin: auto;
-  aspect-ratio: 1 / 1;
-  background-color: maroon;
-  width: 30%;
-  min-width: 300px;
-  height: auto;
-  padding: 2%;
-  color: white;
-  border: 10px white solid;
-  border-radius: 10px;
-  margin-left: 4%;
-  margin-right: 4%;
-  margin-top: 40px;
-}
-
-#welcome {
-  color: white;
-  font-size: 25px;
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-p {
-  color: white;
-  font-size: 25px;
-  /* padding: 10px; */
-}
 
 .faqAnswers {
-  color: white;
+  color: black;
   font-size: 25px;
   margin-left: auto;
   margin-right: auto;
@@ -119,12 +84,11 @@ p {
 
 .question {
   font-weight: bold;
-  color: white;
+  color: maroon;
   font-size: 35px;
   margin-left: auto;
   margin-right: auto;
   width: 70%;
-
 }
 
 #thisPage {
