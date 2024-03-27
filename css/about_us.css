@@ -72,6 +72,28 @@ label {
   font-size: 25px;
 } */
 
+#Intro{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.row{
+  margin: auto;
+  aspect-ratio: 1 / 1;
+  background-color: maroon;
+  width: 30%;
+  min-width: 300px;
+  height: auto;
+  padding: 2%;
+  color: white;
+  border: 10px white solid;
+  border-radius: 10px;
+  margin-left: 4%;
+  margin-right: 4%;
+  margin-top: 40px;
+}
+
 #welcome {
   color: white;
   font-size: 25px;
