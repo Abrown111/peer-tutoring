@@ -10,7 +10,7 @@ body {
   box-sizing: border-box;
   font-family: 'brandon-grotesque', sans-serif;
   scroll-behavior: smooth;
-  background: white;
+  background: #e0e0e0;
   /* background: url("Nik Baby.JPG") no-repeat center center fixed; */
 }
 
