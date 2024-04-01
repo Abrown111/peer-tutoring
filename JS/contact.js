@@ -17,6 +17,23 @@ const firebaseConfig = {
   appId: "1:289661482327:web:5ff58469a93a0f83087a12"
 };
 
+var userArray;
+const user = localStorage.getItem("users");
+var admin = false;
+if(user!=null){
+  userArray = user.split(" ");
+}
+if(getDoc(doc(db, "peer-tutoring-signups", userArray[2])).data().isAdmin){
+  admin = true;
+  var nav = document.getElementsByClassName("menu")[0];
+  var newLine = document.createElement("li");
+  var newLink = document.createElement("a");
+  newLink.href = "requests.html";
+  newLink.innerHTML = "Requests";
+  newLine.appendChild(newLink);
+  nav.appendChild(newLine);
+}
+
 export const showItems = async function(){
 
   var tutors = document.getElementById("HeadsOfPeerTutor");

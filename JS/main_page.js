@@ -29,11 +29,11 @@ var psswd = document.getElementById("password");
 var form = document.getElementById("form");
 
 const user = localStorage.getItem("users");
-var admin = false;
+var admin = true;
 if(user!=null){
   var userArray = user.split(" ");
 }
-if(user == 'Alex Brown alex.brown.6147@gmail.com'){
+if(getDoc(doc(db, "peer-tutoring-signups", userArray[2])).data().isAdmin){
   admin = true;
   var nav = document.getElementsByClassName("menu")[0];
   var newLine = document.createElement("li");
@@ -83,7 +83,27 @@ export const login = async function () {
   }
 }
 
+async function removeTutor(id, name, isAdmins){
+  let text = "Are you sure you want to remove " + name + " as a tutor?" ? !isAdmins : "Are you sure you want to remove " + name + " as an admin?"
+  if(confirm(test)){
+    await updateDoc(doc(db, "peer-tutoring-signups", id), {
+      isRequested: false,
+      isApproved: false,
 
+    });
+    location.reload();
+  }
+}
+
+async function promoteTutor(id, name){
+  let text = "Are you sure you want to add " + name + " as an admin?"
+  if(confirm(test)){
+    await updateDoc(doc(db, "peer-tutoring-signups", id), {
+      isAdmin: true
+    });
+    location.reload();
+  }
+}
 
 
 // show Tutors from firebase in the tiles on the screen
@@ -158,11 +178,6 @@ export const showItems = async function () {
           // calendar.target = "_blank";
           row.appendChild(calendar);
 
-
-
-
-
-
           //row.appendChild(document.createElement("br"));
 
           // var experience = document.createElement("p");
@@ -176,9 +191,25 @@ export const showItems = async function () {
           grade.for = item.id;
           row.appendChild(grade);
 
+          if(admin){
+            console.log("here");
+            var remove = document.createElement("button");
+            remove.innerText = "Remove Tutor" ? !item.data().isAdmin : "Remove Admin";
+            calendar.onclick = removeTutor(item.id, String(item.data().firstName) + String(item.data().firstName));
 
+            var promote = document.createElement("button");
+            promote.innerText = "Promote to Admin";
+            promote.onclick = promoteTutor(item.id, String(item.data().firstName) + String(item.data().firstName));
+
+            row.appendChild(remove);
+            if(!item.data().isAdmin){
+              row.appendChild(promote);
+            }
+          }
 
           tutors.appendChild(row);
+
+
 
         }
       }

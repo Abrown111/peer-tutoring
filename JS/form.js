@@ -29,12 +29,22 @@ const scienceClasses = ["Advanced Physics", "Advanced Chemistry", "Advanced Biol
 const languageClasses = ["Spanish 1", "Spanish 2", "Honors Spanish 2", "Spanish 3", "Honors Spanish 3", "Spanish 4", "AP Spanish", "Spanish 5", "Honors Spanish 5", "French 1", "French 2", "Honors French 2", "French 3", "Honors French 3", "French 4", "AP French", "French 5", "Honors French 5"];
 const humanitiesClasses = ["English 9", "History 9", "Humanities 10", "American Studies", "Peer Writing"];
 const csClasses = ["Computer Science Principles", "Data Structures"];
-var user = localStorage.getItem("users");
+
 var userArray;
-if (user == null) {
-  window.location.href = "https://abrown111.github.io/peer-tutoring/HTML/index.html";
-} else {
-  userArray = user.split(" ");
+const user = localStorage.getItem("users");
+var admin = false;
+if(user!=null){
+  var userArray = user.split(" ");
+}
+if(getDoc(doc(db, "peer-tutoring-signups", userArray[2])).data().isAdmin){
+  admin = true;
+  var nav = document.getElementsByClassName("menu")[0];
+  var newLine = document.createElement("li");
+  var newLink = document.createElement("a");
+  newLink.href = "requests.html";
+  newLink.innerHTML = "Requests";
+  newLine.appendChild(newLink);
+  nav.appendChild(newLine);
 }
 
 let lastName = document.getElementById("lastName");

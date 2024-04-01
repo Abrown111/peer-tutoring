@@ -21,14 +21,15 @@ const db = getFirestore(app);
 var category_list = []
 var username;
 var encrypted_password;
+var userArray;
 
 
 const user = localStorage.getItem("users");
 var admin = false;
 if(user!=null){
-  var userArray = user.split(" ");
+  userArray = user.split(" ");
 }
-if(user == 'Alex Brown alex.brown.6147@gmail.com'){
+if(getDoc(doc(db, "peer-tutoring-signups", userArray[2])).data().isAdmin){
   admin = true;
   var nav = document.getElementsByClassName("menu")[0];
   var newLine = document.createElement("li");
