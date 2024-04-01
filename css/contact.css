@@ -10,7 +10,7 @@ body {
   box-sizing: border-box;
   font-family: 'brandon-grotesque', sans-serif;
   scroll-behavior: smooth;
-  background: gray;
+  background: white;
   /* background: url("Nik Baby.JPG") no-repeat center center fixed; */
 }
 
@@ -76,18 +76,18 @@ label {
 
 h {
   font-size: 25px;
-  color: white;
+  color: black;
 }
 
 #questions {
   font-size: 35px;
-  color: white;
+  color: maroon;
 }
 
-#JakePhone {
+/* #JakePhone {
   font-size: 25px;
-  color: white;
-}
+  color: maroon;
+} */
 
 p {
   font-size: 25px;
@@ -103,11 +103,12 @@ p {
   height: auto;
   padding: 2%;
   color: white;
-  border: 10px white solid;
   border-radius: 10px;
   margin-left: 4%;
   margin-right: 4%;
   margin-top: 40px;
+  margin-bottom: 40px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
 }
 
 #HeadsOfPeerTutor {
