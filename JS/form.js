@@ -21,22 +21,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const user = localStorage.getItem("users");
-var admin = false;
-if(user!=null){
-  var userArray = user.split(" ");
-}
-if(user == 'Alex Brown alex.brown.6147@gmail.com'){
-  admin = true;
-  var nav = document.getElementsByClassName("menu")[0];
-  var newLine = document.createElement("li");
-  var newLink = document.createElement("a");
-  newLink.href = "requests.html";
-  newLink.innerHTML = "Requests";
-  newLine.appendChild(newLink);
-  nav.appendChild(newHeader);
-}
-
 // Allows access to the form from the html page
 let form = document.getElementById("tutorform");
 
@@ -47,17 +31,15 @@ const humanitiesClasses = ["English 9", "History 9", "Humanities 10", "American 
 const csClasses = ["Computer Science Principles", "Data Structures"];
 var user = localStorage.getItem("users");
 var userArray;
-if(user==null){
+if (user == null) {
   window.location.href = "https://abrown111.github.io/peer-tutoring/HTML/index.html";
-}else{
-   userArray = user.split(" ");
+} else {
+  userArray = user.split(" ");
 }
 
 let lastName = document.getElementById("lastName");
 let firstName = document.getElementById("firstName");
-if(userArray[1] != 'undefined'){
-  lastName.value = userArray[1];
-}
+lastName.value = userArray[1];
 firstName.value = userArray[0];
 
 if (Math.floor(Math.random() * 1000) == 1) {
