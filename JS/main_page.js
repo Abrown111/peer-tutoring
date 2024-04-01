@@ -41,7 +41,7 @@ if(user == 'Alex Brown alex.brown.6147@gmail.com'){
   newLink.href = "requests.html";
   newLink.innerHTML = "Requests";
   newLine.appendChild(newLink);
-  nav.appendChild(newHeader);
+  nav.appendChild(newLine);
 }
 
 
