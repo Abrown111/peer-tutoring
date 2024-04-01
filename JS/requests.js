@@ -29,7 +29,7 @@ var admin = false;
 if(user!=null){
   userArray = user.split(" ");
 }
-if(getDoc(doc(db, "peer-tutoring-signups", userArray[2])).data().isAdmin){
+if(await getDoc(doc(db, "peer-tutoring-signups", userArray[2])).data().isAdmin){
   admin = true;
   var nav = document.getElementsByClassName("menu")[0];
   var newLine = document.createElement("li");

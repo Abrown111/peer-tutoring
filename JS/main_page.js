@@ -5,7 +5,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebas
 
 // TODO: import libraries for Cloud Firestore Database
 // https://firebase.google.com/docs/firestore
-import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDoc, getDocs, doc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -24,6 +24,10 @@ var category_list = []
 var username;
 var password;
 
+await updateDoc(doc(db, "peer-tutoring-signups", "alex.brown.6147@gmail.com"), {
+  isAdmin: true
+});
+
 var uname = document.getElementById("username");
 var psswd = document.getElementById("password");
 var form = document.getElementById("form");
@@ -33,7 +37,7 @@ var admin = true;
 if(user!=null){
   var userArray = user.split(" ");
 }
-if(getDoc(doc(db, "peer-tutoring-signups", userArray[2])).data().isAdmin){
+if(await getDoc(doc(db, "peer-tutoring-signups", userArray[2])).data().isAdmin){
   admin = true;
   var nav = document.getElementsByClassName("menu")[0];
   var newLine = document.createElement("li");
