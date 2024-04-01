@@ -17,7 +17,7 @@ const firebaseConfig = {
   appId: "1:289661482327:web:5ff58469a93a0f83087a12"
 };
 
-export const showItems = async function () {
+export const showItems = async function(){
 
   var tutors = document.getElementById("HeadsOfPeerTutor");
   tutors.innerHTML = "";

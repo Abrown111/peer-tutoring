@@ -22,19 +22,22 @@ var category_list = []
 var username;
 var encrypted_password;
 
+
 const user = localStorage.getItem("users");
-// if(user==null){
-//   window.location.href = "https://peer-tutor-app-1.timothygroves.repl.co/index.html";
-// }else{
-//    var userArray = user.split(" ");
-// }
-// user != "Jake Kapp jkapp24@students.stab.org" || 
-// if(user != "Alex Brown alex.brown.6147@gmail.com"){
-//   window.location.href = "https://peer-tutor-app-1.timothygroves.repl.co/main_page.html";
-// }
-// if(user != "Sean undefined bluester425@gmail.com"){
-//   window.location.href = "https://peer-tutor-app-1.timothygroves.repl.co/main_page.html";
-// }
+var admin = false;
+if(user!=null){
+  var userArray = user.split(" ");
+}
+if(user == 'Alex Brown alex.brown.6147@gmail.com'){
+  admin = true;
+  var nav = document.getElementsByClassName("menu")[0];
+  var newLine = document.createElement("li");
+  var newLink = document.createElement("a");
+  newLink.href = "requests.html";
+  newLink.innerHTML = "Requests";
+  newLine.appendChild(newLink);
+  nav.appendChild(newHeader);
+}
 
 // show Tutors from firebase in the tiles on the screen
 export const showItems = async function () {
