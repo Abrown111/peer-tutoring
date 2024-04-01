@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 /* Styles for the HTML element */
-html, body {
+html {
   height: 100%;
   width: 100%;
   background-color: maroon;
@@ -33,6 +33,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  margin: 0;
 }
 
 #gradelevel {
