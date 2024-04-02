@@ -32,6 +32,7 @@ const csClasses = ["Computer Science Principles", "Data Structures"];
 
 console.log(document.getElementsByClassName("menu")[0]);
 
+var userArray;
 const user = localStorage.getItem("users");
 var userDoc;
 if(user!=null){
