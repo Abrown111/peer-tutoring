@@ -17,12 +17,12 @@ const firebaseConfig = {
   appId: "1:289661482327:web:5ff58469a93a0f83087a12"
 };
 
-var userArray;
 const user = localStorage.getItem("users");
+var userDoc;
 if(user!=null){
   userArray = user.split(" ");
+  userDoc = await getDoc(doc(db, "peer-tutoring-signups", userArray[2]));
 }
-const userDoc = await getDoc(doc(db, "peer-tutoring-signups", userArray[2]));
 var admin = false;
 if(userDoc.data().isAdmin){
   admin = true;

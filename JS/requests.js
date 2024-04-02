@@ -24,12 +24,12 @@ var encrypted_password;
 var userArray;
 
 
-var userArray;
 const user = localStorage.getItem("users");
+var userDoc;
 if(user!=null){
   userArray = user.split(" ");
+  userDoc = await getDoc(doc(db, "peer-tutoring-signups", userArray[2]));
 }
-const userDoc = await getDoc(doc(db, "peer-tutoring-signups", userArray[2]));
 var admin = false;
 if(userDoc.data().isAdmin){
   admin = true;

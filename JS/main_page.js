@@ -24,19 +24,17 @@ var category_list = []
 var username;
 var password;
 
-await updateDoc(doc(db, "peer-tutoring-signups", "alex.brown.6147@gmail.com"), {
-  isAdmin: true
-});
 
 var uname = document.getElementById("username");
 var psswd = document.getElementById("password");
 var form = document.getElementById("form");
 
 const user = localStorage.getItem("users");
+var userDoc;
 if(user!=null){
   userArray = user.split(" ");
+  userDoc = await getDoc(doc(db, "peer-tutoring-signups", userArray[2]));
 }
-const userDoc = await getDoc(doc(db, "peer-tutoring-signups", userArray[2]));
 var admin = false;
 if(userDoc.data().isAdmin){
   admin = true;
@@ -197,15 +195,16 @@ export const showItems = async function () {
           row.appendChild(grade);
 
           if(admin){
-            console.log("here");
             var remove = document.createElement("button");
-            remove.innerText = "Remove Tutor" ? !item.data().isAdmin : "Remove Admin";
-            calendar.onclick = removeTutor(item.id, String(item.data().firstName) + String(item.data().firstName));
-
+            remove.innerText = !item.data().isAdmin ? "Remove tutor" : "Remove Admin";
+            remove.addEventListener('click', () => {
+              removeTutor(item.id, String(item.data().firstName) + String(item.data().firstName));
+            });
             var promote = document.createElement("button");
             promote.innerText = "Promote to Admin";
-            promote.onclick = promoteTutor(item.id, String(item.data().firstName) + String(item.data().firstName));
-
+            remove.addEventListener('click', () => {
+              promoteTutor(item.id, String(item.data().firstName) + String(item.data().firstName));
+            });
             row.appendChild(remove);
             if(!item.data().isAdmin){
               row.appendChild(promote);
