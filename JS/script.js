@@ -27,22 +27,6 @@ var category_list = []
 var userStuff;
 
 
-const user = localStorage.getItem("users");
-var admin = false;
-// if(user!=null){
-//   var userArray = user.split(" ");
-// }
-// if(user == 'Alex Brown alex.brown.6147@gmail.com'){
-//   admin = true;
-//   var nav = document.getElementsByClassName("menu")[0];
-//   var newLine = document.createElement("li");
-//   var newLink = document.createElement("a");
-//   newLink.href = "requests.html";
-//   newLink.innerHTML = "Requests";
-//   newLine.appendChild(newLink);
-//   nav.appendChild(newHeader);
-// }
-
 var form = document.getElementById("form");
 // var databaseItems = await getDocs(collection(db, "peer-tutoring-signups"));
 
@@ -98,7 +82,8 @@ async function setUserData(user){
               grade: '',
               img: '',
               isRequested: false,
-              isApproved: false
+              isApproved: false,
+              isAdmin: false
             // });
             //   c = 1;
           });

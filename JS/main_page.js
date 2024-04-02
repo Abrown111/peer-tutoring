@@ -5,7 +5,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebas
 
 // TODO: import libraries for Cloud Firestore Database
 // https://firebase.google.com/docs/firestore
-import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDoc, getDocs, doc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -24,16 +24,19 @@ var category_list = []
 var username;
 var password;
 
+
 var uname = document.getElementById("username");
 var psswd = document.getElementById("password");
 var form = document.getElementById("form");
 
 const user = localStorage.getItem("users");
-var admin = false;
+var userDoc;
 if(user!=null){
-  var userArray = user.split(" ");
+  userArray = user.split(" ");
+  userDoc = await getDoc(doc(db, "peer-tutoring-signups", userArray[2]));
 }
-if(user == 'Alex Brown alex.brown.6147@gmail.com'){
+var admin = false;
+if(userDoc.data().isAdmin){
   admin = true;
   var nav = document.getElementsByClassName("menu")[0];
   var newLine = document.createElement("li");
@@ -83,7 +86,27 @@ export const login = async function () {
   }
 }
 
+async function removeTutor(id, name, isAdmins){
+  let text = "Are you sure you want to remove " + name + " as a tutor?" ? !isAdmins : "Are you sure you want to remove " + name + " as an admin?"
+  if(confirm(text)){
+    await updateDoc(doc(db, "peer-tutoring-signups", id), {
+      isRequested: false,
+      isApproved: false,
 
+    });
+    location.reload();
+  }
+}
+
+async function promoteTutor(id, name){
+  let text = "Are you sure you want to add " + name + " as an admin?"
+  if(confirm(text)){
+    await updateDoc(doc(db, "peer-tutoring-signups", id), {
+      isAdmin: true
+    });
+    location.reload();
+  }
+}
 
 
 // show Tutors from firebase in the tiles on the screen
@@ -158,11 +181,6 @@ export const showItems = async function () {
           // calendar.target = "_blank";
           row.appendChild(calendar);
 
-
-
-
-
-
           //row.appendChild(document.createElement("br"));
 
           // var experience = document.createElement("p");
@@ -176,9 +194,26 @@ export const showItems = async function () {
           grade.for = item.id;
           row.appendChild(grade);
 
-
+          if(admin){
+            var remove = document.createElement("button");
+            remove.innerText = !item.data().isAdmin ? "Remove tutor" : "Remove Admin";
+            remove.addEventListener('click', () => {
+              removeTutor(item.id, String(item.data().firstName) + String(item.data().firstName));
+            });
+            var promote = document.createElement("button");
+            promote.innerText = "Promote to Admin";
+            promote.addEventListener('click', () => {
+              promoteTutor(item.id, String(item.data().firstName) + String(item.data().firstName));
+            });
+            row.appendChild(remove);
+            if(!item.data().isAdmin){
+              row.appendChild(promote);
+            }
+          }
 
           tutors.appendChild(row);
+
+
 
         }
       }

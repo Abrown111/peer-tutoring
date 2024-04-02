@@ -21,14 +21,17 @@ const db = getFirestore(app);
 var category_list = []
 var username;
 var encrypted_password;
+var userArray;
 
 
 const user = localStorage.getItem("users");
-var admin = false;
+var userDoc;
 if(user!=null){
-  var userArray = user.split(" ");
+  userArray = user.split(" ");
+  userDoc = await getDoc(doc(db, "peer-tutoring-signups", userArray[2]));
 }
-if(user == 'Alex Brown alex.brown.6147@gmail.com'){
+var admin = false;
+if(userDoc.data().isAdmin){
   admin = true;
   var nav = document.getElementsByClassName("menu")[0];
   var newLine = document.createElement("li");
@@ -36,7 +39,7 @@ if(user == 'Alex Brown alex.brown.6147@gmail.com'){
   newLink.href = "requests.html";
   newLink.innerHTML = "Requests";
   newLine.appendChild(newLink);
-  nav.appendChild(newHeader);
+  nav.appendChild(newLine);
 }
 
 // show Tutors from firebase in the tiles on the screen

@@ -5,7 +5,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebas
 
 // TODO: import libraries for Cloud Firestore Database
 // https://firebase.google.com/docs/firestore
-import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -16,6 +16,24 @@ const firebaseConfig = {
   messagingSenderId: "289661482327",
   appId: "1:289661482327:web:5ff58469a93a0f83087a12"
 };
+
+const user = localStorage.getItem("users");
+var userDoc;
+if(user!=null){
+  userArray = user.split(" ");
+  userDoc = await getDoc(doc(db, "peer-tutoring-signups", userArray[2]));
+}
+var admin = false;
+if(userDoc.data().isAdmin){
+  admin = true;
+  var nav = document.getElementsByClassName("menu")[0];
+  var newLine = document.createElement("li");
+  var newLink = document.createElement("a");
+  newLink.href = "requests.html";
+  newLink.innerHTML = "Requests";
+  newLine.appendChild(newLink);
+  nav.appendChild(newLine);
+}
 
 export const showItems = async function(){
 
