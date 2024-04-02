@@ -30,6 +30,8 @@ const languageClasses = ["Spanish 1", "Spanish 2", "Honors Spanish 2", "Spanish 
 const humanitiesClasses = ["English 9", "History 9", "Humanities 10", "American Studies", "Peer Writing"];
 const csClasses = ["Computer Science Principles", "Data Structures"];
 
+console.log(document.getElementsByClassName("menu")[0]);
+
 const user = localStorage.getItem("users");
 var userDoc;
 if(user!=null){

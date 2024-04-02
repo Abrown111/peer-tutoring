@@ -88,7 +88,7 @@ export const login = async function () {
 
 async function removeTutor(id, name, isAdmins){
   let text = "Are you sure you want to remove " + name + " as a tutor?" ? !isAdmins : "Are you sure you want to remove " + name + " as an admin?"
-  if(confirm(test)){
+  if(confirm(text)){
     await updateDoc(doc(db, "peer-tutoring-signups", id), {
       isRequested: false,
       isApproved: false,
@@ -100,7 +100,7 @@ async function removeTutor(id, name, isAdmins){
 
 async function promoteTutor(id, name){
   let text = "Are you sure you want to add " + name + " as an admin?"
-  if(confirm(test)){
+  if(confirm(text)){
     await updateDoc(doc(db, "peer-tutoring-signups", id), {
       isAdmin: true
     });
@@ -202,7 +202,7 @@ export const showItems = async function () {
             });
             var promote = document.createElement("button");
             promote.innerText = "Promote to Admin";
-            remove.addEventListener('click', () => {
+            promote.addEventListener('click', () => {
               promoteTutor(item.id, String(item.data().firstName) + String(item.data().firstName));
             });
             row.appendChild(remove);
