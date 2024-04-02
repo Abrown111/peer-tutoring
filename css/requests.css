@@ -99,3 +99,7 @@ nav .navbar .menu {
   font-weight: 500;
   text-decoration: none;
 }
+
+#thisPage {
+  color: gray;
+}
