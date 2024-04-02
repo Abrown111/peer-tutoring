@@ -127,3 +127,7 @@ img {
 #thisPage {
   color: gray;
 }
+
+#names{
+  font-weight: bold;
+}
