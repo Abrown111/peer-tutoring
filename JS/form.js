@@ -32,11 +32,11 @@ const csClasses = ["Computer Science Principles", "Data Structures"];
 
 var userArray;
 const user = localStorage.getItem("users");
-const userDoc = await getDoc(doc(db, "peer-tutoring-signups", userArray[2]));
-var admin = false;
 if(user!=null){
   userArray = user.split(" ");
 }
+const userDoc = await getDoc(doc(db, "peer-tutoring-signups", userArray[2]));
+var admin = false;
 if(userDoc.data().isAdmin){
   admin = true;
   var nav = document.getElementsByClassName("menu")[0];
