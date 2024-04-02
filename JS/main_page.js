@@ -33,11 +33,12 @@ var psswd = document.getElementById("password");
 var form = document.getElementById("form");
 
 const user = localStorage.getItem("users");
-var admin = true;
+const userDoc = await getDoc(doc(db, "peer-tutoring-signups", userArray[2]));
+var admin = false;
 if(user!=null){
-  var userArray = user.split(" ");
+  userArray = user.split(" ");
 }
-if(await getDoc(doc(db, "peer-tutoring-signups", userArray[2])).data().isAdmin){
+if(userDoc.data().isAdmin){
   admin = true;
   var nav = document.getElementsByClassName("menu")[0];
   var newLine = document.createElement("li");

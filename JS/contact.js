@@ -19,11 +19,12 @@ const firebaseConfig = {
 
 var userArray;
 const user = localStorage.getItem("users");
+const userDoc = await getDoc(doc(db, "peer-tutoring-signups", userArray[2]));
 var admin = false;
 if(user!=null){
   userArray = user.split(" ");
 }
-if(await getDoc(doc(db, "peer-tutoring-signups", userArray[2])).data().isAdmin){
+if(userDoc.data().isAdmin){
   admin = true;
   var nav = document.getElementsByClassName("menu")[0];
   var newLine = document.createElement("li");
