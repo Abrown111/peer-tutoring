@@ -29,6 +29,7 @@ var uname = document.getElementById("username");
 var psswd = document.getElementById("password");
 var form = document.getElementById("form");
 
+var userArray;
 const user = localStorage.getItem("users");
 var userDoc;
 if(user!=null){
@@ -87,12 +88,11 @@ export const login = async function () {
 }
 
 async function removeTutor(id, name, isAdmins){
-  let text = "Are you sure you want to remove " + name + " as a tutor?" ? !isAdmins : "Are you sure you want to remove " + name + " as an admin?"
+  let text = !isAdmins ? "Are you sure you want to remove " + name + " as a tutor?" : "Are you sure you want to remove " + name + " as an admin?"
   if(confirm(text)){
     await updateDoc(doc(db, "peer-tutoring-signups", id), {
-      isRequested: false,
-      isApproved: false,
-
+      isApproved: isAdmins ? true : false,
+      isAdmin: false,
     });
     location.reload();
   }
@@ -198,12 +198,12 @@ export const showItems = async function () {
             var remove = document.createElement("button");
             remove.innerText = !item.data().isAdmin ? "Remove tutor" : "Remove Admin";
             remove.addEventListener('click', () => {
-              removeTutor(item.id, String(item.data().firstName) + String(item.data().firstName));
+              removeTutor(item.id, String(item.data().firstName) + ' ' + String(item.data().lastName), item.data().isAdmin);
             });
             var promote = document.createElement("button");
             promote.innerText = "Promote to Admin";
             promote.addEventListener('click', () => {
-              promoteTutor(item.id, String(item.data().firstName) + String(item.data().firstName));
+              promoteTutor(item.id, String(item.data().firstName) + ' ' + String(item.data().lastName), item.data().isAdmin);
             });
             row.appendChild(remove);
             if(!item.data().isAdmin){
