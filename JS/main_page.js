@@ -91,9 +91,8 @@ async function removeTutor(id, name, isAdmins){
   let text = !isAdmins ? "Are you sure you want to remove " + name + " as a tutor?" : "Are you sure you want to remove " + name + " as an admin?"
   if(confirm(text)){
     await updateDoc(doc(db, "peer-tutoring-signups", id), {
-      isRequested: false,
-      isApproved: false,
-
+      isApproved: isAdmins ? true : false,
+      isAdmin: false,
     });
     location.reload();
   }
