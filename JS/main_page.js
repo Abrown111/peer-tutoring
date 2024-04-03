@@ -54,6 +54,8 @@ if(user!=null){
 }
 
 var databaseItems = await getDocs(collection(db, "peer-tutoring-signups"));
+
+// DELETE THIS VERY SOON
 databaseItems.forEach((items) => {
   console.log(items);
 });
