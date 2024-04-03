@@ -21,13 +21,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 var category_list = []
-var username;
-var password;
 
-
-var uname = document.getElementById("username");
-var psswd = document.getElementById("password");
-var form = document.getElementById("form");
 
 var userArray;
 const user = localStorage.getItem("users");
@@ -60,32 +54,12 @@ if(user!=null){
 }
 
 var databaseItems = await getDocs(collection(db, "peer-tutoring-signups"));
+
+// DELETE THIS VERY SOON
 databaseItems.forEach((items) => {
   console.log(items);
 });
 
-export const login = async function () {
-  uname = document.getElementById("username");
-  console.log(uname.value);
-
-  var databaseItems = await getDocs(collection(db, "peer-tutoring-signups"));
-  var lock = false;
-  alert("here");
-
-  databaseItems.forEach((item) => {
-    if (item.data().username == uname.value) {
-      if (item.data().password == psswd.value) {
-        lock = true;
-        username = uname.value;
-        password = psswd.value;
-        window.location.href = "https://peer-tutor-app-1.timothygroves.repl.co/main_page.html";
-      }
-    }
-  });
-  if (!lock) {
-    form.reset();
-  }
-}
 
 async function removeTutor(id, name, isAdmins){
   let text = !isAdmins ? "Are you sure you want to remove " + name + " as a tutor?" : "Are you sure you want to remove " + name + " as an admin?"
@@ -219,7 +193,7 @@ export const showItems = async function () {
       }
     }
 
-    console.log(item.id + ", " + item.data().name);
+    console.log(item.id);
   });
 
 }
@@ -245,7 +219,6 @@ export const category_list_add = function () {
     if (document.getElementById("computer science").checked) {
       category_list.push("Computer Science")
     }
-    console.log(category_list);
   } catch (e) {
     console.log("error");
   }
