@@ -219,7 +219,6 @@ export const category_list_add = function () {
     if (document.getElementById("computer science").checked) {
       category_list.push("Computer Science")
     }
-    console.log(category_list);
   } catch (e) {
     console.log("error");
   }
