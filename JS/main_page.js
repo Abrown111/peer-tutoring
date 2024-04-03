@@ -193,7 +193,7 @@ export const showItems = async function () {
       }
     }
 
-    console.log(item.id + ", " + item.data().name);
+    console.log(item.id);
   });
 
 }
