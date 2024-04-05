@@ -197,8 +197,9 @@ button:hover {
   width: 77.37px;
   color: black;
   position: relative;
-  left: 50%;
-  top:30px;
+  margin-left: auto;
+  margin-right: auto;
+  display: none;
 }
 
 .dropbtn {
@@ -212,8 +213,8 @@ button:hover {
 .dropdown-content {
   display: none;
   position: relative;
-  left: 50%;
-  top: 30px;
+  margin-left: auto;
+  margin-right: auto;
   background-color: #f1f1f1;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -227,8 +228,14 @@ button:hover {
   display: block;
 }
 
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
 
-.dropdownnav:hover .dropdown-content {display: block;}
+.dropdownnav:hover .dropdown-content {
+  display: block;
+}
 
-.dropdownnav:hover .dropbtn {background-color: #3e8e41;}
+.dropdownnav:hover .dropbtn {
+  background-color: #3e8e41;
+}

@@ -42,7 +42,7 @@ if(userDoc.data().isAdmin){
   nav.appendChild(newLine);
 }
 
-if(window.innerWidth < 500) {
+if(window.innerWidth < 700) {
   document.getElementsByClassName("dropdownnav")[0].style.display = "flex";
   document.getElementsByClassName("navbar")[0].style.visibility = "hidden";
 } else {
