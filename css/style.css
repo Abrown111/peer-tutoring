@@ -69,6 +69,7 @@ img {
   width: 20%;
   /* border: 20px white solid; */
   /* background: white; */
+  min-width: 200px;
 }
 
 /* sets the size and transition for the search bar  */
