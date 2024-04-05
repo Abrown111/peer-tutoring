@@ -230,7 +230,7 @@ button:hover {
   position: absolute;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 65px;
+  margin-top: 46.5px;
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -252,8 +252,4 @@ button:hover {
 
 .dropdownnav:hover .dropdown-content {
   display: block;
-}
-
-.dropdownnav:hover .dropbtn {
-  background-color: #3e8e41;
 }
