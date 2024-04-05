@@ -42,6 +42,14 @@ if(userDoc.data().isAdmin){
   nav.appendChild(newLine);
 }
 
+if(window.innerWidth < 500) {
+  document.getElementsByClassName("dropdownnav")[0].style.display = "inline-block";
+  document.getElementsByClassName("navbar")[0].style.display = "none";
+} else {
+  document.getElementsByClassName("navbar")[0].style.display = "inline-block";
+  document.getElementsByClassName("dropdownnav")[0].style.display = "none";
+}
+
 
 // if(user==null){
 //   window.location.href = "https://peer-tutor-app-1.timothygroves.repl.co/index.html";
