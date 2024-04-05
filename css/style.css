@@ -103,7 +103,7 @@ nav {
 }
 
 nav .navbar {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: space-between;
   height: 100%;
@@ -196,7 +196,8 @@ button:hover {
 .dropdownnav {
   color: black;
   position: relative;
-
+  left: 50%;
+  top:30px;
 }
 
 .dropbtn {

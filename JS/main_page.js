@@ -44,7 +44,7 @@ if(userDoc.data().isAdmin){
 
 if(window.innerWidth < 500) {
   document.getElementsByClassName("dropdownnav")[0].style.display = "flex";
-  document.getElementsByClassName("navbar")[0].style.display = "hidden";
+  document.getElementsByClassName("navbar")[0].style.display = "none";
 } else {
   document.getElementsByClassName("navbar")[0].style.display = "flex";
   document.getElementsByClassName("dropdownnav")[0].style.display = "hidden";
