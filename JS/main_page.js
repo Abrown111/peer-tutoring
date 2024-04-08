@@ -56,7 +56,7 @@ if(window.innerWidth < 600) {
 }
 
 function showDropdown() {
-  document.getElementByClassName("dropdown-content")[0].remove('show');
+  document.getElementById("myDropdown").classList.toggle("show");
 }
 
 window.onclick = function(event) {
