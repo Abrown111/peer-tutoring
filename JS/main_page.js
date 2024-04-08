@@ -43,13 +43,25 @@ if(userDoc.data().isAdmin){
 }
 
 if(window.innerWidth < 600) {
-  document.getElementsByClassName("dropdownnav")[0].style.display = "flex";
+  document.getElementsByClassName("dropdownnav")[0].style.display = "inline-block";
   document.getElementsByClassName("navbar")[0].style.visibility = "hidden";
 } else {
   document.getElementsByClassName("navbar")[0].style.display = "flex";
   document.getElementsByClassName("dropdownnav")[0].style.visibility = "hidden";
 }
 
+function showDropdown() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdown = document.getElementsByClassName("dropdown-content");
+      if (dropdown.contains('show')) {
+        dropdown.remove('show');
+      }
+    }
+  }
 
 // if(user==null){
 //   window.location.href = "https://peer-tutor-app-1.timothygroves.repl.co/index.html";
