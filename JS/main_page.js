@@ -40,6 +40,11 @@ if(userDoc.data().isAdmin){
   newLink.innerHTML = "Requests";
   newLine.appendChild(newLink);
   nav.appendChild(newLine);
+  var drop = document.getElementById("myDropdown");
+  var link = document.createElement("a");
+  link.href = "requests.html";
+  link.innerHTML = "Requests";
+  drop.appendChild("link");
 }
 
 if(window.innerWidth < 600) {
@@ -56,7 +61,7 @@ function showDropdown() {
 
 window.onclick = function(event) {
   if (!event.target.matches('.dropbtn')) {
-    var dropdown = document.getElementsByClassName("dropdown-content");
+    var dropdown = document.getElementsByClassName("dropdown-content")[0];
       if (dropdown.contains('show')) {
         dropdown.remove('show');
       }
