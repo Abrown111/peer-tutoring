@@ -44,7 +44,7 @@ if(userDoc.data().isAdmin){
   var link = document.createElement("a");
   link.href = "requests.html";
   link.innerHTML = "Requests";
-  drop.appendChild("link");
+  drop.appendChild(link);
 }
 
 if(window.innerWidth < 600) {
