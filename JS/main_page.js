@@ -55,7 +55,10 @@ if(window.innerWidth < 600) {
   document.getElementsByClassName("dropdownnav")[0].style.visibility = "hidden";
 }
 
-export const showDropdown = function() {
+
+document.getElementById("dropbutton")[0].addEventListener("click", showDropdown);
+
+function showDropdown() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 

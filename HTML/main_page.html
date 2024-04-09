@@ -13,10 +13,9 @@
 <body>
   <script type="module" src="https://abrown111.github.io/peer-tutoring/JS/main_page.js"></script>
   <script type="module">
-    import { category_list_add, showItems, showDropdown } from 'https://abrown111.github.io/peer-tutoring/JS/main_page.js';
+    import { category_list_add, showItems } from 'https://abrown111.github.io/peer-tutoring/JS/main_page.js';
     window.category_list_add = category_list_add;
     window.showItems = showItems;
-    window.showDropdown = showDropdown;
 
   </script>
 
@@ -36,7 +35,7 @@
     </div>
 
     <div class="dropdownnav">
-      <button class="dropbtn" onclick = "showDropdown">Pages
+      <button class="dropbtn" id = "dropbutton">Pages
         <i class="fa fa-caret-down"></i>
       </button>
       <div id="myDropdown" class="dropdown-content">
