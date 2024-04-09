@@ -59,14 +59,20 @@ function showDropdown() {
   document.getElementById("myDropdown").toggle("show");
 }
 
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdown = document.getElementsByClassName("dropdown-content")[0];
-      if (dropdown.contains('show')) {
-        dropdown.remove('show');
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      for (var i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
       }
     }
   }
+
+
+
 
 // if(user==null){
 //   window.location.href = "https://peer-tutor-app-1.timothygroves.repl.co/index.html";
