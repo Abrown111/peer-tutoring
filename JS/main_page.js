@@ -56,7 +56,7 @@ if(window.innerWidth < 600) {
 }
 
 export const showDropdown = function() {
-  document.getElementById("myDropdown").toggle("show");
+  document.getElementById("myDropdown").classList.toggle("show");
 }
 
   window.onclick = function(event) {
