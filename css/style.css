@@ -250,11 +250,3 @@ button:hover {
   display: block;
   text-align: left;
 }
-
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-.dropdownnav:hover .dropdown-content {
-  display: block;
-}
