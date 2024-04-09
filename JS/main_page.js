@@ -61,15 +61,12 @@ export const showDropdown = function() {
 
   window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      for (var i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
+      var dropdown = document.getElementsByClassName("dropdown-content")[0];
+        if (dropdown.classList.contains('show')) {
+          dropdown.classList.remove('show');
         }
       }
     }
-  }
 
 
 
