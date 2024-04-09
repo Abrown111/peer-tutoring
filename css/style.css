@@ -69,7 +69,7 @@ img {
   width: 20%;
   /* border: 20px white solid; */
   /* background: white; */
-  min-width: 200px;
+  min-width: 220px;
 }
 
 /* sets the size and transition for the search bar  */
@@ -89,7 +89,9 @@ input[type=text] {
 #filter {
   color: white;
   font-size: 32px;
-
+  background-color: maroon;
+  width: 20%;
+  min-width: 220px;
 }
 
 nav {
@@ -178,7 +180,7 @@ label {
   width: 20%;
   margin-left: auto;
   margin-right: auto;
-  min-width: 200px;
+  min-width: 220px;
 }
 
 button {
