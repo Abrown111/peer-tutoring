@@ -250,3 +250,7 @@ button:hover {
   display: block;
   text-align: left;
 }
+
+.show {
+  display: block;
+}
