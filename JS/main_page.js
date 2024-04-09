@@ -56,7 +56,7 @@ if(window.innerWidth < 600) {
 }
 
 
-document.getElementById("dropbutton")[0].addEventListener("click", showDropdown);
+document.getElementById("dropbutton").addEventListener("click", showDropdown);
 
 function showDropdown() {
   document.getElementById("myDropdown").classList.toggle("show");
