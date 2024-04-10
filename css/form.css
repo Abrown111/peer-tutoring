@@ -238,3 +238,71 @@ p {
 #thisPage {
   color: gray;
 }
+
+button {
+  background: gray;
+  color: white;
+  border: transparent;
+  font-size: 18px;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.dropdownnav {
+  width: 100px;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  display: none;
+  background-color: black;
+  margin-top: 10px;
+}
+
+.dropbtn {
+  background-color: black;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdownnav .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.show {
+  display: block;
+}

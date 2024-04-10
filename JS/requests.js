@@ -42,6 +42,34 @@ if(userDoc.data().isAdmin){
   // nav.appendChild(newLine);
 }
 
+if(window.innerWidth < 600) {
+  document.getElementsByClassName("dropdownnav")[0].style.display = "inline-block";
+  document.getElementsByClassName("navbar")[0].style.visibility = "hidden";
+} else {
+  document.getElementsByClassName("navbar")[0].style.display = "flex";
+  document.getElementsByClassName("dropdownnav")[0].style.visibility = "hidden";
+}
+
+
+document.getElementById("dropbutton").addEventListener("click", showDropdown);
+
+function showDropdown() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    for (var i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+
 // show Tutors from firebase in the tiles on the screen
 export const showItems = async function () {
   const databaseItems = await getDocs(collection(db, "peer-tutoring-signups"));
