@@ -49,6 +49,11 @@ if(userDoc.data().isAdmin){
   newLink.innerHTML = "Requests";
   newLine.appendChild(newLink);
   nav.appendChild(newLine);
+  var drop = document.getElementById("myDropdown");
+  var link = document.createElement("a");
+  link.href = "requests.html";
+  link.innerHTML = "Requests";
+  drop.appendChild(link);
 }
 
 if(window.innerWidth < 600) {

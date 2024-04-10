@@ -33,13 +33,18 @@ if(user!=null){
 var admin = false;
 if(userDoc.data().isAdmin){
   admin = true;
-  // var nav = document.getElementsByClassName("menu")[0];
-  // var newLine = document.createElement("li");
-  // var newLink = document.createElement("a");
-  // newLink.href = "requests.html";
-  // newLink.innerHTML = "Requests";
-  // newLine.appendChild(newLink);
-  // nav.appendChild(newLine);
+  var nav = document.getElementsByClassName("menu")[0];
+  var newLine = document.createElement("li");
+  var newLink = document.createElement("a");
+  newLink.href = "requests.html";
+  newLink.innerHTML = "Requests";
+  newLine.appendChild(newLink);
+  nav.appendChild(newLine);
+  var drop = document.getElementById("myDropdown");
+  var link = document.createElement("a");
+  link.href = "requests.html";
+  link.innerHTML = "Requests";
+  drop.appendChild(link);
 }
 
 if(window.innerWidth < 600) {
