@@ -106,7 +106,7 @@ p {
   box-shadow: 7px 7px 7px rgba(0,0,0,0.6);
 }
 
-#HeadsOfPeerTutor {
+#tutors {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
