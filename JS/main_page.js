@@ -167,6 +167,11 @@ export const showItems = async function () {
           row.appendChild(description);
           //row.appendChild(document.createElement("br"));
 
+          var grade = document.createElement("p");
+          grade.innerHTML = "Grade: " + item.data().grade;
+          grade.for = item.id;
+          row.appendChild(grade);
+
           var email = document.createElement("p");
           email.innerHTML = "Email: " + item.data().email;
           email.for = item.id;
@@ -197,10 +202,7 @@ export const showItems = async function () {
           // row.appendChild(experience);
           // row.appendChild(document.createElement("br"));
 
-          var grade = document.createElement("p");
-          grade.innerHTML = "Grade: " + item.data().grade;
-          grade.for = item.id;
-          row.appendChild(grade);
+        
 
           if(admin){
             var remove = document.createElement("button");
