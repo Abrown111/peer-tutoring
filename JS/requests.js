@@ -152,6 +152,15 @@ export const showItems = async function () {
       tutor_requests.appendChild(row);
     }
   });
+  if (document.getElementById("tutor_requests") == null) {
+    let req = document.getElementById("tutor_requests");
+    let none = document.createElement("div");
+    let text = document.createElement("h1");
+    text.setAttribute("id", "no_tutors");
+    text.innerHTML = "There are currently no requests";
+    none.appendChild(text);
+    req.appendChild(none);
+  }
 }
 
 async function handleApproval(itemId) {
