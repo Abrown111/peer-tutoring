@@ -140,42 +140,25 @@ export const showItems = async function () {
   //     tutors.appendChild(link);
 
   databaseItems.forEach((item) => {
-    if (item.data().firstName.toLowerCase().includes(document.getElementById("filter_search").value.toLowerCase()) || item.data().lastName.toLowerCase().includes(document.getElementById("filter_search").value.toLowerCase())) { //search bar for Tutors
       if (item.data().isAdmin == true) {
-        if (similar(category_list, item.data().teachList) || category_list.length == 0) { //category check-list for Tutors
           var row = document.createElement("div");
           row.setAttribute('class', "row");
-
           var name = document.createElement("h1");
           name.innerHTML = item.data().firstName + " " + item.data().lastName.substring(0, 1) + ".";
           name.for = item.id;
           row.appendChild(name);
-
-          // console.log(item.data().img);
           if (item.data().img != "") {
-
             var image = document.createElement("img");
             image.src = item.data().img;
             row.appendChild(image);
           }
-
           row.appendChild(document.createElement("br"));
-
-
-
           var email = document.createElement("p");
           email.innerHTML = item.data().email;
           email.for = item.id;
           row.appendChild(email);
-
           tutors.appendChild(row);
-
-
-
-        }
-      }
     }
-
     console.log(item.id);
   });
 
