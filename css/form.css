@@ -80,7 +80,7 @@ nav {
 
 /* Styles for the navigation bar content */
 nav .navbar {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: space-between;
   height: 100%;
