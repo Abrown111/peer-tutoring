@@ -56,6 +56,22 @@ if(userDoc.data().isAdmin){
   drop.appendChild(link);
 }
 
+if(userDoc.data().email=="peertutoring@stab.org"){
+ var div = document.getElementById('email');
+ var header = document.createElement('label');
+ var input = document.createElement('input');
+ input.setAttribute('class', "form");
+ input.setAttribute('type', "text");
+ input.setAttribute('id', "email");
+ input.setAttribute('name', "email");
+ input.required = true;
+ header.innerHTML = "Email:";
+ div.appendChild('header');
+ div.appendChild(document.createElement('br'));
+ div.appendChild('input');
+  
+}
+
 if(window.innerWidth < 600) {
   document.getElementsByClassName("dropdownnav")[0].style.display = "inline-block";
   document.getElementsByClassName("navbar")[0].style.visibility = "hidden";
