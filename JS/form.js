@@ -66,9 +66,9 @@ if(userDoc.data().email=="peertutoring@stab.org" || userDoc.data().isAdmin){
  input.setAttribute('name', "email");
  input.required = true;
  header.innerHTML = "Email:";
- div.appendChild('header');
+ div.appendChild(header);
  div.appendChild(document.createElement('br'));
- div.appendChild('input');
+ div.appendChild(input);
   
 }
 
