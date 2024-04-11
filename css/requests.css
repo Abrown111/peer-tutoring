@@ -170,3 +170,8 @@ button:hover {
 .show {
   display: block;
 }
+
+#no_tutors {
+  color: white;
+  padding-top: 50%;
+}
