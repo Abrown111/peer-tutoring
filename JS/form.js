@@ -329,6 +329,10 @@ fileInput.addEventListener('change', (event) => {
     // Convert the image file to a string
     reader.readAsDataURL(imageFile);
 
+    reader.onerror = (error) => {
+      reject("Input: File could not be read:" + error);
+    };
+
     // FileReader will emit the load event when the data URL is ready
     // Access the string using result property inside the callback function
     reader.addEventListener('load', () => {
