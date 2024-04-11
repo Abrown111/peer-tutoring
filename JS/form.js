@@ -56,7 +56,7 @@ if(userDoc.data().isAdmin){
   drop.appendChild(link);
 }
 
-if(userDoc.data().email=="peertutoring@stab.org"){
+if(userDoc.data().email=="peertutoring@stab.org" || userDoc.data().isAdmin){
  var div = document.getElementById('email');
  var header = document.createElement('label');
  var input = document.createElement('input');
