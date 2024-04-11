@@ -152,8 +152,8 @@ export const showItems = async function () {
       tutor_requests.appendChild(row);
     }
   });
-  console.log(document.getElementById("tutor_requests").innerHTML);
-  if (document.getElementById("tutor_requests").innerHTML == null) {
+  console.log(document.getElementById("tutor_requests").innerHTML == "");
+  if (document.getElementById("tutor_requests").innerHTML == "") {
     let req = document.getElementById("tutor_requests");
     let none = document.createElement("div");
     let text = document.createElement("h1");
