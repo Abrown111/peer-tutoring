@@ -292,7 +292,11 @@ form.addEventListener("submit", async (e) => {
   let grade = document.getElementById("grade");
 
   //creates tutor object from the above variables
-  await addTutor(subject, firstName, lastName, description, calendar, grade, teachList);
+  try {
+    await addTutor(subject, firstName, lastName, description, calendar, grade, teachList)
+  } catch (e){
+    alert("File is too big. Please use a smaller file");
+  }
   window.location.href = "https://abrown111.github.io/peer-tutoring/HTML/main_page.html";
 
 });
@@ -328,10 +332,6 @@ fileInput.addEventListener('change', (event) => {
 
     // Convert the image file to a string
     reader.readAsDataURL(imageFile);
-
-    reader.onerror = (error) => {
-      reject("Input: File could not be read:" + error);
-    };
 
     // FileReader will emit the load event when the data URL is ready
     // Access the string using result property inside the callback function
