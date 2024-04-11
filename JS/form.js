@@ -293,12 +293,12 @@ form.addEventListener("submit", async (e) => {
 
   //creates tutor object from the above variables
   try {
-    await addTutor(subject, firstName, lastName, description, calendar, grade, teachList)
+    await addTutor(subject, firstName, lastName, description, calendar, grade, teachList);
+    window.location.href = "https://abrown111.github.io/peer-tutoring/HTML/main_page.html";
   } catch (e){
     alert("File is too big. Please use a smaller file");
+    location.reload();
   }
-  window.location.href = "https://abrown111.github.io/peer-tutoring/HTML/main_page.html";
-
 });
 
 //adds the tutor to the firebase
