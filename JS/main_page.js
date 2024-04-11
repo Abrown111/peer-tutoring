@@ -206,6 +206,7 @@ export const showItems = async function () {
 
           if(admin){
             row.appendChild(document.createElement("br"));
+            row.appendChild(document.createElement("br"));
             var remove = document.createElement("button");
             remove.innerText = !item.data().isAdmin ? "Remove tutor" : "Remove Admin";
             remove.addEventListener('click', () => {
@@ -218,6 +219,8 @@ export const showItems = async function () {
             });
             row.appendChild(remove);
             if(!item.data().isAdmin){
+              row.appendChild(document.createElement("br"));
+              row.appendChild(document.createElement("br"));
               row.appendChild(promote);
             }
           }
