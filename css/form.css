@@ -240,12 +240,8 @@ p {
 }
 
 button {
-  background: gray;
-  color: white;
-  border: transparent;
-  font-size: 18px;
+  font-size: 15px;
   padding: 5px;
-  border-radius: 10px;
 }
 
 button:hover {
