@@ -291,6 +291,10 @@ form.addEventListener("submit", async (e) => {
   let calendar = document.getElementById("calendar");
   let grade = document.getElementById("grade");
 
+  if(userDoc.data().email=="peertutoring@stab.org" || userDoc.data().isAdmin){
+    let email = document.getElementById("email");
+  }
+  
   //creates tutor object from the above variables
   try {
       if(userDoc.data().email=="peertutoring@stab.org" || userDoc.data().isAdmin){
