@@ -331,7 +331,7 @@ async function addTutor(subject, firstName, lastName, description, calendar, gra
 }
 
 async function makeNewTutor(subject, email, firstName, lastName, description, calendar, grade, teachList){
-    await setDoc(doc(db, "peer-tutoring-signups", email), {
+    await setDoc(doc(db, "peer-tutoring-signups", email.value), {
       subject: subject,
       firstName: firstName.value,
       lastName: lastName.value,
