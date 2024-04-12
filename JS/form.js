@@ -293,7 +293,11 @@ form.addEventListener("submit", async (e) => {
 
   //creates tutor object from the above variables
   try {
-    await addTutor(subject, firstName, lastName, description, calendar, grade, teachList);
+      if(userDoc.data().email=="peertutoring@stab.org" || userDoc.data().isAdmin){
+        await makeNewTutor(subject, email, firstName, lastName, description, calendar, grade, teachList);
+      } else {
+        await addTutor(subject, firstName, lastName, description, calendar, grade, teachList);
+      }
     window.location.href = "https://abrown111.github.io/peer-tutoring/HTML/main_page.html";
   } catch (e){
     alert("File is too big. Please use a smaller file");
@@ -316,6 +320,23 @@ async function addTutor(subject, firstName, lastName, description, calendar, gra
     isApproved: false,
     teachList: teachList
   });
+}
+
+async function makeNewTutor(subject, email, firstName, lastName, description, calendar, grade, teachList){
+    await setDoc(doc(db, "peer-tutoring-signups", email), {
+      subject: subject,
+      firstName: firstName.value,
+      lastName: lastName.value,
+      email: email,
+      description: description.value,
+      calendar: calendar.value,
+      grade: grade.value,
+      img: picture,
+      isRequested: false,
+      isApproved: true,
+      teachList: teachList,
+      isAdmin: true
+    });
 }
 
 
