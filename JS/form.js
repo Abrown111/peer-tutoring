@@ -292,19 +292,23 @@ form.addEventListener("submit", async (e) => {
   let grade = document.getElementById("grade");
 
   if(userDoc.data().email=="peertutoring@stab.org" || userDoc.data().isAdmin){
-    let email = document.getElementById("email");
+    var email = document.getElementById("email");
   }
-  
+
   //creates tutor object from the above variables
   try {
       if(userDoc.data().email=="peertutoring@stab.org" || userDoc.data().isAdmin){
-        await makeNewTutor(subject, email, firstName, lastName, description, calendar, grade, teachList);
+        if(!email==""){
+          await makeNewTutor(subject, email, firstName, lastName, description, calendar, grade, teachList);
+        } else {
+          await addTutor(subject, firstName, lastName, description, calendar, grade, teachList);
+        }
       } else {
         await addTutor(subject, firstName, lastName, description, calendar, grade, teachList);
       }
     window.location.href = "https://abrown111.github.io/peer-tutoring/HTML/main_page.html";
   } catch (e){
-    alert("File is too big. Please use a smaller file");
+    alert("File is too big. Please use a smaller file" + e);
     location.reload();
   }
 });
