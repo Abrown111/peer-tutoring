@@ -61,14 +61,14 @@
       <br>
 
       <!-- This creates a dropdown menu to select subject -->
-      <label for="Subject">Subject:</label>
+      <label id = "Subject" for="Subject">Subject:</label>
       <br>
 
 
 
       <div class="multiselect">
         <div class="selectBox" id="options">
-          <select>
+          <select id="tutor_classes">
             <option>Select Classes</option>
           </select>
           <div class="overSelect"></div>
@@ -248,22 +248,22 @@
       </p>
       <!-- Creates a text input for first name -->
       <p>
-        <label for="fname">First Name:</label><br>
+        <label id = "fname" for="fname">First Name:</label><br>
         <input class="form" type="text" id="firstName" required name="firstName">
       </p>
       <!-- Creates a text input for last name -->
       <p>
-        <label for="fname">Last Name:</label><br>
+        <label id="lname" for="lname">Last Name:</label><br>
         <input class="form" type="text" id="lastName" required name="lastName">
       </p>
       <!-- Creates a text input for the biography -->
       <p>
-        <label for="fname" id="Bio">Bio:</label><br>
+        <label for="Bio" id="Bio">Bio:</label><br>
         <input class="form" type="text" id="description" required name="Description">
       </p>
       <!-- Creates an input for their Google Calendar -->
       <p>
-        <label for="fname">Google Calendar: </label>
+        <label id = "gcal" for="gcal">Google Calendar: </label>
         <br>
         <a href="https://abrown111.github.io/peer-tutoring/Photos/Calendar%20Vid.mp4"
           class="calendar_button">Instructions to set up</a>
@@ -275,7 +275,7 @@
       <div id="gradelevel">
         <p>
           Current Grade: <br>
-          <select class="form" name="grade" id="grade" required>
+          <select class="grade" name="grade" id="grade" required>
             <option value=""></option>
             <option value="Freshman">
               Freshman
