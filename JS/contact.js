@@ -169,7 +169,7 @@ export const showItems = async function () {
           email.for = item.id;
           row.appendChild(email);
 
-          if(admin && !item.data().home){
+          if(admin && item.data().home == false){
             row.appendChild(document.createElement("br"));
             row.appendChild(document.createElement("br"));
             var remove = document.createElement("button");
