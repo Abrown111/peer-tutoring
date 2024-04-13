@@ -62,8 +62,8 @@ if(userDoc.data().email=="peertutoring@stab.org" || userDoc.data().isAdmin){
  var input = document.createElement('input');
  input.setAttribute('class', "form");
  input.setAttribute('type', "text");
- input.setAttribute('id', "email");
- input.setAttribute('name', "email");
+ input.setAttribute('id', "emailval");
+ input.setAttribute('name', "emailval");
  input.required = true;
  header.innerHTML = "Email:";
  div.appendChild(header);
@@ -292,7 +292,7 @@ form.addEventListener("submit", async (e) => {
   let grade = document.getElementById("grade");
 
   if(userDoc.data().email=="peertutoring@stab.org" || userDoc.data().isAdmin){
-    var email = document.getElementById("email");
+    var email = document.getElementById("emailval");
   }
 
   //creates tutor object from the above variables
