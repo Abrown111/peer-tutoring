@@ -68,12 +68,13 @@ if(userDoc.data().email=="peertutoring@stab.org" || userDoc.data().isAdmin){
  div.appendChild(header);
  div.appendChild(document.createElement('br'));
  div.appendChild(input);
- var description = document.getElementById("description");
- description.removeAttribute("required");
- var gcal = document.getElementById("gcal");
- gcal.removeAttribute("required");
- var grade = document.getElementById("grade");
- grade.removeAttribute("required");
+} else {
+  var description = document.getElementById("description");
+  description.required = true;
+  var gcal = document.getElementById("gcal");
+  gcal.required = true;
+  var grade = document.getElementById("grade");
+  grade.required = true;
 }
 
 if(window.innerWidth < 600) {
