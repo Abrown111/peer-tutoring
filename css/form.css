@@ -314,3 +314,7 @@ button:hover {
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.15);
 }
+
+#thisDrop {
+  background-color: gray;
+}

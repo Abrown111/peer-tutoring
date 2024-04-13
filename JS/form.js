@@ -53,7 +53,7 @@ if(userDoc.data().isAdmin){
   var link = document.createElement("a");
   link.href = "requests.html";
   link.innerHTML = "Requests";
-  link.setAttribute("id", "thisPage");
+  link.setAttribute("id", "thisDrop");
   drop.appendChild(link);
 }
 
