@@ -71,6 +71,17 @@ window.onclick = function(event) {
   }
 }
 
+async function removeTutor(id, name){
+  let text = "Are you sure you want to remove " + name + " as a tutor?";
+  if(confirm(text)){
+    await updateDoc(doc(db, "peer-tutoring-signups", id), {
+      isApproved: false,
+      isAdmin: false,
+    });
+    location.reload();
+  }
+}
+
 
 // export const showItems = async function(){
 
@@ -156,6 +167,17 @@ export const showItems = async function () {
           var email = document.createElement("p");
           email.innerHTML = item.data().email;
           email.for = item.id;
+
+          if(admin && !item.data().home){
+            row.appendChild(document.createElement("br"));
+            row.appendChild(document.createElement("br"));
+            var remove = document.createElement("button");
+            remove.innerText =  "Remove tutor";
+            remove.addEventListener('click', () => {
+              removeTutor(item.id, String(item.data().firstName) + ' ' + String(item.data().lastName));
+            });
+          }
+
           row.appendChild(email);
           tutors.appendChild(row);
     }
