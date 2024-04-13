@@ -148,6 +148,11 @@ label {
   font-size: 20px;
 }
 
+.labels {
+  color: white;
+  font-size: 20px;
+}
+
 #calendar {
   margin-top: 3px;
 }
