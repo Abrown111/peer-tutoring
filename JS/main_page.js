@@ -100,7 +100,7 @@ async function removeTutor(id, name, isAdmins){
   if(confirm(text)){
     await updateDoc(doc(db, "peer-tutoring-signups", id), {
       isApproved: isAdmins ? true : false,
-      isAdmin: false,
+      isAdmin: false
     });
     location.reload();
   }

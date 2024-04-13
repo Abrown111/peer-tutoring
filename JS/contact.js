@@ -76,7 +76,7 @@ async function removeTutor(id, name){
   if(confirm(text)){
     await updateDoc(doc(db, "peer-tutoring-signups", id), {
       isApproved: false,
-      isAdmin: false,
+      isAdmin: false
     });
     location.reload();
   }
@@ -167,6 +167,7 @@ export const showItems = async function () {
           var email = document.createElement("p");
           email.innerHTML = item.data().email;
           email.for = item.id;
+          row.appendChild(email);
 
           if(admin && !item.data().home){
             row.appendChild(document.createElement("br"));
@@ -176,9 +177,10 @@ export const showItems = async function () {
             remove.addEventListener('click', () => {
               removeTutor(item.id, String(item.data().firstName) + ' ' + String(item.data().lastName));
             });
+            row.appendChild(remove);
           }
 
-          row.appendChild(email);
+          
           tutors.appendChild(row);
     }
     console.log(item.id);
