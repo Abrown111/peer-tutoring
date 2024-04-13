@@ -95,7 +95,7 @@ p {
   background-color: maroon;
   width: 30%;
   min-width: 300px;
-  height: auto;
+  height: fit-content;
   padding: 2%;
   color: white;
   border-radius: 10px;
