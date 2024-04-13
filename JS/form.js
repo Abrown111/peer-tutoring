@@ -296,21 +296,17 @@ form.addEventListener("submit", async (e) => {
   }
 
   //creates tutor object from the above variables
-  // try {
-      if(userDoc.data().email=="peertutoring@stab.org" || userDoc.data().isAdmin){
-        if(!email==""){
-          await makeNewTutor(subject, email, firstName, lastName, description, calendar, grade, teachList);
-        } else {
-          await addTutor(subject, firstName, lastName, description, calendar, grade, teachList);
-        }
+  try {
+      if((userDoc.data().email=="peertutoring@stab.org" || userDoc.data().isAdmin) && !email==""){
+        await makeNewTutor(subject, email, firstName, lastName, description, calendar, grade, teachList);
       } else {
         await addTutor(subject, firstName, lastName, description, calendar, grade, teachList);
       }
     window.location.href = "https://abrown111.github.io/peer-tutoring/HTML/main_page.html";
-  // } catch (e){
-  //   alert("File is too big. Please use a smaller file" + e);
-  //   location.reload();
-  // }
+  } catch (e){
+    alert("File is too big. Please use a smaller file" + e);
+    location.reload();
+  }
 });
 
 //adds the tutor to the firebase
