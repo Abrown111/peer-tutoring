@@ -65,11 +65,10 @@ if(userDoc.data().email=="peertutoring@stab.org" || userDoc.data().isAdmin){
  input.setAttribute('id', "emailval");
  input.setAttribute('name', "emailval");
  input.required = true;
- header.innerHTML = "Email:";
+ header.innerHTML = "Email: (Only fill this out when making new admin)";
  div.appendChild(header);
  div.appendChild(document.createElement('br'));
  div.appendChild(input);
-  
 }
 
 if(window.innerWidth < 600) {
@@ -322,7 +321,8 @@ async function addTutor(subject, firstName, lastName, description, calendar, gra
     img: picture,
     isRequested: true,
     isApproved: false,
-    teachList: teachList
+    teachList: teachList,
+    home: true
   });
 }
 
@@ -339,7 +339,8 @@ async function makeNewTutor(subject, email, firstName, lastName, description, ca
       isRequested: false,
       isApproved: true,
       teachList: teachList,
-      isAdmin: true
+      isAdmin: true,
+      home: false
     });
 }
 

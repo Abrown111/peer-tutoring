@@ -134,7 +134,7 @@ export const showItems = async function () {
 
   databaseItems.forEach((item) => {
     if (item.data().firstName.toLowerCase().includes(document.getElementById("filter_search").value.toLowerCase()) || item.data().lastName.toLowerCase().includes(document.getElementById("filter_search").value.toLowerCase())) { //search bar for Tutors
-      if (item.data().isApproved == true) {
+      if (item.data().isApproved && !item.data().home == false) {
         if (similar(category_list, item.data().teachList) || category_list.length == 0) { //category check-list for Tutors
           var row = document.createElement("div");
           row.setAttribute('class', "row");
