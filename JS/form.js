@@ -65,10 +65,16 @@ if(userDoc.data().email=="peertutoring@stab.org" || userDoc.data().isAdmin){
  input.setAttribute('id', "emailval");
  input.setAttribute('name', "emailval");
  input.required = true;
- header.innerHTML = "Email: (Only fill this out when making new admin)";
+ header.innerHTML = "Email: (Use only when making new admin)";
  div.appendChild(header);
  div.appendChild(document.createElement('br'));
  div.appendChild(input);
+ var description = document.getElementById("description");
+ description.required = false;
+ var gcal = document.getElementById("gcal");
+ gcal.required = false;
+ var grade = document.getElementById("grade");
+ grade.required = false;
 }
 
 if(window.innerWidth < 600) {
