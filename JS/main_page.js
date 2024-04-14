@@ -184,7 +184,7 @@ export const showItems = async function () {
             // if(!item.data().calendar.includes("https://www.") || !item.data().calendar.includes("https//")){
             //  window.location.href = "https://www." + item.data().calendar;
             // } else {
-            window.location.replace(item.data().calendar);
+            window.open(item.data().calendar, "_blank");
             // }
           });
           // if(!item.data().calendar.includes("https://www.") || !item.data().calendar.includes("https//")){
