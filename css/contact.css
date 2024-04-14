@@ -88,6 +88,7 @@ a {
   font-size: 25px;
   color: white;
   word-wrap: break-word;
+  text-decoration: none;
 }
 
 .row {
@@ -118,6 +119,7 @@ img {
   height: 40%;
   object-fit: cover;
   object-position: 25% 25%;
+  padding-bottom: 21.44px;
 }
 
 #thisPage {
