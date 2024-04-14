@@ -179,6 +179,7 @@ label {
 #checkboxes {
   display: none;
   border: 1px #dadada solid;
+  width: 103%;
 }
 
 #checkboxes label {
@@ -322,4 +323,8 @@ button:hover {
 
 #grade {
   width: 52%;
+}
+
+#tutor_classes {
+  width: 104%;
 }
