@@ -319,3 +319,7 @@ button:hover {
 #thisDrop {
   background-color: gray;
 }
+
+#grade {
+  width: 52%;
+}
