@@ -164,9 +164,11 @@ export const showItems = async function () {
             row.appendChild(image);
           }
           row.appendChild(document.createElement("br"));
-          var email = document.createElement("p");
+
+          var email = document.createElement("a");
           email.innerHTML = item.data().email;
           email.for = item.id;
+          email.href = "mailto:" + item.data().email;
           row.appendChild(email);
 
           if(admin && item.data().home == false){
