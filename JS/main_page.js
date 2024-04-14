@@ -182,10 +182,11 @@ export const showItems = async function () {
           calendar.innerText = "Calendar";
           calendar.addEventListener('click', () => {
             // if(!item.data().calendar.includes("https://www.") || !item.data().calendar.includes("https//")){
-            //  window.location.href = "https://www." + item.data().calendar;
-            // } else {
-            window.open(item.data().calendar, "_blank");
-            // }
+            if(!item.data().calendar.includes("//")){
+              window.open("//" + item.data().calendar);
+            } else {
+              window.open(item.data().calendar, "_blank");
+            }
           });
           // if(!item.data().calendar.includes("https://www.") || !item.data().calendar.includes("https//")){
           // calendar.href = "https://www." + item.data().calendar;
