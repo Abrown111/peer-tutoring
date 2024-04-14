@@ -64,7 +64,7 @@ if(userDoc.data().email=="peertutoring@stab.org" || userDoc.data().isAdmin){
  input.setAttribute('type', "text");
  input.setAttribute('id', "emailval");
  input.setAttribute('name', "emailval");
- header.innerHTML = "Email: (Use only when making new admin)";
+ header.innerHTML = "Email: (Only for making new admin)";
  div.appendChild(header);
  div.appendChild(document.createElement('br'));
  div.appendChild(input);
