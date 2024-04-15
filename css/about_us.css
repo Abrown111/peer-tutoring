@@ -66,20 +66,12 @@ nav .navbar .menu {
   text-decoration: none;
 }
 
-
-/* label {
-label {
-  font-size: 25px;
-} */
-
-
 .faqAnswers {
   color: black;
   font-size: 20px;
   margin-left: auto;
   margin-right: auto;
   width: 70%;
-  /* padding-bottom: 7px; */
 }
 
 .question {
