@@ -52,7 +52,6 @@ if(window.innerWidth < 600) {
   document.getElementsByClassName("dropdownnav")[0].style.visibility = "hidden";
 }
 
-
 document.getElementById("dropbutton").addEventListener("click", showDropdown);
 
 function showDropdown() {
@@ -82,74 +81,10 @@ async function removeTutor(id, name){
   }
 }
 
-
-// export const showItems = async function(){
-
-//   var tutors = document.getElementById("HeadsOfPeerTutor");
-//   tutors.innerHTML = "";
-
-//   var row = document.createElement("div");
-//   row.setAttribute('class', "row");
-
-//   var name = document.createElement("h1");
-//   name.innerHTML = "Ms. Ruff";
-//   row.appendChild(name);
-
-//   row.appendChild(document.createElement("br"));
-
-//   var image = document.createElement("img");
-//   image.src = "https://abrown111.github.io/peer-tutoring/Photos/ms%20ruff.png";
-//   row.appendChild(image);
-
-//   row.appendChild(document.createElement("br"));
-
-//   var contact = document.createElement("p");
-//   contact.innerHTML = "Email: aruff@stab.org";
-
-//   row.appendChild(contact);
-
-//   tutors.appendChild(row);
-
-//   var row_2 = document.createElement("div");
-//   row_2.setAttribute('class', "row");
-
-//   var name = document.createElement("h1");
-//   name.innerHTML = "Jake Kapp";
-//   row_2.appendChild(name);
-
-//   row_2.appendChild(document.createElement("br"));
-
-//   var image = document.createElement("img");
-//   image.src = "https://abrown111.github.io/peer-tutoring/Photos/jacob.png";
-//   row_2.appendChild(image);
-
-//   row_2.appendChild(document.createElement("br"));
-
-//   var contact = document.createElement("p");
-//   contact.innerHTML = "Email: jkapp24@students.stab.org";
-
-//   row_2.appendChild(contact);
-
-//   tutors.appendChild(row_2);
-
-// }
-
-// showItems();
-
 export const showItems = async function () {
   const databaseItems = await getDocs(collection(db, "peer-tutoring-signups"));
   var tutors = document.getElementById("tutors");
   tutors.innerHTML = "";
-  // let link = document.createElement('link');
-
-  //       // set the attributes for link element
-  //       link.rel = 'stylesheet';
-
-  //       link.type = 'text/css';
-
-  //       link.href = 'style.css';
-  //     tutors.appendChild(link);
-
   databaseItems.forEach((item) => {
       if (item.data().isAdmin == true) {
           var row = document.createElement("div");
@@ -181,13 +116,9 @@ export const showItems = async function () {
             });
             row.appendChild(remove);
           }
-
-          
           tutors.appendChild(row);
     }
-    console.log(item.id);
   });
-
 }
 
 showItems();
