@@ -169,7 +169,8 @@ async function handleApproval(itemId) {
   //main page only displays things with isApproved = true
   await updateDoc(doc(db, "peer-tutoring-signups", itemId), {
     isApproved: true,
-    isRequested: false
+    isRequested: false,
+    home: true
   });
   location.reload();
 
