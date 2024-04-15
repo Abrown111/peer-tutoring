@@ -46,8 +46,6 @@ const languageClasses = ["Spanish 1", "Spanish 2", "Honors Spanish 2", "Spanish 
 const humanitiesClasses = ["English 9", "History 9", "Humanities 10", "American Studies", "Peer Writing"];
 const csClasses = ["Computer Science Principles", "Data Structures"];
 
-console.log(document.getElementsByClassName("menu")[0]);
-
 var userArray;
 const user = localStorage.getItem("users");
 var userDoc;
@@ -170,10 +168,8 @@ function showOptions() {
     cs.style.display = "none";
     checkboxes.style.display = "block";
     expandedOptions = true;
-
   } else {
     checkboxes.style.display = "none";
-
     expandedOptions = false;
   }
 }
@@ -245,7 +241,6 @@ form.addEventListener("submit", async (e) => {
   let languageTeach = false;
   let csTeach = false;
 
-
   //sets js variables from the form
   let subjectList = [];
   for (let i = 0; i < mathClasses.length; i++) {
@@ -304,7 +299,6 @@ form.addEventListener("submit", async (e) => {
 
   }
 
-  //alert(teachList);
   let subject = subjectList.join(", ");
   let firstName = document.getElementById("firstName");
   let lastName = document.getElementById("lastName");
@@ -365,8 +359,6 @@ async function makeNewTutor(subject, email, firstName, lastName, description, ca
       home: false
     });
 }
-
-
 
 const fileInput = document.getElementById('file');
 
