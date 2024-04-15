@@ -18,9 +18,6 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-var category_list = []
-var username;
-var encrypted_password;
 var userArray;
 
 var userArray;
@@ -33,13 +30,6 @@ if(user!=null){
 var admin = false;
 if(userDoc.data().isAdmin){
   admin = true;
-  // var nav = document.getElementsByClassName("menu")[0];
-  // var newLine = document.createElement("li");
-  // var newLink = document.createElement("a");
-  // newLink.href = "requests.html";
-  // newLink.innerHTML = "Requests";
-  // newLine.appendChild(newLink);
-  // nav.appendChild(newLine);
   var drop = document.getElementById("myDropdown");
   var link = document.createElement("a");
   link.href = "requests.html";
@@ -55,7 +45,6 @@ if(window.innerWidth < 600) {
   document.getElementsByClassName("navbar")[0].style.display = "flex";
   document.getElementsByClassName("dropdownnav")[0].style.visibility = "hidden";
 }
-
 
 document.getElementById("dropbutton").addEventListener("click", showDropdown);
 
@@ -75,18 +64,12 @@ window.onclick = function(event) {
   }
 }
 
-
 // show Tutors from firebase in the tiles on the screen
 export const showItems = async function () {
   const databaseItems = await getDocs(collection(db, "peer-tutoring-signups"));
-  // var tutor_requests = document.getElementById("tutor_requests");
-  // tutor_requests.innerHTML = "";
 
   databaseItems.forEach(async (item) => {
-    console.log(item.data().lastName);
-    console.log(item.data().isRequested);
     if (item.data().isRequested && !item.data().isApproved) {
-      console.log(item.data().firstName);
 
       var row = document.createElement("div");
       row.setAttribute('class', "row");
@@ -153,7 +136,6 @@ export const showItems = async function () {
       tutor_requests.appendChild(row);
     }
   });
-  console.log(document.getElementById("tutor_requests").innerHTML == "");
   if (document.getElementById("tutor_requests").innerHTML == "") {
     let req = document.getElementById("tutor_requests");
     let none = document.createElement("div");
@@ -178,13 +160,11 @@ async function handleApproval(itemId) {
 
 
 async function handleDenial(itemId) {
-  // deleteDoc(doc(db, "peer-tutoring-signups", itemId));
   await updateDoc(doc(db, "peer-tutoring-signups", itemId), {
     isApproved: false,
     isRequested: false
   });
   location.reload();
-
 }
 
 showItems();
