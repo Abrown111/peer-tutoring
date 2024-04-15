@@ -173,27 +173,32 @@ export const login = async function () {
   }
 }
 
-async function removeTutor(id, name, isAdmins){
-  let text = !isAdmins ? "Are you sure you want to remove " + name + " as a tutor?" : "Are you sure you want to remove " + name + " as an admin?"
+async function removeTutor(id, name){
+  let text = "Are you sure you want to remove " + name + " as a tutor?"
   if(confirm(text)){
     await updateDoc(doc(db, "peer-tutoring-signups", id), {
-      isApproved: isAdmins ? true : false,
+      isApproved: false,
       isAdmin: false
     });
     var msg = "Dear " + name.split(" ")[0] + ", you have been removed from the peer tutoring website. If this is the end of the year and you are a \
     senior, please ignore this email as you are graduating soon. If not, please fill out the peer tutoring request form again in order to become a tutor again next year!";
-
-    var msg2 = "Dear " + name.split(" ")[0] + ", thank you for all you've done with and for the peer tutoring program. Unfortunately, your admin privileges have been revoked.\
-     If you wish to restore your former privileges or believe that there is a mistake, reach out to the faculty head of peer tutoring to have your permissions restored. Thanks."
-
-    if(isAdmins){
-      msg = msg2;
-    }
-
-    console.log("here");
-    await sendEmail(id, isAdmins ? "Removed as admin from Peer Tutoring" : "Removed as Peer Tutor", msg);
+    await sendEmail(id, "Removed as Peer Tutor", msg);
   }
   location.reload(); 
+}
+
+async function demoteTutor(id, name){
+  let text = "Are you sure you want to remove " + name + " as an admin?";
+  if(confirm(text)){
+    await updateDoc(doc(db, "peer-tutoring-signups", id), {
+      isApproved: true,
+      isAdmin: false
+  });
+  var msg = "Dear " + name.split(" ")[0] + ", thank you for all you've done with and for the peer tutoring program. Unfortunately, your admin privileges have been revoked.\
+     If you wish to restore your former privileges or believe that there is a mistake, reach out to the faculty head of peer tutoring to have your permissions restored. Thanks."
+    await sendEmail(id, "Removed as admin from Peer Tutoring", msg);
+}
+location.reload()
 }
 
 async function promoteTutor(id, name){
@@ -353,9 +358,14 @@ export const showItems = async function () {
             row.appendChild(document.createElement("br"));
             row.appendChild(document.createElement("br"));
             var remove = document.createElement("button");
-            remove.innerText = !item.data().isAdmin ? "Remove tutor" : "Remove Admin";
+            remove.innerText = "Remove tutor";
             remove.addEventListener('click', () => {
-              removeTutor(item.id, String(item.data().firstName) + ' ' + String(item.data().lastName), item.data().isAdmin);
+              removeTutor(item.id, String(item.data().firstName) + ' ' + String(item.data().lastName));
+            });
+            var demote = document.createElement("button");
+            demote.innerText = "Remove Admin";
+            demote.addEventListener('click', () => {
+              demoteTutor(item.id, String(item.data().firstName) + ' ' + String(item.data().lastName));
             });
             var promote = document.createElement("button");
             promote.innerText = "Promote to Admin";
@@ -367,6 +377,10 @@ export const showItems = async function () {
               row.appendChild(document.createElement("br"));
               row.appendChild(document.createElement("br"));
               row.appendChild(promote);
+            } else {
+              row.appendChild(document.createElement("br"));
+              row.appendChild(document.createElement("br"));
+              row.appendChild(demote);
             }
           }
 

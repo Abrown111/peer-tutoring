@@ -72,7 +72,7 @@ window.onclick = function(event) {
 }
 
 async function removeTutor(id, name){
-  let text = "Are you sure you want to remove " + name + " as a tutor?";
+  let text = "Are you sure you want to remove " + name + "'s profile?";
   if(confirm(text)){
     await updateDoc(doc(db, "peer-tutoring-signups", id), {
       isApproved: false,
@@ -175,7 +175,7 @@ export const showItems = async function () {
             row.appendChild(document.createElement("br"));
             row.appendChild(document.createElement("br"));
             var remove = document.createElement("button");
-            remove.innerText =  "Remove tutor";
+            remove.innerText =  "Remove profile";
             remove.addEventListener('click', () => {
               removeTutor(item.id, String(item.data().firstName) + ' ' + String(item.data().lastName));
             });
