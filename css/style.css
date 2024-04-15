@@ -24,7 +24,6 @@ body {
   flex-direction: column;
 }
 
-
 /* sets the position, size, color, border, and margins for each tutor, or "row" */
 .row {
   margin: auto;
@@ -67,24 +66,14 @@ img {
   font-size: 17px;
   background-color: white;
   width: 20%;
-  /* border: 20px white solid; */
-  /* background: white; */
   min-width: 220px;
 }
 
 /* sets the size and transition for the search bar  */
 input[type=text] {
   width: 70%;
-  /* -webkit-transition: width 0.15s ease-in-out;
-  transition: width 0.15s ease-in-out; */
   font-size: 20px;
 }
-
-/* When the input field gets focus,
-        change its width to 40% */
-/* input[type=text]:focus {
-  width: 40%;
-} */
 
 #filter {
   color: white;
@@ -162,7 +151,6 @@ section {
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.15);
 }
-
 
 input[type=checkbox] {
   width: 17px;
