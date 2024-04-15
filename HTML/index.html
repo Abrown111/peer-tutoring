@@ -11,18 +11,20 @@
 </head>
 
 <body>
-  <script type="module" src="https://abrown111.github.io/peer-tutoring/JS/script.js"></script>
+  <script type="module" async defer src="/JS/script.js"></script>
   <script type="module">
-    import { signIn } from 'https://abrown111.github.io/peer-tutoring/JS/script.js';
+    import { signIn, gapiLoaded, gisLoaded } from '/JS/script.js';
     window.signIn = signIn;
+    window.gapiLoaded = gapiLoaded;
+    window.gisLoaded = gisLoaded;
   </script>
+  <script async defer src="https://apis.google.com/js/api.js"></script>
+  <script async defer src="https://accounts.google.com/gsi/client"></script>
   <h1>St. Anne's-Belfield</h1>
   <h2 id="signInWords"> Sign in with Google:</h2><br>
-  <button type="button" id="SignUp" onclick="signIn()"><img id="Google"
+  <button type="button" id="SignUp" onclick="signIn(); gapiLoaded(); gisLoaded();"><img id="Google"
       src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1200px-Google_%22G%22_logo.svg.png"
       width=15px height=15px></button>
-
-
 
 
 </body>

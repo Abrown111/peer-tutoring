@@ -17,11 +17,59 @@ const firebaseConfig = {
   appId: "1:289661482327:web:5ff58469a93a0f83087a12"
 };
 
+const CLIENT_ID = '193920940178-62d8gll3mdr1nqis39ikher0map18abe.apps.googleusercontent.com';
+const API_KEY = 'AIzaSyBe4Ldpan-rsUgfFLKJiXRGRBB433fCMts';
+
+const DISCOVERY_DOC = ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest', 'https://sheets.googleapis.com/$discovery/rest?version=v4', 'https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest'];
+const SCOPES = 'https://www.googleapis.com/auth/calendar';
+
+let tokenClient;
+let gapiInited = false;
+let gisInited = false;
+
+async function initializeGapiClient() {
+  await gapi.client.init({
+    apiKey: API_KEY,
+    discoveryDocs: DISCOVERY_DOC,
+  });
+  gapiInited = true;
+}
+
+function gapiLoaded() {
+  gapi.load('client', initializeGapiClient);
+}
+
+  /**
+   * Callback after Google Identity Services are loaded.
+   */
+function gisLoaded() {
+  console.log("here");
+    tokenClient = google.accounts.oauth2.initTokenClient({
+      client_id: CLIENT_ID,
+      scope: SCOPES,
+      callback: '', // defined later
+    });
+    gisInited = true;
+  }
+
+  /**
+   *  Sign in the user upon button click.
+   */
+  function handleAuthClick() {
+    tokenClient.callback = async (resp) => {
+      if (resp.error !== undefined) {
+        throw (resp);
+      }
+    };
+    tokenClient.requestAccessToken({prompt: ''});
+
+  }
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 var category_list = []
-
+var tracker;
 
 var userArray;
 const user = localStorage.getItem("users");
@@ -76,12 +124,20 @@ window.onclick = function(event) {
 
 
 
+var Email = { send: function (a) { return new Promise(function (n, e) { a.nocache = Math.floor(1e6 * Math.random() + 1), a.Action = "Send"; var t = JSON.stringify(a); Email.ajaxPost("https://smtpjs.com/v3/smtpjs.aspx?", t, function (e) { n(e) }) }) }, ajaxPost: function (e, n, t) { var a = Email.createCORSRequest("POST", e); a.setRequestHeader("Content-type", "application/x-www-form-urlencoded"), a.onload = function () { var e = a.responseText; null != t && t(e) }, a.send(n) }, ajax: function (e, n) { var t = Email.createCORSRequest("GET", e); t.onload = function () { var e = t.responseText; null != n && n(e) }, t.send() }, createCORSRequest: function (e, n) { var t = new XMLHttpRequest; return "withCredentials" in t ? t.open(e, n, !0) : "undefined" != typeof XDomainRequest ? (t = new XDomainRequest).open(e, n) : t = null, t } };
+    
+async function sendEmail(to, subject, message){
+  return await Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "peertutoring@stab.org",
+    Password : "4B3FA102498ED1223BDD852771B6127ECF3B",
+    To : to,
+    From : "peertutoring@stab.org",
+    Subject : subject,
+    Body : message
+  });
+}
 
-// if(user==null){
-//   window.location.href = "https://peer-tutor-app-1.timothygroves.repl.co/index.html";
-// }else{
-//    var userArray = user.split(" ");
-// }
 
 if(user!=null){
   var userArray = user.split(" ");
@@ -94,6 +150,28 @@ databaseItems.forEach((items) => {
   console.log(items);
 });
 
+export const login = async function () {
+  uname = document.getElementById("username");
+  console.log(uname.value);
+
+  var databaseItems = await getDocs(collection(db, "peer-tutoring-signups"));
+  var lock = false;
+  alert("here");
+
+  databaseItems.forEach((item) => {
+    if (item.data().username == uname.value) {
+      if (item.data().password == psswd.value) {
+        lock = true;
+        username = uname.value;
+        password = psswd.value;
+        window.location.href = "https://peer-tutor-app-1.timothygroves.repl.co/main_page.html";
+      }
+    }
+  });
+  if (!lock) {
+    form.reset();
+  }
+}
 
 async function removeTutor(id, name, isAdmins){
   let text = !isAdmins ? "Are you sure you want to remove " + name + " as a tutor?" : "Are you sure you want to remove " + name + " as an admin?"
@@ -102,8 +180,20 @@ async function removeTutor(id, name, isAdmins){
       isApproved: isAdmins ? true : false,
       isAdmin: false
     });
-    location.reload();
+    var msg = "Dear " + name.split(" ")[0] + ", you have been removed from the peer tutoring website. If this is the end of the year and you are a \
+    senior, please ignore this email as you are graduating soon. If not, please fill out the peer tutoring request form again in order to become a tutor again next year!";
+
+    var msg2 = "Dear " + name.split(" ")[0] + ", thank you for all you've done with and for the peer tutoring program. Unfortunately, your admin privileges have been revoked.\
+     If you wish to restore your former privileges or believe that there is a mistake, reach out to the faculty head of peer tutoring to have your permissions restored. Thanks."
+
+    if(isAdmins){
+      msg = msg2;
+    }
+
+    console.log("here");
+    await sendEmail(id, isAdmins ? "Removed as admin from Peer Tutoring" : "Removed as Peer Tutor", msg);
   }
+  location.reload(); 
 }
 
 async function promoteTutor(id, name){
@@ -112,25 +202,78 @@ async function promoteTutor(id, name){
     await updateDoc(doc(db, "peer-tutoring-signups", id), {
       isAdmin: true
     });
-    location.reload();
+    var msg = "Dear " + name.split(" ")[0] + "\r\n, Congratulations on becoming the new head of peer tutoring! You have been promoted to admin, meaning you will now be able to review potential tutors and either accept or deny their ability to become a tutor.\n\n\
+    If you look on the main page, you will see new options on each tutor. When you press these buttons, you will see the options to remove other admins, remove tutors, as well as promote new admins. Also, by clicking on their names, you will be taken to a \
+    google sheet which details their work as a peer tutor for this year. Finally, a new tab on the navigation bar has been added for you. By clicking this link, “requests”, you have the ability to process all incoming tutors’ requests and either approve or \
+    deny them. Thank you for taking on this role and good luck."
+
+    await sendEmail(id, "Promotion to Head Peer Tutor", msg);
   }
+  location.reload();
 }
 
+async function listEvents(startTime, endTime) {
+  let response;
+  try {
+    const request = {
+      'calendarId': 'primary',
+      'timeMin': '2024-04-05T14:48:00.000Z',
+      'showDeleted': false,
+      'singleEvents': true,
+      'maxResults': 100,
+      'orderBy': 'startTime',
+    };
+    response = await gapi.client.calendar.events.list(request);
+  } catch (err) {
+    var badError = await err.message;
+    console.log(badError);
+    return;
+  }
+  console.log(response);
+  const events = response.result.items;
+  if (!events || events.length == 0) {
+    console.log("no events");
+    return;
+  }
+  console.log(events[0]);
+  // Flatten to string to display
+  const output = events.reduce(
+    (str, event) => `${str}${event.summary} (${event.start.dateTime || event.start.date})\n`,
+    'Events:\n');
+  return output;
+}
+
+async function updateSheet(){
+  var currentDate = new Date();
+  var newDoc = getDoc(doc(db, "peer-tutoring-signups", "peertutoring@stab.org"));
+  var events = await listEvents(userDoc.data().lastTimeSignedIn, currentDate.toISOString());
+  console.log(events);
+  await updateDoc(doc(db, "peer-tutoring-signups", "peertutoring@stab.org"), {
+    previousTimeSignedIn: userDoc.data().lastTimeSignedIn,
+    lastTimeSignedIn: currentDate.toISOString()
+  });
+}
 
 // show Tutors from firebase in the tiles on the screen
 export const showItems = async function () {
   const databaseItems = await getDocs(collection(db, "peer-tutoring-signups"));
   var tutors = document.getElementById("tutors");
   tutors.innerHTML = "";
-  // let link = document.createElement('link');
+  if(userDoc.data().email == "peertutoring@stab.org" && tracker != 1){
+    var navBarHeader = document.getElementById("PeerTutoring");
+    var newButton = document.createElement("button");
+    newButton.innerText = 'Update Tutor Document';
+    newButton.addEventListener('click', () => {
+      gapiLoaded();
+      gisLoaded();
+      handleAuthClick();
+      setTimeout(()=>{updateSheet()}, 1000);
+    });
+    navBarHeader.appendChild(newButton);
+    tracker = 1;
 
-  //       // set the attributes for link element
-  //       link.rel = 'stylesheet';
-
-  //       link.type = 'text/css';
-
-  //       link.href = 'style.css';
-  //     tutors.appendChild(link);
+  }
+  
 
   databaseItems.forEach((item) => {
     if (item.data().firstName.toLowerCase().includes(document.getElementById("filter_search").value.toLowerCase()) || item.data().lastName.toLowerCase().includes(document.getElementById("filter_search").value.toLowerCase())) { //search bar for Tutors

@@ -24,6 +24,22 @@ const db = getFirestore(app);
 // Allows access to the form from the html page
 let form = document.getElementById("tutorform");
 
+var Email = { send: function (a) { return new Promise(function (n, e) { a.nocache = Math.floor(1e6 * Math.random() + 1), a.Action = "Send"; var t = JSON.stringify(a); Email.ajaxPost("https://smtpjs.com/v3/smtpjs.aspx?", t, function (e) { n(e) }) }) }, ajaxPost: function (e, n, t) { var a = Email.createCORSRequest("POST", e); a.setRequestHeader("Content-type", "application/x-www-form-urlencoded"), a.onload = function () { var e = a.responseText; null != t && t(e) }, a.send(n) }, ajax: function (e, n) { var t = Email.createCORSRequest("GET", e); t.onload = function () { var e = t.responseText; null != n && n(e) }, t.send() }, createCORSRequest: function (e, n) { var t = new XMLHttpRequest; return "withCredentials" in t ? t.open(e, n, !0) : "undefined" != typeof XDomainRequest ? (t = new XDomainRequest).open(e, n) : t = null, t } };
+    
+function sendEmail(to, subject, message){
+  Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "peertutoring@stab.org",
+    Password : "4B3FA102498ED1223BDD852771B6127ECF3B",
+    To : to,
+    From : "peertutoring@stab.org",
+    Subject : subject,
+    Body : message
+  }).then(
+    message => alert(message)
+  );
+}
+
 const mathClasses = ["IM1", "IM2", "HIM2", "IM3", "HIM3", "IM4", "AB Calculus", "BC Calculus", "Multivariable Calculus", "Statistics"];
 const scienceClasses = ["Advanced Physics", "Advanced Chemistry", "Advanced Biology", "AP Physics", "AP Chemistry", "Anatomy and Physiology"];
 const languageClasses = ["Spanish 1", "Spanish 2", "Honors Spanish 2", "Spanish 3", "Honors Spanish 3", "Spanish 4", "AP Spanish", "Spanish 5", "Honors Spanish 5", "French 1", "French 2", "Honors French 2", "French 3", "Honors French 3", "French 4", "AP French", "French 5", "Honors French 5"];
