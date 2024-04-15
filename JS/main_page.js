@@ -43,11 +43,10 @@ function gapiLoaded() {
    * Callback after Google Identity Services are loaded.
    */
 function gisLoaded() {
-  console.log("here");
     tokenClient = google.accounts.oauth2.initTokenClient({
       client_id: CLIENT_ID,
       scope: SCOPES,
-      callback: '', // defined later
+      callback: '' // defined later
     });
     gisInited = true;
   }
@@ -148,8 +147,6 @@ var databaseItems = await getDocs(collection(db, "peer-tutoring-signups"));
 
 export const login = async function () {
   uname = document.getElementById("username");
-  console.log(uname.value);
-
   var databaseItems = await getDocs(collection(db, "peer-tutoring-signups"));
   var lock = false;
   alert("here");
@@ -248,7 +245,6 @@ async function updateSheet(){
   var currentDate = new Date();
   var newDoc = getDoc(doc(db, "peer-tutoring-signups", "peertutoring@stab.org"));
   var events = await listEvents(userDoc.data().lastTimeSignedIn, currentDate.toISOString());
-  console.log(events);
   await updateDoc(doc(db, "peer-tutoring-signups", "peertutoring@stab.org"), {
     previousTimeSignedIn: userDoc.data().lastTimeSignedIn,
     lastTimeSignedIn: currentDate.toISOString()
@@ -272,13 +268,11 @@ export const showItems = async function () {
     });
     navBarHeader.appendChild(newButton);
     tracker = 1;
-
   }
   
 
   databaseItems.forEach((item) => {
     if (item.data().firstName.toLowerCase().includes(document.getElementById("filter_search").value.toLowerCase()) || item.data().lastName.toLowerCase().includes(document.getElementById("filter_search").value.toLowerCase())) { //search bar for Tutors
-      console.log(item.data().home);
       if (item.data().isApproved && (item.data().home == true || item.data().home != false)) {
         if (similar(category_list, item.data().teachList) || category_list.length == 0) { //category check-list for Tutors
           var row = document.createElement("div");
@@ -289,7 +283,6 @@ export const showItems = async function () {
           name.for = item.id;
           row.appendChild(name);
 
-          // console.log(item.data().img);
           if (item.data().img != "") {
 
             var image = document.createElement("img");
@@ -299,18 +292,15 @@ export const showItems = async function () {
 
           row.appendChild(document.createElement("br"));
 
-
           var subject = document.createElement("p");
           subject.innerHTML = "Subject(s): " + item.data().subject;
           subject.for = item.id;
           row.appendChild(subject);
-          //row.appendChild(document.createElement("br"));
 
           var description = document.createElement("p");
           description.innerHTML = "Bio: " + item.data().description;
           description.for = item.id;
           row.appendChild(description);
-          //row.appendChild(document.createElement("br"));
 
           var grade = document.createElement("p");
           grade.innerHTML = "Grade: " + item.data().grade;
@@ -325,30 +315,13 @@ export const showItems = async function () {
           var calendar = document.createElement("button");
           calendar.innerText = "Calendar";
           calendar.addEventListener('click', () => {
-            // if(!item.data().calendar.includes("https://www.") || !item.data().calendar.includes("https//")){
             if(!item.data().calendar.includes("//")){
               window.open("//" + item.data().calendar);
             } else {
               window.open(item.data().calendar, "_blank");
             }
           });
-          // if(!item.data().calendar.includes("https://www.") || !item.data().calendar.includes("https//")){
-          // calendar.href = "https://www." + item.data().calendar;
-          // } else {
-          // calendar.href = item.data().calendar;
-          // }
-          // calendar.target = "_blank";
           row.appendChild(calendar);
-
-          //row.appendChild(document.createElement("br"));
-
-          // var experience = document.createElement("p");
-          // experience.innerHTML = item.data().experience;
-          // experience.for = item.id;
-          // row.appendChild(experience);
-          // row.appendChild(document.createElement("br"));
-
-        
 
           if(admin){
             row.appendChild(document.createElement("br"));
@@ -387,8 +360,6 @@ export const showItems = async function () {
         }
       }
     }
-
-    console.log(item.id);
   });
 
 }
@@ -420,49 +391,7 @@ export const category_list_add = function () {
   showItems();
 }
 
-// addDoc(collection(db, "peer-tutoring-signups"), {
-//   username : "abrown24@students.stab.org",
-//   password : "seanisntreal"
-// });
-
-
-
 category_list_add();
-
-
-// rating_form.addEventListener("submit", (e) => {
-//   e.preventDefault();
-
-//   console.log("hello");
-
-//   let rating = document.getElementById("rate");
-
-
-//   //creates tutor object from the above variables
-//   submit_rate(rating);
-// });
-
-// export const submit_rate = function(rating) {
-//   try{
-//     const docRef = addDoc(collection(db, "peer-tutoring-signups"), {
-//       rating: rating.value,
-//     });
-//   }
-//   catch(e){
-//     console.log("Error adding rating to the database: ", e);
-//   }  
-// }
-
-
-//WIPES FIREBASE
-//DO NOT RUN
-// const databaseItems = await getDocs(collection(db, "peer-tutoring-signups"));
-//     var tutors = document.getElementById("tutors");
-//     tutors.innerHTML="";
-//     databaseItems.forEach((item) => {
-//       deleteDoc(doc(db, "peer-tutoring-signups", item.id));
-//     });
-
 
 function similar(list1, list2) {
   for (let i = 0; i < list1.length; i++) {
