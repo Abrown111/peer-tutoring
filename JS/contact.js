@@ -86,7 +86,7 @@ export const showItems = async function () {
   var tutors = document.getElementById("tutors");
   tutors.innerHTML = "";
   databaseItems.forEach((item) => {
-      if (item.data().isAdmin == true) {
+      if (item.data().isAdmin == true && item.data().email!='peertutoring@stab.org') {
           var row = document.createElement("div");
           row.setAttribute('class', "row");
           var name = document.createElement("h1");

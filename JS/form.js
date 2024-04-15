@@ -70,7 +70,7 @@ if(userDoc.data().isAdmin){
   drop.appendChild(link);
 }
 
-if(userDoc.data().email=="peertutoring@stab.org" || userDoc.data().isAdmin){
+if(userDoc.data().email=="peertutoring@stab.org"){
  var div = document.getElementById('email');
  var header = document.createElement('label');
  var input = document.createElement('input');
