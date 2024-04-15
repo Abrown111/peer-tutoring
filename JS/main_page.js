@@ -259,7 +259,7 @@ async function listEvents(startTime, endTime) {
 
 async function updateSheet(){
   var currentDate = new Date();
-  var generatedEvents = await listEvents(userDoc.data().lastTimeSignedIn, currentDate.toISOString());
+  var generatedEvents = await listEvents(userDoc.data().lastTimeSignedIn, userDoc.data().previousTimeSignedIn);
   for(var i = 0; i < generatedEvents.length; i++){
     var request = {
       spreadsheetId: '1rRxor92TQ5sxzjl1vkrTvKF8xoTJBA6n-DsT3qV8NUU',
