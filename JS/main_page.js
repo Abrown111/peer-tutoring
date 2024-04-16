@@ -39,46 +39,44 @@ function gapiLoaded() {
   gapi.load('client', initializeGapiClient);
 }
 
-  /**
-   * Callback after Google Identity Services are loaded.
-   */
+/**
+ * Callback after Google Identity Services are loaded.
+ */
 function gisLoaded() {
-    tokenClient = google.accounts.oauth2.initTokenClient({
-      client_id: CLIENT_ID,
-      scope: SCOPES,
-      callback: '' // defined later
-    });
-    gisInited = true;
-  }
+  tokenClient = google.accounts.oauth2.initTokenClient({
+    client_id: CLIENT_ID,
+    scope: SCOPES,
+    callback: '' // defined later
+  });
+  gisInited = true;
+}
 
-  /**
-   *  Sign in the user upon button click.
-   */
-  function handleAuthClick() {
-    tokenClient.callback = async (resp) => {
-      if (resp.error !== undefined) {
-        throw (resp);
-      }
-    };
-    tokenClient.requestAccessToken({prompt: ''});
-
-  }
+/**
+ *  Sign in the user upon button click.
+ */
+function handleAuthClick() {
+  tokenClient.callback = async (resp) => {
+    if (resp.error !== undefined) {
+      throw (resp);
+    }
+  };
+  tokenClient.requestAccessToken({ prompt: '' });
+}
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 var category_list = []
 var tracker;
-
 var userArray;
 const user = localStorage.getItem("users");
 var userDoc;
-if(user!=null){
+if (user != null) {
   userArray = user.split(" ");
   userDoc = await getDoc(doc(db, "peer-tutoring-signups", userArray[2]));
 }
 var admin = false;
-if(userDoc.data().isAdmin){
+if (userDoc.data().isAdmin) {
   admin = true;
   var nav = document.getElementsByClassName("menu")[0];
   var newLine = document.createElement("li");
@@ -94,7 +92,7 @@ if(userDoc.data().isAdmin){
   drop.appendChild(link);
 }
 
-if(window.innerWidth < 600) {
+if (window.innerWidth < 600) {
   document.getElementsByClassName("dropdownnav")[0].style.display = "inline-block";
   document.getElementsByClassName("navbar")[0].style.visibility = "hidden";
 } else {
@@ -102,14 +100,13 @@ if(window.innerWidth < 600) {
   document.getElementsByClassName("dropdownnav")[0].style.visibility = "hidden";
 }
 
-
 document.getElementById("dropbutton").addEventListener("click", showDropdown);
 
 function showDropdown() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (!event.target.matches('.dropbtn')) {
     var dropdowns = document.getElementsByClassName("dropdown-content");
     for (var i = 0; i < dropdowns.length; i++) {
@@ -121,51 +118,28 @@ window.onclick = function(event) {
   }
 }
 
-
-
 var Email = { send: function (a) { return new Promise(function (n, e) { a.nocache = Math.floor(1e6 * Math.random() + 1), a.Action = "Send"; var t = JSON.stringify(a); Email.ajaxPost("https://smtpjs.com/v3/smtpjs.aspx?", t, function (e) { n(e) }) }) }, ajaxPost: function (e, n, t) { var a = Email.createCORSRequest("POST", e); a.setRequestHeader("Content-type", "application/x-www-form-urlencoded"), a.onload = function () { var e = a.responseText; null != t && t(e) }, a.send(n) }, ajax: function (e, n) { var t = Email.createCORSRequest("GET", e); t.onload = function () { var e = t.responseText; null != n && n(e) }, t.send() }, createCORSRequest: function (e, n) { var t = new XMLHttpRequest; return "withCredentials" in t ? t.open(e, n, !0) : "undefined" != typeof XDomainRequest ? (t = new XDomainRequest).open(e, n) : t = null, t } };
-    
-async function sendEmail(to, subject, message){
+
+async function sendEmail(to, subject, message) {
   return await Email.send({
-    Host : "smtp.elasticemail.com",
-    Username : "peertutoring@stab.org",
-    Password : "4B3FA102498ED1223BDD852771B6127ECF3B",
-    To : to,
-    From : "peertutoring@stab.org",
-    Subject : subject,
-    Body : message
+    Host: "smtp.elasticemail.com",
+    Username: "peertutoring@stab.org",
+    Password: "4B3FA102498ED1223BDD852771B6127ECF3B",
+    To: to,
+    From: "peertutoring@stab.org",
+    Subject: subject,
+    Body: message
   });
 }
 
 
-if(user!=null){
+if (user != null) {
   var userArray = user.split(" ");
 }
 
-export const login = async function () {
-  uname = document.getElementById("username");
-  var databaseItems = await getDocs(collection(db, "peer-tutoring-signups"));
-  var lock = false;
-  alert("here");
-
-  databaseItems.forEach((item) => {
-    if (item.data().username == uname.value) {
-      if (item.data().password == psswd.value) {
-        lock = true;
-        username = uname.value;
-        password = psswd.value;
-        window.location.href = "https://peer-tutor-app-1.timothygroves.repl.co/main_page.html";
-      }
-    }
-  });
-  if (!lock) {
-    form.reset();
-  }
-}
-
-async function removeTutor(id, name){
+async function removeTutor(id, name) {
   let text = "Are you sure you want to remove " + name + " as a tutor?"
-  if(confirm(text)){
+  if (confirm(text)) {
     await updateDoc(doc(db, "peer-tutoring-signups", id), {
       isApproved: false,
       isAdmin: false
@@ -174,26 +148,26 @@ async function removeTutor(id, name){
     senior, please ignore this email as you are graduating soon. If not, please fill out the peer tutoring request form again in order to become a tutor again next year!";
     await sendEmail(id, "Removed as Peer Tutor", msg);
   }
-  location.reload(); 
+  location.reload();
 }
 
-async function demoteTutor(id, name){
+async function demoteTutor(id, name) {
   let text = "Are you sure you want to remove " + name + " as an admin?";
-  if(confirm(text)){
+  if (confirm(text)) {
     await updateDoc(doc(db, "peer-tutoring-signups", id), {
       isApproved: true,
       isAdmin: false
-  });
-  var msg = "Dear " + name.split(" ")[0] + ", thank you for all you've done with and for the peer tutoring program. Unfortunately, your admin privileges have been revoked.\
+    });
+    var msg = "Dear " + name.split(" ")[0] + ", thank you for all you've done with and for the peer tutoring program. Unfortunately, your admin privileges have been revoked.\
      If you wish to restore your former privileges or believe that there is a mistake, reach out to the faculty head of peer tutoring to have your permissions restored. Thanks."
     await sendEmail(id, "Removed as admin from Peer Tutoring", msg);
-}
-location.reload()
+  }
+  location.reload()
 }
 
-async function promoteTutor(id, name){
+async function promoteTutor(id, name) {
   let text = "Are you sure you want to add " + name + " as an admin?"
-  if(confirm(text)){
+  if (confirm(text)) {
     await updateDoc(doc(db, "peer-tutoring-signups", id), {
       isAdmin: true
     });
@@ -232,32 +206,29 @@ async function listEvents(startTime, endTime) {
   }
   console.log(events[0]);
   var newestEvents = [];
-  for(let i =0; i < events.length; i++){
+  for (let i = 0; i < events.length; i++) {
     var outputList;
-    try{
+    try {
       var organizerDoc = getDoc(doc(db, "peer-tutoring-signups", events[i].organizer.email));
       var tutorName = organizerDoc.data().firstName + " " + organizerDoc.data().lastName;
-    }catch{
+    } catch {
       var tutorName = events[i].organizer.email;
     }
-    var startTime = parseInt(events[i].start.dateTime.split("T")[1].split(':')[0]) + parseInt(events[i].start.dateTime.split("T")[1].split(':')[1])/60;
-    var endTime = parseInt(events[i].end.dateTime.split("T")[1].split(':')[0]) + parseInt(events[i].end.dateTime.split("T")[1].split(':')[1])/60;
-    var totalTime = (endTime - startTime).toString(); 
+    var startTime = parseInt(events[i].start.dateTime.split("T")[1].split(':')[0]) + parseInt(events[i].start.dateTime.split("T")[1].split(':')[1]) / 60;
+    var endTime = parseInt(events[i].end.dateTime.split("T")[1].split(':')[0]) + parseInt(events[i].end.dateTime.split("T")[1].split(':')[1]) / 60;
+    var totalTime = (endTime - startTime).toString();
     var studentName = events[i].summary.split("(")[1].split(")")[0];
     outputList = [tutorName, studentName, events[i].start.dateTime.split("T")[0], totalTime];
     newestEvents.push(outputList);
   }
   // Flatten to string to display
-  const output = events.reduce(
-    (str, event) => `${str}${event.organizer.email} (${event.start.dateTime || event.start.date})\n`,
-    'Events:\n');
   return newestEvents;
 }
 
-async function updateSheet(){
+async function updateSheet() {
   var currentDate = new Date();
   var generatedEvents = await listEvents(userDoc.data().lastTimeSignedIn, userDoc.data().previousTimeSignedIn);
-  for(var i = 0; i < generatedEvents.length; i++){
+  for (var i = 0; i < generatedEvents.length; i++) {
     var request = {
       spreadsheetId: '1rRxor92TQ5sxzjl1vkrTvKF8xoTJBA6n-DsT3qV8NUU',
       range: "Sheet1",
@@ -265,21 +236,17 @@ async function updateSheet(){
       valueInputOption: "RAW",
       includeValuesInResponse: true,
       resource: {
-          values: [generatedEvents[i]]
+        values: [generatedEvents[i]]
       },
     };
     var response = await gapi.client.sheets.spreadsheets.values.append(request);
     console.log(response);
-
   }
-  
-  var newDoc = getDoc(doc(db, "peer-tutoring-signups", "peertutoring@stab.org"));
   console.log(generatedEvents);
   await updateDoc(doc(db, "peer-tutoring-signups", "peertutoring@stab.org"), {
     previousTimeSignedIn: userDoc.data().lastTimeSignedIn,
     lastTimeSignedIn: currentDate.toISOString()
   });
-
 }
 
 // show Tutors from firebase in the tiles on the screen
@@ -287,7 +254,7 @@ export const showItems = async function () {
   const databaseItems = await getDocs(collection(db, "peer-tutoring-signups"));
   var tutors = document.getElementById("tutors");
   tutors.innerHTML = "";
-  if(userDoc.data().email == "peertutoring@stab.org" && tracker != 1){
+  if (userDoc.data().email == "peertutoring@stab.org" && tracker != 1) {
     var navBarHeader = document.getElementById("PeerTutoring");
     var newButton = document.createElement("button");
     newButton.innerText = 'Update Tutor Document';
@@ -295,12 +262,12 @@ export const showItems = async function () {
       gapiLoaded();
       gisLoaded();
       handleAuthClick();
-      setTimeout(()=>{updateSheet()}, 1000);
+      setTimeout(() => { updateSheet() }, 1000);
     });
     navBarHeader.appendChild(newButton);
     tracker = 1;
   }
-  
+
 
   databaseItems.forEach((item) => {
     if (item.data().firstName.toLowerCase().includes(document.getElementById("filter_search").value.toLowerCase()) || item.data().lastName.toLowerCase().includes(document.getElementById("filter_search").value.toLowerCase())) { //search bar for Tutors
@@ -315,7 +282,6 @@ export const showItems = async function () {
           row.appendChild(name);
 
           if (item.data().img != "") {
-
             var image = document.createElement("img");
             image.src = item.data().img;
             row.appendChild(image);
@@ -346,7 +312,7 @@ export const showItems = async function () {
           var calendar = document.createElement("button");
           calendar.innerText = "Calendar";
           calendar.addEventListener('click', () => {
-            if(!item.data().calendar.includes("//")){
+            if (!item.data().calendar.includes("//")) {
               window.open("//" + item.data().calendar);
             } else {
               window.open(item.data().calendar, "_blank");
@@ -354,7 +320,7 @@ export const showItems = async function () {
           });
           row.appendChild(calendar);
 
-          if(admin){
+          if (admin) {
             row.appendChild(document.createElement("br"));
             row.appendChild(document.createElement("br"));
             var remove = document.createElement("button");
@@ -373,7 +339,7 @@ export const showItems = async function () {
               promoteTutor(item.id, String(item.data().firstName) + ' ' + String(item.data().lastName), item.data().isAdmin);
             });
             row.appendChild(remove);
-            if(!item.data().isAdmin){
+            if (!item.data().isAdmin) {
               row.appendChild(document.createElement("br"));
               row.appendChild(document.createElement("br"));
               row.appendChild(promote);
@@ -386,13 +352,10 @@ export const showItems = async function () {
 
           tutors.appendChild(row);
 
-
-
         }
       }
     }
   });
-
 }
 
 showItems();

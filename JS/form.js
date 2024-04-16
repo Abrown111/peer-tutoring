@@ -25,16 +25,16 @@ const db = getFirestore(app);
 let form = document.getElementById("tutorform");
 
 var Email = { send: function (a) { return new Promise(function (n, e) { a.nocache = Math.floor(1e6 * Math.random() + 1), a.Action = "Send"; var t = JSON.stringify(a); Email.ajaxPost("https://smtpjs.com/v3/smtpjs.aspx?", t, function (e) { n(e) }) }) }, ajaxPost: function (e, n, t) { var a = Email.createCORSRequest("POST", e); a.setRequestHeader("Content-type", "application/x-www-form-urlencoded"), a.onload = function () { var e = a.responseText; null != t && t(e) }, a.send(n) }, ajax: function (e, n) { var t = Email.createCORSRequest("GET", e); t.onload = function () { var e = t.responseText; null != n && n(e) }, t.send() }, createCORSRequest: function (e, n) { var t = new XMLHttpRequest; return "withCredentials" in t ? t.open(e, n, !0) : "undefined" != typeof XDomainRequest ? (t = new XDomainRequest).open(e, n) : t = null, t } };
-    
-function sendEmail(to, subject, message){
+
+function sendEmail(to, subject, message) {
   Email.send({
-    Host : "smtp.elasticemail.com",
-    Username : "peertutoring@stab.org",
-    Password : "4B3FA102498ED1223BDD852771B6127ECF3B",
-    To : to,
-    From : "peertutoring@stab.org",
-    Subject : subject,
-    Body : message
+    Host: "smtp.elasticemail.com",
+    Username: "peertutoring@stab.org",
+    Password: "4B3FA102498ED1223BDD852771B6127ECF3B",
+    To: to,
+    From: "peertutoring@stab.org",
+    Subject: subject,
+    Body: message
   }).then(
     message => alert(message)
   );
@@ -49,12 +49,12 @@ const csClasses = ["Computer Science Principles", "Data Structures"];
 var userArray;
 const user = localStorage.getItem("users");
 var userDoc;
-if(user!=null){
+if (user != null) {
   userArray = user.split(" ");
   userDoc = await getDoc(doc(db, "peer-tutoring-signups", userArray[2]));
 }
 var admin = false;
-if(userDoc.data().isAdmin){
+if (userDoc.data().isAdmin) {
   admin = true;
   var nav = document.getElementsByClassName("menu")[0];
   var newLine = document.createElement("li");
@@ -70,18 +70,18 @@ if(userDoc.data().isAdmin){
   drop.appendChild(link);
 }
 
-if(userDoc.data().email=="peertutoring@stab.org"){
- var div = document.getElementById('email');
- var header = document.createElement('label');
- var input = document.createElement('input');
- input.setAttribute('class', "form");
- input.setAttribute('type', "text");
- input.setAttribute('id', "emailval");
- input.setAttribute('name', "emailval");
- header.innerHTML = "Email: (Only for making new admin)";
- div.appendChild(header);
- div.appendChild(document.createElement('br'));
- div.appendChild(input);
+if (userDoc.data().email == "peertutoring@stab.org") {
+  var div = document.getElementById('email');
+  var header = document.createElement('label');
+  var input = document.createElement('input');
+  input.setAttribute('class', "form");
+  input.setAttribute('type', "text");
+  input.setAttribute('id', "emailval");
+  input.setAttribute('name', "emailval");
+  header.innerHTML = "Email: (Only for making new admin)";
+  div.appendChild(header);
+  div.appendChild(document.createElement('br'));
+  div.appendChild(input);
 } else {
   var description = document.getElementById("description");
   description.required = true;
@@ -91,7 +91,7 @@ if(userDoc.data().email=="peertutoring@stab.org"){
   grade.required = true;
 }
 
-if(window.innerWidth < 600) {
+if (window.innerWidth < 600) {
   document.getElementsByClassName("dropdownnav")[0].style.display = "inline-block";
   document.getElementsByClassName("navbar")[0].style.visibility = "hidden";
 } else {
@@ -99,14 +99,13 @@ if(window.innerWidth < 600) {
   document.getElementsByClassName("dropdownnav")[0].style.visibility = "hidden";
 }
 
-
 document.getElementById("dropbutton").addEventListener("click", showDropdown);
 
 function showDropdown() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (!event.target.matches('.dropbtn')) {
     var dropdowns = document.getElementsByClassName("dropdown-content");
     for (var i = 0; i < dropdowns.length; i++) {
@@ -117,7 +116,6 @@ window.onclick = function(event) {
     }
   }
 }
-
 
 let lastName = document.getElementById("lastName");
 let firstName = document.getElementById("firstName");
@@ -137,7 +135,6 @@ if (Math.floor(Math.random() * 1000) == 1) {
   document.body.style.backgroundAttachment = "fixed";
   document.body.style.backgroundSize = "cover";
 }
-
 
 var expandedOptions = false;
 var expandedMath = false;
@@ -229,7 +226,6 @@ function showComputerScience() {
   }
 }
 
-
 //Runs the below code when form is submitted
 form.addEventListener("submit", async (e) => {
 
@@ -306,19 +302,19 @@ form.addEventListener("submit", async (e) => {
   let calendar = document.getElementById("calendar");
   let grade = document.getElementById("grade");
 
-  if(userDoc.data().email=="peertutoring@stab.org" || userDoc.data().isAdmin){
+  if (userDoc.data().email == "peertutoring@stab.org" || userDoc.data().isAdmin) {
     var email = document.getElementById("emailval");
   }
 
   //creates tutor object from the above variables
   try {
-      if((userDoc.data().email=="peertutoring@stab.org" || userDoc.data().isAdmin) && !email==""){
-        await makeNewTutor(subject, email, firstName, lastName, description, calendar, grade, teachList);
-      } else {
-        await addTutor(subject, firstName, lastName, description, calendar, grade, teachList);
-      }
+    if (userDoc.data().email == "peertutoring@stab.org" && !email == "") {
+      await makeNewTutor(subject, email, firstName, lastName, description, calendar, grade, teachList);
+    } else {
+      await addTutor(subject, firstName, lastName, description, calendar, grade, teachList);
+    }
     window.location.href = "https://abrown111.github.io/peer-tutoring/HTML/main_page.html";
-  } catch (e){
+  } catch (e) {
     alert("File is too big. Please use a smaller file" + e);
     location.reload();
   }
@@ -342,22 +338,22 @@ async function addTutor(subject, firstName, lastName, description, calendar, gra
   });
 }
 
-async function makeNewTutor(subject, email, firstName, lastName, description, calendar, grade, teachList){
-    await setDoc(doc(db, "peer-tutoring-signups", email.value), {
-      subject: subject,
-      firstName: firstName.value,
-      lastName: lastName.value,
-      email: email.value,
-      description: description.value,
-      calendar: calendar.value,
-      grade: grade.value,
-      img: picture,
-      isRequested: false,
-      isApproved: true,
-      teachList: teachList,
-      isAdmin: true,
-      home: false
-    });
+async function makeNewTutor(subject, email, firstName, lastName, description, calendar, grade, teachList) {
+  await setDoc(doc(db, "peer-tutoring-signups", email.value), {
+    subject: subject,
+    firstName: firstName.value,
+    lastName: lastName.value,
+    email: email.value,
+    description: description.value,
+    calendar: calendar.value,
+    grade: grade.value,
+    img: picture,
+    isRequested: false,
+    isApproved: true,
+    teachList: teachList,
+    isAdmin: true,
+    home: false
+  });
 }
 
 const fileInput = document.getElementById('file');

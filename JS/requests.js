@@ -79,26 +79,22 @@ export const showItems = async function () {
       name.for = item.id;
       row.appendChild(name);
 
-
       var image = document.createElement("img");
       image.src = item.data().img;
       row.appendChild(image);
 
       row.appendChild(document.createElement("br"));
 
-
       var subject = document.createElement("p");
       subject.innerHTML = "Subject: " + item.data().subject;
       subject.for = item.id;
       row.appendChild(subject);
-      //row.appendChild(document.createElement("br"));
-
+  
       var description = document.createElement("p");
       description.innerHTML = "Bio: " + item.data().description;
       description.for = item.id;
       row.appendChild(description);
-      //row.appendChild(document.createElement("br"));
-
+     
       var email = document.createElement("p");
       email.innerHTML = "Email: " + item.data().email;
       email.for = item.id;
@@ -108,7 +104,6 @@ export const showItems = async function () {
       calendar.innerHTML = "Calendar";
       calendar.href = item.data().calendar;
       row.append(calendar);
-
 
       var grade = document.createElement("p");
       grade.innerHTML = "Grade: " + item.data().grade;

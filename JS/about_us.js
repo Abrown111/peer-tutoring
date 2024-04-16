@@ -24,12 +24,12 @@ const db = getFirestore(app);
 const user = localStorage.getItem("users");
 var userArray;
 var userDoc;
-if(user!=null){
+if (user != null) {
   userArray = user.split(" ");
   userDoc = await getDoc(doc(db, "peer-tutoring-signups", userArray[2]));
 }
 var admin = false;
-if(userDoc.data().isAdmin){
+if (userDoc.data().isAdmin) {
   admin = true;
   var nav = document.getElementsByClassName("menu")[0];
   var newLine = document.createElement("li");
@@ -45,7 +45,7 @@ if(userDoc.data().isAdmin){
   drop.appendChild(link);
 }
 
-if(window.innerWidth < 600) {
+if (window.innerWidth < 600) {
   document.getElementsByClassName("dropdownnav")[0].style.display = "inline-block";
   document.getElementsByClassName("navbar")[0].style.visibility = "hidden";
 } else {
@@ -59,7 +59,7 @@ function showDropdown() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (!event.target.matches('.dropbtn')) {
     var dropdowns = document.getElementsByClassName("dropdown-content");
     for (var i = 0; i < dropdowns.length; i++) {
