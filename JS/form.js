@@ -20,6 +20,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const databaseItems = await getDocs(collection(db, "peer-tutoring-signups"));
 
 // Allows access to the form from the html page
 let form = document.getElementById("tutorform");
