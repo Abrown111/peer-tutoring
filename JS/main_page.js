@@ -212,7 +212,7 @@ async function listEvents(startTime, endTime) {
   try {
     const request = {
       'calendarId': 'primary',
-      'timeMin': '2024-04-05T14:48:00.000Z',
+      'timeMin': '2024-04-11T13:47:26+0000',
       'showDeleted': false,
       'singleEvents': true,
       'maxResults': 100,
@@ -231,21 +231,55 @@ async function listEvents(startTime, endTime) {
     return;
   }
   console.log(events[0]);
+  var newestEvents = [];
+  for(let i =0; i < events.length; i++){
+    var outputList;
+    try{
+      var organizerDoc = getDoc(doc(db, "peer-tutoring-signups", events[i].organizer.email));
+      var tutorName = organizerDoc.data().firstName + " " + organizerDoc.data().lastName;
+    }catch{
+      var tutorName = events[i].organizer.email;
+    }
+    var startTime = parseInt(events[i].start.dateTime.split("T")[1].split(':')[0]) + parseInt(events[i].start.dateTime.split("T")[1].split(':')[1])/60;
+    var endTime = parseInt(events[i].end.dateTime.split("T")[1].split(':')[0]) + parseInt(events[i].end.dateTime.split("T")[1].split(':')[1])/60;
+    var totalTime = (endTime - startTime).toString(); 
+    var studentName = events[i].summary.split("(")[1].split(")")[0];
+    outputList = [tutorName, studentName, events[i].start.dateTime.split("T")[0], totalTime];
+    newestEvents.push(outputList);
+  }
   // Flatten to string to display
   const output = events.reduce(
-    (str, event) => `${str}${event.summary} (${event.start.dateTime || event.start.date})\n`,
+    (str, event) => `${str}${event.organizer.email} (${event.start.dateTime || event.start.date})\n`,
     'Events:\n');
-  return output;
+  return newestEvents;
 }
 
 async function updateSheet(){
   var currentDate = new Date();
+  var generatedEvents = await listEvents(userDoc.data().lastTimeSignedIn, userDoc.data().previousTimeSignedIn);
+  for(var i = 0; i < generatedEvents.length; i++){
+    var request = {
+      spreadsheetId: '1rRxor92TQ5sxzjl1vkrTvKF8xoTJBA6n-DsT3qV8NUU',
+      range: "Sheet1",
+      insertDataOption: "INSERT_ROWS",
+      valueInputOption: "RAW",
+      includeValuesInResponse: true,
+      resource: {
+          values: [generatedEvents[i]]
+      },
+    };
+    var response = await gapi.client.sheets.spreadsheets.values.append(request);
+    console.log(response);
+
+  }
+  
   var newDoc = getDoc(doc(db, "peer-tutoring-signups", "peertutoring@stab.org"));
-  var events = await listEvents(userDoc.data().lastTimeSignedIn, currentDate.toISOString());
+  console.log(generatedEvents);
   await updateDoc(doc(db, "peer-tutoring-signups", "peertutoring@stab.org"), {
     previousTimeSignedIn: userDoc.data().lastTimeSignedIn,
     lastTimeSignedIn: currentDate.toISOString()
   });
+
 }
 
 // show Tutors from firebase in the tiles on the screen

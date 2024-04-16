@@ -114,11 +114,11 @@ export const signIn = async function(){
      handleAuthClick();
       d = 1;
     }else{
-      window.location.href = "/HTML/main_page.html";
+      window.location.href = "https://abrown111.github.io/peer-tutoring/HTML/main_page.html";
     }
   }
   if(d == 1){
-    setTimeout(()=>{window.location.href = "/HTML/main_page.html"}, 1000);
+    setTimeout(()=>{window.location.href = "https://abrown111.github.io/peer-tutoring/HTML/main_page.html"}, 1000);
 
   }
 }
