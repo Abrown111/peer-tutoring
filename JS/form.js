@@ -317,6 +317,7 @@ form.addEventListener("submit", async (e) => {
     var adminList = [];
     databaseItems.forEach((item) => { 
       if (item.data().isAdmin){
+        alert("NEW ADMIN " + item.data().email);
         adminList.push(item.data().email);
       }
     });
