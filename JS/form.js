@@ -313,6 +313,14 @@ form.addEventListener("submit", async (e) => {
     } else {
       await addTutor(subject, firstName, lastName, description, calendar, grade, teachList);
     }
+    var adminList = [];
+    databaseItems.forEach((item) => { 
+      if (item.data().isAdmin){
+        adminList.push(item.data().email);
+      }
+    });
+    var msg = userDoc.data().firstName + " " + userDoc.data().lastName + " has requested to be a peer tutor! They have appeared on the requests page, please review their request 🙂."
+    await sendEmail(adminList, "New Tutor Request", msg);
     window.location.href = "https://abrown111.github.io/peer-tutoring/HTML/main_page.html";
   } catch (e) {
     alert("File is too big. Please use a smaller file" + e);
