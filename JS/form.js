@@ -317,10 +317,11 @@ form.addEventListener("submit", async (e) => {
     var adminList = [];
     databaseItems.forEach((item) => { 
       if (item.data().isAdmin){
+        alert("NEW ADMIN " + item.data().email);
         adminList.push(item.data().email);
       }
     });
-    var msg = userDoc.data().firstName + " " + userDoc.data().lastName + " has requested to be a peer tutor! They have appeared on the requests page, please review their request 🙂."
+    var msg = String(userDoc.data().firstName) + " " + String(userDoc.data().lastName) + " has requested to be a peer tutor! They have appeared on the requests page, please review their request 🙂."
     await sendEmail(adminList, "New Tutor Request", msg);
     window.location.href = "https://abrown111.github.io/peer-tutoring/HTML/main_page.html";
   } catch (e) {
