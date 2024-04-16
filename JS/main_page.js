@@ -142,9 +142,6 @@ if(user!=null){
   var userArray = user.split(" ");
 }
 
-var databaseItems = await getDocs(collection(db, "peer-tutoring-signups"));
-
-
 export const login = async function () {
   uname = document.getElementById("username");
   var databaseItems = await getDocs(collection(db, "peer-tutoring-signups"));
