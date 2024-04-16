@@ -336,7 +336,7 @@ export const showItems = async function () {
             var promote = document.createElement("button");
             promote.innerText = "Promote to Admin";
             promote.addEventListener('click', () => {
-              promoteTutor(item.id, String(item.data().firstName) + ' ' + String(item.data().lastName), item.data().isAdmin);
+              promoteTutor(item.id, String(item.data().firstName) + ' ' + String(item.data().lastName));
             });
             row.appendChild(remove);
             if (!item.data().isAdmin) {
