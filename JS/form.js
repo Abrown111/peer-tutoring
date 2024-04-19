@@ -81,15 +81,18 @@ if (userDoc.data().isAdmin || userDoc.data().email == "trgroves4@gmail.com") {
     input.setAttribute('type', "text");
     input.setAttribute('id', "emailval");
     input.setAttribute('name', "emailval");
-    header.innerHTML = "Email: (Only for making new admin)";
+    header.innerHTML = "Email: ";
     div.appendChild(header);
     div.appendChild(document.createElement('br'));
     div.appendChild(input);
 
     var regular = document.getElementsByClassName("regular");
-    for (var i = 0; i < regular.length; i++){
+    for (var i = 0; i < regular.length; i++) {
       regular.item(i).style.display = "none";
     }
+
+    document.getElementById("thisPage").innerHTML = "New Admin";
+    document.getElementById("thisDrop").innerHTML = "New Admin";
   }
 } else {
   var description = document.getElementById("description");
