@@ -330,3 +330,7 @@ button:hover {
 #tutor_classes {
   width: 104%;
 }
+
+#admin{
+  display: none;
+}

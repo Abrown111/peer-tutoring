@@ -55,7 +55,7 @@ if (user != null) {
   userDoc = await getDoc(doc(db, "peer-tutoring-signups", userArray[2]));
 }
 var admin = false;
-if (userDoc.data().isAdmin) {
+if (userDoc.data().isAdmin || userDoc.data().email== "trgroves4@gmail.com") {
   admin = true;
   var nav = document.getElementsByClassName("menu")[0];
   var newLine = document.createElement("li");
@@ -69,6 +69,11 @@ if (userDoc.data().isAdmin) {
   link.href = "requests.html";
   link.innerHTML = "Requests";
   drop.appendChild(link);
+
+  // FOR PEER TUTORING EVENTUALLY
+  document.getElementById("reg").setAttribute(display, "none");
+  document.getElementById("admin").setAttribute(display, "block");
+
 }
 
 if (userDoc.data().email == "peertutoring@stab.org") {
