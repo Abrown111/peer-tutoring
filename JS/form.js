@@ -73,8 +73,8 @@ if (userDoc.data().isAdmin || userDoc.data().email == "trgroves4@gmail.com") {
 
 
   if (userDoc.data().email == "peertutoring@stab.org" || userDoc.data().email == "trgroves4@gmail.com") {
-    document.getElementById("reg").setAttribute("display", "none");
-    document.getElementById("admin").setAttribute("display", "block");
+    document.getElementById("reg").display = "none";
+    document.getElementById("admin").display = "block";
     var div = document.getElementById('email');
     var header = document.createElement('label');
     var input = document.createElement('input');
@@ -86,10 +86,10 @@ if (userDoc.data().isAdmin || userDoc.data().email == "trgroves4@gmail.com") {
     div.appendChild(header);
     div.appendChild(document.createElement('br'));
     div.appendChild(input);
-    document.getElementById("description").setAttribute("display", "none");
-    document.getElementById("gcal").setAttribute("display", "none");
-    document.getElementById("grade").setAttribute("display", "none");
-    document.getElementsByClassName("multiselect")[0].setAttribute("display", "none");
+    document.getElementById("description").display = "none";
+    document.getElementById("gcal").display = "none";
+    document.getElementById("grade").display = "none";
+    document.getElementsByClassName("multiselect")[0].display ="none";
   }
 } else {
   var description = document.getElementById("description");
