@@ -55,7 +55,7 @@ if (user != null) {
   userDoc = await getDoc(doc(db, "peer-tutoring-signups", userArray[2]));
 }
 var admin = false;
-if (userDoc.data().isAdmin || userDoc.data().email== "trgroves4@gmail.com") {
+if (userDoc.data().isAdmin || userDoc.data().email == "trgroves4@gmail.com") {
   admin = true;
   var nav = document.getElementsByClassName("menu")[0];
   var newLine = document.createElement("li");
@@ -70,24 +70,27 @@ if (userDoc.data().isAdmin || userDoc.data().email== "trgroves4@gmail.com") {
   link.innerHTML = "Requests";
   drop.appendChild(link);
 
-  // FOR PEER TUTORING EVENTUALLY
-  document.getElementById("reg").setAttribute(display, "none");
-  document.getElementById("admin").setAttribute(display, "block");
 
-}
 
-if (userDoc.data().email == "peertutoring@stab.org") {
-  var div = document.getElementById('email');
-  var header = document.createElement('label');
-  var input = document.createElement('input');
-  input.setAttribute('class', "form");
-  input.setAttribute('type', "text");
-  input.setAttribute('id', "emailval");
-  input.setAttribute('name', "emailval");
-  header.innerHTML = "Email: (Only for making new admin)";
-  div.appendChild(header);
-  div.appendChild(document.createElement('br'));
-  div.appendChild(input);
+  if (userDoc.data().email == "peertutoring@stab.org" || userDoc.data().email == "trgroves4@gmail.com") {
+    document.getElementById("reg").setAttribute("display", "none");
+    document.getElementById("admin").setAttribute("display", "block");
+    var div = document.getElementById('email');
+    var header = document.createElement('label');
+    var input = document.createElement('input');
+    input.setAttribute('class', "form");
+    input.setAttribute('type', "text");
+    input.setAttribute('id', "emailval");
+    input.setAttribute('name', "emailval");
+    header.innerHTML = "Email: (Only for making new admin)";
+    div.appendChild(header);
+    div.appendChild(document.createElement('br'));
+    div.appendChild(input);
+    document.getElementById("description").setAttribute("display", "none");
+    document.getElementById("gcal").setAttribute("display", "none");
+    document.getElementById("grade").setAttribute("display", "none");
+    document.getElementsByClassName("multiselect")[0].setAttribute("display", "none");
+  }
 } else {
   var description = document.getElementById("description");
   description.required = true;
