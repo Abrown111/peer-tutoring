@@ -42,6 +42,8 @@ if (userDoc.data().isAdmin) {
   link.href = "requests.html";
   link.innerHTML = "Requests";
   drop.appendChild(link);
+  document.getElementById("form").innerHTML = "New Admin";
+  document.getElementById("formDrop").innerHTML = "New Admin";
 }
 
 if (window.innerWidth < 600) {
