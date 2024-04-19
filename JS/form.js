@@ -73,7 +73,6 @@ if (userDoc.data().isAdmin || userDoc.data().email == "trgroves4@gmail.com") {
 
 
   if (userDoc.data().email == "peertutoring@stab.org" || userDoc.data().email == "trgroves4@gmail.com") {
-    document.getElementById("reg").style.display = "none";
     document.getElementById("admin").style.display = "block";
     var div = document.getElementById('email');
     var header = document.createElement('label');
@@ -86,10 +85,11 @@ if (userDoc.data().isAdmin || userDoc.data().email == "trgroves4@gmail.com") {
     div.appendChild(header);
     div.appendChild(document.createElement('br'));
     div.appendChild(input);
-    document.getElementById("description").style.display = "none";
-    document.getElementById("gcal").style.display = "none";
-    document.getElementById("grade").style.display = "none";
-    document.getElementsByClassName("multiselect")[0].style.display ="none";
+
+    var regular = document.getElementsByClassName("regular");
+    for (var i = 0; i < regular.length; i++){
+      regular.item(i).style.display = "none";
+    }
   }
 } else {
   var description = document.getElementById("description");

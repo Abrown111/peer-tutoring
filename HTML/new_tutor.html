@@ -56,7 +56,7 @@
 
   <div id="items">
     <form id="tutorform">
-      <h1 id="reg">Become a Tutor</h1>
+      <h1 class="regular">Become a Tutor</h1>
       <h1 id="admin">Make new Admin</h1>
       <h2>(fill out all fields)</h2>
       <br>
@@ -64,178 +64,179 @@
       <br>
 
       <!-- This creates a dropdown menu to select subject -->
-      <label>Subject:</label>
-      <br>
+      <div class="regular">
+        <label>Subject:</label>
+        <br>
 
-      <div class="multiselect">
-        <div class="selectBox" id="options">
-          <select id="tutor_classes">
-            <option>Select Classes</option>
-          </select>
-          <div class="overSelect"></div>
-        </div>
-
-        <div id="checkboxes">
-
-          <button class="buttons" id="mathButton" type="button">Math <img class="dropdownArrow"
-              src="https://raw.githubusercontent.com/Abrown111/peer-tutoring/main/Photos/dropdown.png" /></button>
-
-          <div id="math">
-            <label for="IM1">
-              <input type="checkbox" id="IM1" />IM1</label>
-
-            <label for="IM2">
-              <input type="checkbox" id="IM2" />IM2</label>
-
-            <label for="HIM2">
-              <input type="checkbox" id="HIM2" />HIM2</label>
-
-            <label for="IM3">
-              <input type="checkbox" id="IM3" />IM3</label>
-
-            <label for="HIM3">
-              <input type="checkbox" id="HIM3" />HIM3</label>
-
-            <label for="IM4">
-              <input type="checkbox" id="IM4" />IM4</label>
-
-            <label for="AB Calculus">
-              <input type="checkbox" id="AB Calculus" />AB Calculus</label>
-
-            <label for="BC Calculus">
-              <input type="checkbox" id="BC Calculus" />BC Calculus</label>
-
-            <label for="Multivariable Calculus">
-              <input type="checkbox" id="Multivariable Calculus" />Multivariable Calculus</label>
-
-            <label for="Statistics">
-              <input type="checkbox" id="Statistics" />Statistics</label>
+        <div class="multiselect">
+          <div class="selectBox" id="options">
+            <select id="tutor_classes">
+              <option>Select Classes</option>
+            </select>
+            <div class="overSelect"></div>
           </div>
 
+          <div id="checkboxes">
 
-          <button class="buttons" id="scienceButton" type="button">Science<img class="dropdownArrow"
-              src="https://raw.githubusercontent.com/Abrown111/peer-tutoring/main/Photos/dropdown.png" /></button>
+            <button class="buttons" id="mathButton" type="button">Math <img class="dropdownArrow"
+                src="https://raw.githubusercontent.com/Abrown111/peer-tutoring/main/Photos/dropdown.png" /></button>
 
-          <div id="science">
+            <div id="math">
+              <label for="IM1">
+                <input type="checkbox" id="IM1" />IM1</label>
 
-            <label for="Advanced Physics">
-              <input type="checkbox" id="Advanced Physics" />Advanced Physics</label>
+              <label for="IM2">
+                <input type="checkbox" id="IM2" />IM2</label>
 
-            <label for="Advanced Chemistry">
-              <input type="checkbox" id="Advanced Chemistry" />Advanced Chemistry</label>
+              <label for="HIM2">
+                <input type="checkbox" id="HIM2" />HIM2</label>
 
-            <label for="Advanced Biology">
-              <input type="checkbox" id="Advanced Biology" />Advanced Biology</label>
+              <label for="IM3">
+                <input type="checkbox" id="IM3" />IM3</label>
 
-            <label for="AP Physics">
-              <input type="checkbox" id="AP Physics" />AP Physics</label>
+              <label for="HIM3">
+                <input type="checkbox" id="HIM3" />HIM3</label>
 
-            <label for="AP Chemistry">
-              <input type="checkbox" id="AP Chemistry" />AP Chemistry</label>
+              <label for="IM4">
+                <input type="checkbox" id="IM4" />IM4</label>
 
-            <label for="Anatomy and Physiology">
-              <input type="checkbox" id="Anatomy and Physiology" />Anatomy and Physiology</label>
+              <label for="AB Calculus">
+                <input type="checkbox" id="AB Calculus" />AB Calculus</label>
 
-          </div>
+              <label for="BC Calculus">
+                <input type="checkbox" id="BC Calculus" />BC Calculus</label>
 
-          <button class="buttons" id="languageButton" type="button">Language<img class="dropdownArrow"
-              src="https://raw.githubusercontent.com/Abrown111/peer-tutoring/main/Photos/dropdown.png" /></button>
+              <label for="Multivariable Calculus">
+                <input type="checkbox" id="Multivariable Calculus" />Multivariable Calculus</label>
 
-          <div id="language">
+              <label for="Statistics">
+                <input type="checkbox" id="Statistics" />Statistics</label>
+            </div>
 
-            <label for="Spanish 1">
-              <input type="checkbox" id="Spanish 1" />Spanish 1</label>
 
-            <label for="Spanish 2">
-              <input type="checkbox" id="Spanish 2" />Spanish 2</label>
+            <button class="buttons" id="scienceButton" type="button">Science<img class="dropdownArrow"
+                src="https://raw.githubusercontent.com/Abrown111/peer-tutoring/main/Photos/dropdown.png" /></button>
 
-            <label for="Honors Spanish 2">
-              <input type="checkbox" id="Honors Spanish 2" />Honors Spanish 2</label>
+            <div id="science">
 
-            <label for="Spanish 3">
-              <input type="checkbox" id="Spanish 3" />Spanish 3</label>
+              <label for="Advanced Physics">
+                <input type="checkbox" id="Advanced Physics" />Advanced Physics</label>
 
-            <label for="Honors Spanish 3">
-              <input type="checkbox" id="Honors Spanish 3" />Honors Spanish 3</label>
+              <label for="Advanced Chemistry">
+                <input type="checkbox" id="Advanced Chemistry" />Advanced Chemistry</label>
 
-            <label for="Spanish 4">
-              <input type="checkbox" id="Spanish 4" />Spanish 4</label>
+              <label for="Advanced Biology">
+                <input type="checkbox" id="Advanced Biology" />Advanced Biology</label>
 
-            <label for="AP Spanish">
-              <input type="checkbox" id="AP Spanish" />AP Spanish</label>
+              <label for="AP Physics">
+                <input type="checkbox" id="AP Physics" />AP Physics</label>
 
-            <label for="Spanish 5">
-              <input type="checkbox" id="Spanish 5" />Spanish 5</label>
+              <label for="AP Chemistry">
+                <input type="checkbox" id="AP Chemistry" />AP Chemistry</label>
 
-            <label for="Honors Spanish 5">
-              <input type="checkbox" id="Honors Spanish 5" />Honors Spanish 5</label>
+              <label for="Anatomy and Physiology">
+                <input type="checkbox" id="Anatomy and Physiology" />Anatomy and Physiology</label>
 
-            <label for="French 1">
-              <input type="checkbox" id="French 1" />French 1</label>
+            </div>
 
-            <label for="French 2">
-              <input type="checkbox" id="French 2" />French 2</label>
+            <button class="buttons" id="languageButton" type="button">Language<img class="dropdownArrow"
+                src="https://raw.githubusercontent.com/Abrown111/peer-tutoring/main/Photos/dropdown.png" /></button>
 
-            <label for="Honors French 2">
-              <input type="checkbox" id="Honors French 2" />Honors French 2</label>
+            <div id="language">
 
-            <label for="French 3">
-              <input type="checkbox" id="French 3" />French 3</label>
+              <label for="Spanish 1">
+                <input type="checkbox" id="Spanish 1" />Spanish 1</label>
 
-            <label for="Honors French 3">
-              <input type="checkbox" id="Honors French 3" />Honors French 3</label>
+              <label for="Spanish 2">
+                <input type="checkbox" id="Spanish 2" />Spanish 2</label>
 
-            <label for="French 4">
-              <input type="checkbox" id="French 4" />French 4</label>
+              <label for="Honors Spanish 2">
+                <input type="checkbox" id="Honors Spanish 2" />Honors Spanish 2</label>
 
-            <label for="AP French">
-              <input type="checkbox" id="AP French" />AP French</label>
+              <label for="Spanish 3">
+                <input type="checkbox" id="Spanish 3" />Spanish 3</label>
 
-            <label for="French 5">
-              <input type="checkbox" id="French 5" />French 5</label>
+              <label for="Honors Spanish 3">
+                <input type="checkbox" id="Honors Spanish 3" />Honors Spanish 3</label>
 
-            <label for="Honors French 5">
-              <input type="checkbox" id="Honors French 5" />Honors French 5</label>
+              <label for="Spanish 4">
+                <input type="checkbox" id="Spanish 4" />Spanish 4</label>
 
-          </div>
+              <label for="AP Spanish">
+                <input type="checkbox" id="AP Spanish" />AP Spanish</label>
 
-          <button class="buttons" id="humanitiesButton" type="button">Humanities<img class="dropdownArrow"
-              src="https://raw.githubusercontent.com/Abrown111/peer-tutoring/main/Photos/dropdown.png" /></button>
+              <label for="Spanish 5">
+                <input type="checkbox" id="Spanish 5" />Spanish 5</label>
 
-          <div id="humanities">
+              <label for="Honors Spanish 5">
+                <input type="checkbox" id="Honors Spanish 5" />Honors Spanish 5</label>
 
-            <label for="English 9">
-              <input type="checkbox" id="English 9" />English 9</label>
+              <label for="French 1">
+                <input type="checkbox" id="French 1" />French 1</label>
 
-            <label for="History 9">
-              <input type="checkbox" id="History 9" />History 9</label>
+              <label for="French 2">
+                <input type="checkbox" id="French 2" />French 2</label>
 
-            <label for="Humanities 10">
-              <input type="checkbox" id="Humanities 10" />Humanities 10</label>
+              <label for="Honors French 2">
+                <input type="checkbox" id="Honors French 2" />Honors French 2</label>
 
-            <label for="American Studies">
-              <input type="checkbox" id="American Studies" />American Studies</label>
+              <label for="French 3">
+                <input type="checkbox" id="French 3" />French 3</label>
 
-            <label for="Peer Writing">
-              <input type="checkbox" id="Peer Writing" />Peer Writing</label>
+              <label for="Honors French 3">
+                <input type="checkbox" id="Honors French 3" />Honors French 3</label>
 
-          </div>
+              <label for="French 4">
+                <input type="checkbox" id="French 4" />French 4</label>
 
-          <button class="buttons" id="csButton" type="button">Computer Science<img class="dropdownArrow"
-              src="https://raw.githubusercontent.com/Abrown111/peer-tutoring/main/Photos/dropdown.png" /></button>
+              <label for="AP French">
+                <input type="checkbox" id="AP French" />AP French</label>
 
-          <div id="computer science">
+              <label for="French 5">
+                <input type="checkbox" id="French 5" />French 5</label>
 
-            <label for="Computer Science Principles">
-              <input type="checkbox" id="Computer Science Principles" />Computer Science Principles</label>
+              <label for="Honors French 5">
+                <input type="checkbox" id="Honors French 5" />Honors French 5</label>
 
-            <label for="Data Structures">
-              <input type="checkbox" id="Data Structures" />Data Structures</label>
+            </div>
 
+            <button class="buttons" id="humanitiesButton" type="button">Humanities<img class="dropdownArrow"
+                src="https://raw.githubusercontent.com/Abrown111/peer-tutoring/main/Photos/dropdown.png" /></button>
+
+            <div id="humanities">
+
+              <label for="English 9">
+                <input type="checkbox" id="English 9" />English 9</label>
+
+              <label for="History 9">
+                <input type="checkbox" id="History 9" />History 9</label>
+
+              <label for="Humanities 10">
+                <input type="checkbox" id="Humanities 10" />Humanities 10</label>
+
+              <label for="American Studies">
+                <input type="checkbox" id="American Studies" />American Studies</label>
+
+              <label for="Peer Writing">
+                <input type="checkbox" id="Peer Writing" />Peer Writing</label>
+
+            </div>
+
+            <button class="buttons" id="csButton" type="button">Computer Science<img class="dropdownArrow"
+                src="https://raw.githubusercontent.com/Abrown111/peer-tutoring/main/Photos/dropdown.png" /></button>
+
+            <div id="computer science">
+
+              <label for="Computer Science Principles">
+                <input type="checkbox" id="Computer Science Principles" />Computer Science Principles</label>
+
+              <label for="Data Structures">
+                <input type="checkbox" id="Data Structures" />Data Structures</label>
+
+            </div>
           </div>
         </div>
       </div>
-
       </p>
       <p>
       <div id="email">
@@ -253,11 +254,15 @@
         <input class="form" type="text" id="lastName" required name="lastName">
       </p>
       <!-- Creates a text input for the biography -->
-      <p>
-        <label for="Bio" id="Bio">Bio:</label><br>
-        <input class="form" type="text" id="description" name="Description">
-      </p>
+      <div class="regular">
+        <p>
+          <label for="Bio" id="Bio">Bio:</label><br>
+          <input class="form" type="text" id="description" name="Description">
+        </p>
+      </div>
+
       <!-- Creates an input for their Google Calendar -->
+      <div class="regular">
       <p>
         <label id="gcal" for="gcal">Google Calendar: </label>
         <br>
@@ -267,8 +272,10 @@
         <input class="form" type="text" id="calendar" name="calendar">
 
       </p>
+      </div>
       <!-- Creates a dropdown for their grade level -->
-      <div id="gradelevel">
+
+      <div id="gradelevel" class="regular">
         <p>
           Current Grade: <br>
           <select class="grade" name="grade" id="grade">
