@@ -259,7 +259,7 @@ export const showItems = async function () {
   if (userDoc.data().email == "peertutoring@stab.org" && tracker != 1) {
     var navBarHeader = document.getElementById("PeerTutoring");
     var newButton = document.createElement("button");
-    newButton.innerText = 'Update Tutor Document';
+    newButton.innerText = 'Refresh Spreadsheet';
     newButton.addEventListener('click', () => {
       gapiLoaded();
       gisLoaded();
